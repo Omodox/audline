@@ -13,12 +13,11 @@
     *ngFor="let i of playlist; let id = index;"
      class="collection-item"
      [ngClass] = "{'active' : i.isactive}"
-     (click)="addtoPlayer(i,id)"
     >
-    <span class="play_button"><span class="glyphicon glyphicon-play" [ngClass] = "{'glyphicon-pause' : i.isactive}"></span></span>
+    <span class="play_button"  (click)="addtoPlayer(i,id)"><span class="glyphicon glyphicon-play" [ngClass] = "{'glyphicon-pause' : i.isactive}"></span></span>
     <div class="track_info">
         <span class="track_name">{{i.name}}</span> <br>
-        <span class="performer_name">{{i.performer_name}}</span>
+        <a class="performer_name" [routerLink]="['/band', i.performer_url]">{{i.performer_name}}</a>
      </div>
     </div>
     
