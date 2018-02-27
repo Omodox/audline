@@ -1,4 +1,10 @@
-<div class="item"
-    *ngFor="let i of bands; let id = index;">
- <a [routerLink]="['/band', i.url]">{{i.name}}</a>
+ <div class="bands">
+   <a class="item"
+    *ngFor="let i of bands; let id = index;"
+    [routerLink]="['/band', i.url]">
+<div>
+<span class="item_img">{{i.name[0]}}</span>
+{{i.name}}
+</div>
+</a>
 </div>

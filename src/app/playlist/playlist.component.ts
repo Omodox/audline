@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, OnDestroy } from '@angular/core';
+import { Component, OnInit, Output, Input, OnDestroy } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { PlaylistService } from './playlist.service';
 import { PlayerService } from '../player/player.service';
@@ -15,12 +15,31 @@ import { PlayerService } from '../player/player.service';
 export class PlaylistComponent implements OnInit {
 
   lorem  =  {};
+@Input() bandurl;
 
   constructor(private playlistService: PlaylistService, private playerService: PlayerService ) { }
 
   ngOnInit() {
+      
+     
+      
+   if (this.bandurl) {
+          
+           this.playlistService.getPlaylistByBand(this.bandurl).subscribe(res =>    {
+      this.playlist = res });
+       
+       console.log(this.bandurl);
+          
+      }
+      
+      else {
     this.playlistService.getPlaylist().subscribe(res => {
       this.playlist = res });
+      }
+          
+      
+      
+   
   };
 
   addtoPlayer(Track,listid) {
