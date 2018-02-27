@@ -8,8 +8,8 @@ import { BandComponent } from './band/band.component';
 
 const routes: Routes = [
   { path: '', component: PlaylistComponent },
-  { path: 'bands', component: BandsComponent}
-  { path: 'bands/:id', component: BandsComponent, children: BandComponent }
+  { path: 'bands', component: BandsComponent},
+  { path: 'band/:id', component: BandComponent}
 ];
 
 @NgModule({
