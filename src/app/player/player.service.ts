@@ -6,7 +6,17 @@ export class PlayerService {
 
     constructor(){}
 
-  audio = new Audio();
+    testlist = [
+      {
+        id: '1'
+      },
+      {
+        id: '2'
+      },
+      {
+        id: '3'
+      },
+    ]
 
 
 }

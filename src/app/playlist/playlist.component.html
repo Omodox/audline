@@ -1,11 +1,28 @@
-
 <app-player [item]="lorem" (onChanged)="onChanged($event)"></app-player>
-<div class="collection">
+<div class="right_menu_block">
+  <div class="right_menu">
+    <ul>
+      <li><a href="#">Lorem lorem</a></li>
+      <li><a href="#">Testl lorem</a></li>
+    </ul>
+  </div>
+</div>
+<div class="mine">
+  <div class="collection">
     <a
     *ngFor="let i of playlist; let id = index;"
      class="collection-item"
      [ngClass] = "{'active' : i.isactive}"
      (click)="addtoPlayer(i,id)"
-    >{{i.performer_name}} - {{i.name}}</a>
+    >
+    <span class="play_button"><span class="glyphicon glyphicon-play" [ngClass] = "{'glyphicon-pause' : i.isactive}"></span></span>
+    <div class="track_info">
+        <span class="track_name">{{i.name}}</span> <br>
+        <span class="performer_name">{{i.performer_name}}</span>
+     </div>
+  </a>
+    
   </div>
+</div>
+
 

@@ -1,7 +1,16 @@
 
-<div class="player">
-  <button class="playbutton_play" (click)="playerPlay()">Play</button>
-    <div class="track_name"> {{item.track.performer_name}}  - {{item.track.name}}</div>
-    <button class="player_button" (click)='playerPrev()'>Prev</button>
-    <button class="player_button" (click)="playerNext()">Next</button>
+<div class="player_box">
+  <div class="player">
+    <button class="playbutton_play" (click)="playerPlay()">
+      <span class="glyphicon glyphicon-play"
+      [ngClass] = "{'glyphicon-pause' : !audio.paused}"></span>
+    </button>
+      <div class="track_name">
+      <span class="player_time_progress"
+       [ngStyle] = "{'width.%': progress}">
+      </span> {{item.track.performer_name}}  - {{item.track.name}}
+    </div>
+      <button class="player_button" (click)='playerPrev()'><span class="glyphicon glyphicon-backward"></span></button>
+      <button class="player_button" (click)="playerNext()"><span class="glyphicon glyphicon-forward"></span></button>
+  </div>
 </div>

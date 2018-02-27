@@ -1,32 +1,55 @@
+.player_box {
+  float: right;
+}
 .player {
-    // padding: 20px;
-    border: 2px solid grey;
-    position: fixed;
-    top: 36px;
-    width:100%;
-    max-width: 1200px;
     background: #fff;
+    position: fixed;
+    top: 4px;
+    right: 5%;
+    z-index: 101;
+    
 }
 
 .track_name {
-    padding: 10px;
+    padding: 4px;
     border: 1px solid silver;
     display: inline-block;
     vertical-align: middle;
     min-height: 30px;
-    width: 50%;
+    min-width: 340px;
+    position: relative;
+    z-index: 3;
+}
+
+.player_time_progress {
+    position: absolute;
+    background: #2196f3;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    z-index: 2;
 }
 
 .playbutton_play {
-    border-radius: 50%;
-    padding: 25px;
+    border-radius: 4px;
+    padding: 3px 8px;
     display: inline-block;
     vertical-align: middle;
+    background: #2196f3;
+    border: 0px;
+    font-size: 18px;
+    color: #fff;
 }
 
 .player_button {
-    border-radius: 50%;
-    padding: 20px;
+    border-radius: 4px;
+    padding: 3px 8px;
+    font-size: 18px;
+    text-align: center;
     display: inline-block;
     vertical-align: middle;
+    background: #2196f3;
+    border: 0px;
+    color: #fff;
 }

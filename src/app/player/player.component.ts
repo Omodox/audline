@@ -1,13 +1,17 @@
 import { Component, OnInit, Input, Output, EventEmitter,  OnChanges, OnDestroy } from '@angular/core';
-import { Command } from 'protractor';
+import { PlayerService } from '../player/player.service';
+
 
 @Component({
   selector: 'app-player',
   templateUrl: './player.component.html',
-  styleUrls: ['./player.component.scss']
+  styleUrls: ['./player.component.scss'],
+  providers: [ PlayerService]
 })
 export class PlayerComponent implements OnInit {
-  constructor() { }
+
+  constructor( playerService: PlayerService ) { }
+
 
   @Input() item;
   @Output() onChanged = new EventEmitter<boolean>();
@@ -25,6 +29,11 @@ console.log('paused Event');
 this.audio.onended = () => {
   this.playerNext();
   };
+
+  this.audio.ontimeupdate = () => {
+    this.progress =  100 / this.audio.duration * this.audio.currentTime;
+   console.log(this.progress);
+    }; 
 
   }
   ngOnChanges() {

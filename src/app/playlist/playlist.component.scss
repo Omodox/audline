@@ -1,17 +1,120 @@
 .collection-item {
     display: block;
-    padding: 8px;
-    border: 1px solid silver;
-    margin: 5px 0px;
+    padding: 10px 4px;
+    margin: 10px 0px;
     transition: 0.3s;
+    background: #e3f2fd;
 }
 
 .collection-item:hover {
     transition: 0.3s;
-    background: #ccc;
+    background: #bbdefb;
     cursor: pointer;
 }
 
+
+.performer_name {
+    background: #3949ab;
+    display: inline-block;
+    color: #fff;
+    padding: 6px  30px;
+    margin: 3px;
+    position: relative;
+}
+
+.track_name {
+    display: inline-block;
+    background: #1976d2;
+    color: #fff;
+    padding: 6px 30px;
+    margin: 3px;
+    position: relative;
+
+}
+
+.track_name:before   {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    display: block;
+    border: 15px solid transparent;
+    border-left: 15px solid #e3f2fd;
+    border-top: 15px solid #e3f2fd;
+    transition: 0.3s;
+}
+
+.collection-item:hover .track_name:before   {
+    border-left: 15px solid #bbdefb;
+    border-top: 15px solid #bbdefb;
+    
+}
+.track_name:after {
+    content: "";
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    display: block;
+    border: 15px solid transparent;
+    border-right: 15px solid #e3f2fd;
+    border-bottom: 15px solid #e3f2fd;
+    transition: 0.3s;
+         
+}
+
+.collection-item:hover .track_name:after {
+    border-right: 15px solid #bbdefb;
+    border-bottom: 15px solid #bbdefb;
+    
+}
+
+
+.active .track_name:before,   {
+    border-left: 15px solid #90caf9;
+    border-top: 15px solid #90caf9;
+    
+}
+
+.active .track_name:after {
+    border-right: 15px solid #90caf9;
+    border-bottom: 15px solid #90caf9;
+    
+}
+
+
+
+
+.play_button {
+    background: #2196f3;
+    padding: 7px 15px;
+    border-radius: 5px;
+    margin: 6px;
+    vertical-align: middle;
+    color: #fff;
+    font-size: 27px;
+}
+
+.track_info {
+    display: inline-block;
+    vertical-align: middle;
+}
+
 .active {
-    background: green;
+    background: #90caf9;
+}
+
+.right_menu_block {
+    display: inline-block;
+    width: 250px;
+    position: relative;
+}
+.right_menu {
+min-height: 120px;
+position: fixed;
+margin-top: 120px;
+top: 5px;
+}
+.mine {
+    display: inline-block;
+    
 }
