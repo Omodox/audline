@@ -4,11 +4,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { PlaylistComponent } from './playlist/playlist.component';
 import { BandsComponent } from './bands/bands.component';
 import { BandComponent } from './band/band.component';
+import { VideoComponent } from './video/video.component';
 
 
 const routes: Routes = [
   { path: '', component: PlaylistComponent },
   { path: 'bands', component: BandsComponent},
+  { path: 'video', component: VideoComponent},
   { path: 'band/:id', component: BandComponent}
 ];
 

@@ -1,3 +1,10 @@
-<p>
-  video works!
-</p>
+ <div class="video">
+   <a class="item"
+    *ngFor="let i of video; let id = index;"
+>
+<div>
+<img src="https://img.youtube.com/vi/{{i.youtube_code}}/0.jpg" alt="">
+{{i.name}}
+</div>
+</a>
+</div>
