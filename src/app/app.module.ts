@@ -8,6 +8,8 @@ import { PlayerComponent } from './player/player.component';
 import { PlaylistComponent } from './playlist/playlist.component';
 import { BandsComponent } from './bands/bands.component';
 import { MenuComponent } from './menu/menu.component';
+import { BandComponent } from './band/band.component';
+import { VideoComponent } from './video/video.component';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { MenuComponent } from './menu/menu.component';
     PlayerComponent,
     PlaylistComponent,
     BandsComponent,
-    MenuComponent
+    MenuComponent,
+    BandComponent,
+    VideoComponent
   ],
   imports: [
     BrowserModule,

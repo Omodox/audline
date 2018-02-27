@@ -8,7 +8,8 @@
       <div class="track_name">
       <span class="player_time_progress"
        [ngStyle] = "{'width.%': progress}">
-      </span> {{item.track.performer_name}}  - {{item.track.name}}
+      </span>
+      <span class="track_name_text">{{item.track.performer_name}} - {{item.track.name}}</span>
     </div>
       <button class="player_button" (click)='playerPrev()'><span class="glyphicon glyphicon-backward"></span></button>
       <button class="player_button" (click)="playerNext()"><span class="glyphicon glyphicon-forward"></span></button>

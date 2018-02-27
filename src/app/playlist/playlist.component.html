@@ -9,7 +9,7 @@
 </div>
 <div class="mine">
   <div class="collection">
-    <a
+    <div
     *ngFor="let i of playlist; let id = index;"
      class="collection-item"
      [ngClass] = "{'active' : i.isactive}"
@@ -20,7 +20,7 @@
         <span class="track_name">{{i.name}}</span> <br>
         <span class="performer_name">{{i.performer_name}}</span>
      </div>
-  </a>
+    </div>
     
   </div>
 </div>

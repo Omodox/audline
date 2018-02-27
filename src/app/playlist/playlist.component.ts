@@ -30,6 +30,7 @@ export class PlaylistComponent implements OnInit {
  };
  this.changeActive(Track);
   }
+
   onChanged(activeTrack){
     if (activeTrack.command == 'next') {
       activeTrack.id++;
@@ -37,12 +38,12 @@ export class PlaylistComponent implements OnInit {
     if (activeTrack.command == 'prev') {
       activeTrack.id--;
     }
-   this.lorem = {
-    // track : this.playlist.find(x => x.id == activeTrack.id);
-    track : this.playlist[activeTrack.id],
-    id : activeTrack.id
-   };
-   this.changeActive(this.playlist[activeTrack.id]);
+    this.lorem = {
+      // track : this.playlist.find(x => x.id == activeTrack.id);
+      track : this.playlist[activeTrack.id],
+      id : activeTrack.id
+    };
+    this.changeActive(this.playlist[activeTrack.id]);
   
   }
 
@@ -50,7 +51,7 @@ export class PlaylistComponent implements OnInit {
    let old_item = this.playlist.find(x => x.isactive == true);
    if (old_item) old_item.isactive = false;
       item.isactive = true;
-      console.log(item);
+      // console.log(item);
   }
 }
 

@@ -18,17 +18,25 @@
     min-height: 30px;
     min-width: 340px;
     position: relative;
+    z-index: 2;
+}
+
+.track_name_text {
+    position: absolute;
+    color: #000;
     z-index: 3;
 }
+
+
 
 .player_time_progress {
     position: absolute;
     background: #2196f3;
-    width: 100%;
+    width: 0%;
     height: 100%;
     left: 0px;
     top: 0px;
-    z-index: 2;
+    z-index: 1;
 }
 
 .playbutton_play {

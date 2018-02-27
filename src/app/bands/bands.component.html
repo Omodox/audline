@@ -1,3 +1,4 @@
-<p>
-  bands works!
-</p>
+<div class="item"
+    *ngFor="let i of bands; let id = index;">
+ <a [routerLink]="['/bands', i.url]">{{i.name}}</a>
+</div>

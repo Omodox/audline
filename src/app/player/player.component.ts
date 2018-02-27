@@ -12,6 +12,8 @@ export class PlayerComponent implements OnInit {
 
   constructor( playerService: PlayerService ) { }
 
+  performer_name: string;
+  url: string;
 
   @Input() item;
   @Output() onChanged = new EventEmitter<boolean>();
@@ -23,7 +25,7 @@ this.audio.src = 'https://zf.fm/download/7226126';
 this.audio.volume = 0.3;
 
 this.audio.onpause = () => {
-console.log('paused Event');
+// console.log('paused Event');
 };
 
 this.audio.onended = () => {
@@ -32,7 +34,6 @@ this.audio.onended = () => {
 
   this.audio.ontimeupdate = () => {
     this.progress =  100 / this.audio.duration * this.audio.currentTime;
-   console.log(this.progress);
     }; 
 
   }
@@ -41,8 +42,7 @@ this.audio.onended = () => {
      this.audio.src = this.item.track.url;
      this.audio.id = this.item.id;
     //  console.log(this.item);
-    
-}
+  }
   this.playerPlay();
   }
 
