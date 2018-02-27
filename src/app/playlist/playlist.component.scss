@@ -1,0 +1,17 @@
+.collection-item {
+    display: block;
+    padding: 8px;
+    border: 1px solid silver;
+    margin: 5px 0px;
+    transition: 0.3s;
+}
+
+.collection-item:hover {
+    transition: 0.3s;
+    background: #ccc;
+    cursor: pointer;
+}
+
+.active {
+    background: green;
+}

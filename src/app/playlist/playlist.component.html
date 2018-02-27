@@ -1,0 +1,11 @@
+
+<app-player [item]="lorem" (onChanged)="onChanged($event)"></app-player>
+<div class="collection">
+    <a
+    *ngFor="let i of playlist; let id = index;"
+     class="collection-item"
+     [ngClass] = "{'active' : i.isactive}"
+     (click)="addtoPlayer(i,id)"
+    >{{i.performer_name}} - {{i.name}}</a>
+  </div>
+
