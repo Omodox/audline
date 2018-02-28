@@ -85,7 +85,7 @@
 
 .play_button {
     background: #2196f3;
-    padding: 16px 21px;
+    padding: 12px 8px 11px 17px;
     border-radius: 5px;
     margin: 6px;
     vertical-align: middle;
@@ -122,6 +122,23 @@
     width: 250px;
     background: #e3f2fd;
 }
+
+.right_menu li{
+    display: inline-block;
+    margin: 5px;
+}
+
+.right_menu ul {
+    padding-left: 0px;
+}
+
+.right_menu a {
+    background: #e53935;
+    padding: 8px 15px;
+    color: #fff;
+    display: block;
+}
+
 .mine {
     display: inline-block;
     

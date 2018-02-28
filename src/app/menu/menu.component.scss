@@ -10,10 +10,21 @@ nav {
 }
 nav li {
     display: inline-block;
-    padding: 10px 25px;
+    padding: 10px 18px;
 
 }
 
 nav ul {
     margin: 0px;
+    display: inline-block;
+}
+
+.search_form {
+    transition: 0.3s;
+    padding: 4px;
+}
+
+.search_form:focus {    
+   width: 20%;
+    transition: 0.3s;
 }

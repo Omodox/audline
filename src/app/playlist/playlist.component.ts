@@ -31,7 +31,6 @@ export class PlaylistComponent implements OnInit {
     }
   };
 
-
   addtoPlayer(Track,listid) {
  this.lorem = {
   track : Track,
@@ -56,12 +55,10 @@ export class PlaylistComponent implements OnInit {
   }
   if (activeTrack.command == 'shuffle') {
   this.playlist = this.shuffle(this.playlist);
- 
-  }
 
   }
 
-
+  }
   shuffle(a) {
     for (let i = a.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));

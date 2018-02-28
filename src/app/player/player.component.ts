@@ -16,6 +16,7 @@ export class PlayerComponent implements OnInit {
   url: string;
   audio;
   progress;
+  progress_line;
   @Input() item;
   @Output() onChanged = new EventEmitter<boolean>();
 
@@ -41,12 +42,8 @@ this.audio.onended = () => {
    var playerTime =  this.audio.duration /100 * position;
   //  console.log(playerTime);
   this.audio.currentTime = playerTime;
-   
   };
 
-
-  
- 
 
   this.audio.ontimeupdate = () => {
     this.progress =  100 / this.audio.duration * this.audio.currentTime;
