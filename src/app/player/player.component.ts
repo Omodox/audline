@@ -27,12 +27,13 @@ this.audio = new Audio();
 this.audio.volume = 0.3;
 
 this.audio.onpause = () => {
-// console.log('paused Event');
+console.log( document.getElementById('trackname'));
 };
 
 this.audio.onended = () => {
   this.playerNext();
   };
+ 
 
   this.audio.ontimeupdate = () => {
     this.progress =  100 / this.audio.duration * this.audio.currentTime;
@@ -118,6 +119,12 @@ playerPlay(){
       event.stopPropagation();
       if (this.audio.volume <= 1)
      this.audio.volume = this.audio.volume + 0.05;
+    }
+
+    if (event.keyCode === 82) {
+      event.preventDefault();
+      event.stopPropagation();
+     this.shuffle()();
     }
 }
 

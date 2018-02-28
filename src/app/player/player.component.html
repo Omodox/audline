@@ -5,7 +5,7 @@
       <span class="glyphicon glyphicon-play"
       [ngClass] = "{'glyphicon-pause' : !audio.paused}"></span>
     </button>
-      <div class="track_name">
+      <div #trackname class="track_name">
       <span class="player_time_progress"
        [ngStyle] = "{'width.%': progress}">
       </span>
