@@ -124,7 +124,7 @@ playerPlay(){
     if (event.keyCode === 82) {
       event.preventDefault();
       event.stopPropagation();
-     this.shuffle()();
+     this.shuffle();
     }
 }
 
