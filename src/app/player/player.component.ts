@@ -16,8 +16,6 @@ export class PlayerComponent implements OnInit {
   url: string;
   audio;
   progress;
-
-
   @Input() item;
   @Output() onChanged = new EventEmitter<boolean>();
 
@@ -27,12 +25,27 @@ this.audio = new Audio();
 this.audio.volume = 0.3;
 
 this.audio.onpause = () => {
-console.log( document.getElementById('trackname'));
+
 };
 
 this.audio.onended = () => {
   this.playerNext();
   };
+
+  this.progress_line = document.getElementById('trackname');
+  this.progress_line.onclick = (e) => {
+  //  console.log(e);
+   var offset = this.progress_line.getBoundingClientRect();
+   var position = 100 / offset.width * (e.clientX - offset.left);
+  //  console.log(position);
+   var playerTime =  this.audio.duration /100 * position;
+  //  console.log(playerTime);
+  this.audio.currentTime = playerTime;
+   
+  };
+
+
+  
  
 
   this.audio.ontimeupdate = () => {
