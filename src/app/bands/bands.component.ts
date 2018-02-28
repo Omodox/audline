@@ -9,6 +9,8 @@ import { BandsService } from './bands.service';
 })
 export class BandsComponent implements OnInit {
 
+  bands;
+
   constructor( private bandsService: BandsService ) { }
 
   ngOnInit() {

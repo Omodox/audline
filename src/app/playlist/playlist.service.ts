@@ -7,8 +7,6 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class PlaylistService {
 
-    loremtext = 'lorem text';
-
      constructor(private http: Http){}
 
     getPlaylist() {

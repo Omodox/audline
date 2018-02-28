@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter,  OnChanges, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter,  OnChanges, OnDestroy, HostListener } from '@angular/core';
 import { PlayerService } from '../player/player.service';
 
 
@@ -14,6 +14,9 @@ export class PlayerComponent implements OnInit {
 
   performer_name: string;
   url: string;
+  audio;
+  progress;
+
 
   @Input() item;
   @Output() onChanged = new EventEmitter<boolean>();
@@ -21,7 +24,6 @@ export class PlayerComponent implements OnInit {
   ngOnInit() {
 
 this.audio = new Audio();
-this.audio.src = 'https://zf.fm/download/7226126';
 this.audio.volume = 0.3;
 
 this.audio.onpause = () => {
@@ -34,7 +36,7 @@ this.audio.onended = () => {
 
   this.audio.ontimeupdate = () => {
     this.progress =  100 / this.audio.duration * this.audio.currentTime;
-    }; 
+    };
 
   }
   ngOnChanges() {
@@ -57,7 +59,6 @@ playerPlay(){
   } else {
     this.audio.pause();
     }
-
   }
   playerNext() {
     this.onChanged.emit(
@@ -76,6 +77,49 @@ playerPlay(){
       }
     );
   }
+
+  shuffle() {
+    this.onChanged.emit(
+      {
+        id : this.audio.id,
+        command : 'shuffle'
+      }
+    );
+  }
+
+@HostListener('document:keydown', ['$event']) onKeydownHandler(event: KeyboardEvent) {
+    if (event.keyCode === 32) {
+      event.preventDefault();
+      event.stopPropagation();
+     this.playerPlay();
+    }
+
+    if (event.keyCode === 39) {
+      event.preventDefault();
+      event.stopPropagation();
+     this.playerNext();
+    }
+
+    if (event.keyCode === 37) {
+      event.preventDefault();
+      event.stopPropagation();
+     this.playerPrev();
+    }
+
+    if (event.keyCode === 40) {
+      event.preventDefault();
+      event.stopPropagation();
+      if (this.audio.volume >= 0.05)
+     this.audio.volume = this.audio.volume - 0.05;
+    }
+
+    if (event.keyCode === 38) {
+      event.preventDefault();
+      event.stopPropagation();
+      if (this.audio.volume <= 1)
+     this.audio.volume = this.audio.volume + 0.05;
+    }
+}
 
 }
 

@@ -8,17 +8,17 @@ import {Subscription} from 'rxjs/Subscription';
   styleUrls: ['./band.component.scss']
 })
 export class BandComponent implements OnInit {
-    
-    
+
+  id = '';
+
     private routeSubscription: Subscription;
     private querySubscription: Subscription;
     constructor(private route: ActivatedRoute){
-         
-        this.routeSubscription = route.params.subscribe(params=>this.id=params['id']);
+
+        this.routeSubscription = route.params.subscribe(params => this.id = params['id']);
     }
 
   ngOnInit() {
-      
   }
 
 }

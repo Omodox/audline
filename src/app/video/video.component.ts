@@ -9,6 +9,8 @@ import { VideoService } from './video.service';
 })
 export class VideoComponent implements OnInit {
 
+  video;
+
   constructor( private videoService: VideoService ) { }
 
   ngOnInit() {
