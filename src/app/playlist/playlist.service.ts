@@ -15,7 +15,7 @@ export class PlaylistService {
  }
 
     getPlaylistByBand(band) {
-     return this.http.get('https://audline.net/api/?name=api&band='+band)
+     return this.http.get('https://audline.net/api/?name=api&band=' + band)
          .map(res  => res.json());
  }
 }

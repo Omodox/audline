@@ -17,6 +17,7 @@ nav li {
 nav ul {
     margin: 0px;
     display: inline-block;
+    padding-left: 15px;
 }
 
 .search_form {
@@ -24,7 +25,20 @@ nav ul {
     padding: 4px;
 }
 
-.search_form:focus {    
-   width: 20%;
+.logo {
+    display: inline-block;
+    font-size: 24px;
+    color: #e53935;
+}
+
+.logo a {
+    color: #e53935;
+    font-weight: 600;
+}
+
+.button_search {
+    padding: 4px 7px;
+    margin-left: -5px;
+    visibility: hidden;
     transition: 0.3s;
 }

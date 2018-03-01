@@ -26,6 +26,8 @@
     position: absolute;
     color: #000;
     z-index: 3;
+    height: 22px;
+    overflow: hidden;
 }
 
 
@@ -48,6 +50,7 @@
     background: #2196f3;
     border: 0px;
     font-size: 18px;
+    transition: 0.3s;
     color: #fff;
 }
 
@@ -61,4 +64,13 @@
     background: #2196f3;
     border: 0px;
     color: #fff;
+    transition: 0.3s;
 }
+
+.player_button:hover, .playbutton_play:hover {
+    background: #1976d2;
+    transition: 0.3s;
+}
+
+
+ 

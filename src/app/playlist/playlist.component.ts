@@ -11,7 +11,6 @@ import { PlayerService } from '../player/player.service';
 })
 
 export class PlaylistComponent implements OnInit {
-
   @Input() bandurl;
   lorem  =  {};
   playlist;
@@ -29,6 +28,7 @@ export class PlaylistComponent implements OnInit {
       this.playlistService.getPlaylist().subscribe(res => {
         this.playlist = res; });
     }
+
   };
 
   addtoPlayer(Track,listid) {

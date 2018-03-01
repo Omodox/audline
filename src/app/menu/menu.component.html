@@ -1,4 +1,5 @@
 <nav>
+  <div class="logo"><a routerLink="/">Audline</a></div>
   <ul>
     <li><a routerLink="/">Audio</a></li>
     <li><a routerLink="/bands">Playlists</a></li>
@@ -6,5 +7,8 @@
     <li><a routerLink="/video">Video</a></li>
     <li><a routerLink="/bands">Rooms</a></li>
   </ul>
-  <input class="search_form" type="text" name="search" id="" placeholder="Search...">
+  <span class="form">
+  <input class="search_form" type="text" name="search" id="search_input" placeholder="Search...">
+  <button class="button_search"><span class="glyphicon glyphicon-search"></span></button>
+</span>
 </nav>

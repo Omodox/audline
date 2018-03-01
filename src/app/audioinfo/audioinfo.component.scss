@@ -1,0 +1,46 @@
+
+.right_menu_box {
+    display: inline-block;
+    max-width: 480px;
+    vertical-align: top;
+    margin-top: 10px;
+}
+
+.right_menu {
+    min-height: 124px;
+    background: #e3f2fd;
+    padding: 4px;
+}
+
+.right_menu img {
+    max-width: 100%;
+}
+
+.video_blocks{
+text-align: center;
+}
+
+.video {
+    display: inline-block;
+    width: 32%;
+}
+
+.filer_buttons {
+    text-align: center;
+    margin: 20px 0px;
+}
+
+.nav_button {
+    background: #2196f3;
+    color: #fff;
+    border: 0px;
+    padding: 6px 24px;
+    margin: 4px;
+    transition: 0.3s;
+}
+
+.nav_button:hover {
+    background: #1976d2;
+    transition: 0.3s;
+}
+

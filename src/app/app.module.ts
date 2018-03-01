@@ -10,6 +10,9 @@ import { BandsComponent } from './bands/bands.component';
 import { MenuComponent } from './menu/menu.component';
 import { BandComponent } from './band/band.component';
 import { VideoComponent } from './video/video.component';
+import { BandinfoComponent } from './bandinfo/bandinfo.component';
+import { LeftmenuComponent } from './leftmenu/leftmenu.component';
+import { AudioinfoComponent } from './audioinfo/audioinfo.component';
 
 
 @NgModule({
@@ -20,7 +23,10 @@ import { VideoComponent } from './video/video.component';
     BandsComponent,
     MenuComponent,
     BandComponent,
-    VideoComponent
+    VideoComponent,
+    BandinfoComponent,
+    LeftmenuComponent,
+    AudioinfoComponent
   ],
   imports: [
     BrowserModule,

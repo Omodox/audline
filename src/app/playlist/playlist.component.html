@@ -1,12 +1,5 @@
 <app-player [item]="lorem" (onChanged)="onChanged($event)"></app-player>
-<div class="right_menu_block">
-  <div class="right_menu">
-    <ul>
-      <li><a href="#">Lorem lorem</a></li>
-      <li><a href="#">Testl lorem</a></li>
-    </ul>
-  </div>
-</div>
+<app-leftmenu></app-leftmenu>
 <div class="mine">
   <div class="collection">
     <div
@@ -28,5 +21,8 @@
     
   </div>
 </div>
+<app-bandinfo *ngIf="bandurl"></app-bandinfo>
+<app-audioinfo *ngIf="!bandurl"></app-audioinfo>
+
 
 

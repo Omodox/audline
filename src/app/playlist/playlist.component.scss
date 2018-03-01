@@ -13,13 +13,15 @@
 
 
 .performer_name {
-    background: #2196f3;
+    background: #e3f2fd;
     display: inline-block;
-    color: #fff;
+    color: #2196f3;
     padding: 3px;
     margin: 0px;
     position: relative;
-    min-width: 320px;
+    width: 100%;
+    font-weight: 600;
+    font-size: 16px;
 }
 
 .track_name {
@@ -29,60 +31,10 @@
     padding: 3px;
     margin: 0px;
     position: relative;
-    min-width: 320px;
+    width: 100%;
+   
 
 }
-     
-
-
-.collection-item:hover .track_name:before   {
-    // border-left: 15px solid #bbdefb;
-    // border-top: 15px solid #bbdefb;
-
-    border-bottom: 20px solid #bbdefb;
-    border-left: 20px solid #bbdefb;
-    
-}
-.track_name:after {
-    content: "";
-    position: absolute;
-    right: 0px;
-    bottom: 0px;
-    display: block;
-    // border: 15px solid transparent;
-    // border-left: 15px solid #e3f2fd;
-    // border-bottom: 15px solid #e3f2fd;
-    border: 15px solid transparent;
-    border-top: 15px solid #e3f2fd;
-    border-right: 15px solid #e3f2fd;
-    transition: 0.3s;
-         
-}
-
-.collection-item:hover .track_name:after {
-    // border-right: 15px solid #bbdefb;
-    // border-bottom: 15px solid #bbdefb;
-    border-top: 15px solid #bbdefb;
-    border-right: 15px solid #bbdefb;
-    
-}
-
-
-.active .track_name:before,   {
-  border-bottom: 20px solid #90caf9;
-         border-left: 20px solid #90caf9;
-    
-}
-
-.active .track_name:after {
-    border-top: 20px solid #90caf9;
-    border-right: 20px solid #90caf9;
-    
-}
-
-
-
-
 .play_button {
     background: #2196f3;
     padding: 12px 8px 11px 17px;
@@ -98,48 +50,21 @@
 .play_button:hover {
     box-shadow: 0px 0px 5px #0d273c;
     transition: 0.3s;
+    background: #1976d2;
 }
 
 .track_info {
     display: inline-block;
     vertical-align: middle;
+    width: 80%;
 }
 
 .active {
     background: #90caf9;
 }
 
-.right_menu_block {
-    display: inline-block;
-    width: 250px;
-    position: relative;
-}
-.right_menu {
-    min-height: 124px;
-    position: fixed;
-    margin-top: 50px;
-    top: 0px;
-    width: 250px;
-    background: #e3f2fd;
-}
-
-.right_menu li{
-    display: inline-block;
-    margin: 5px;
-}
-
-.right_menu ul {
-    padding-left: 0px;
-}
-
-.right_menu a {
-    background: #e53935;
-    padding: 8px 15px;
-    color: #fff;
-    display: block;
-}
-
 .mine {
     display: inline-block;
+    width: 430px;
     
 }

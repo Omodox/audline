@@ -26,7 +26,7 @@ this.audio = new Audio();
 this.audio.volume = 0.3;
 
 this.audio.onpause = () => {
-
+;
 };
 
 this.audio.onended = () => {
@@ -99,6 +99,10 @@ playerPlay(){
   }
 
 @HostListener('document:keydown', ['$event']) onKeydownHandler(event: KeyboardEvent) {
+
+
+  if (document.activeElement.tagName == 'INPUT') return;
+
     if (event.keyCode === 32) {
       event.preventDefault();
       event.stopPropagation();
@@ -135,6 +139,7 @@ playerPlay(){
       event.preventDefault();
       event.stopPropagation();
      this.shuffle();
+
     }
 }
 
