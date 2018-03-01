@@ -21,7 +21,7 @@ export class PlaylistComponent implements OnInit {
 
     if (this.bandurl) {
       this.playlistService.getPlaylistByBand(this.bandurl).subscribe(res => {
-        this.playlist = res });
+        this.playlist = res; document.getElementById('player').playlist = res ; });
     }
 
     else {

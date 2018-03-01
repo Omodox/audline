@@ -22,7 +22,10 @@ export class PlayerComponent implements OnInit {
 
   ngOnInit() {
 
-this.audio = new Audio();
+// this.audio = new Audio();
+this.audio = document.getElementById('player');
+console.log(this.audio);
+
 this.audio.volume = 0.3;
 
 this.audio.onpause = () => {
@@ -53,14 +56,13 @@ this.audio.onended = () => {
   ngOnChanges() {
     if (this.item.track.url !== this.audio.src) {
      this.audio.src = this.item.track.url;
-     this.audio.id = this.item.id;
+     this.audio.idt = this.item.id;
     //  console.log(this.item);
   }
   this.playerPlay();
   }
 
   ngOnDestroy() {
-    this.audio.pause();
   };
 
 
@@ -74,7 +76,7 @@ playerPlay(){
   playerNext() {
     this.onChanged.emit(
       {
-        id : this.audio.id,
+        id : this.audio.idt,
         command : 'next'
       }
     );
@@ -83,7 +85,7 @@ playerPlay(){
   playerPrev() {
     this.onChanged.emit(
       {
-        id : this.audio.id,
+        id : this.audio.idt,
         command : 'prev'
       }
     );
@@ -92,21 +94,20 @@ playerPlay(){
   shuffle() {
     this.onChanged.emit(
       {
-        id : this.audio.id,
+        id : this.audio.idt,
         command : 'shuffle'
       }
     );
   }
 
-@HostListener('document:keydown', ['$event']) onKeydownHandler(event: KeyboardEvent) {
-
-
+@HostListener('document:keydown', ['$event']) onKeydownHandler(event: KeyboardEvent) { 
   if (document.activeElement.tagName == 'INPUT') return;
 
     if (event.keyCode === 32) {
       event.preventDefault();
       event.stopPropagation();
      this.playerPlay();
+
     }
 
     if (event.keyCode === 39) {
