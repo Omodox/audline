@@ -17,20 +17,22 @@ export class PlayerComponent implements OnInit {
   audio;
   progress;
   progress_line;
+  track_info;
   @Input() item;
-  @Output() onChanged = new EventEmitter<boolean>();
+  @Output() onChanged = new EventEmitter<any>();
 
   ngOnInit() {
-
 // this.audio = new Audio();
 this.audio = document.getElementById('player');
-console.log(this.audio);
-
 this.audio.volume = 0.3;
-
 this.audio.onpause = () => {
 ;
 };
+
+
+this.audio.onplay = () => {
+  this.playerUpdateTrackInfo();
+  };
 
 this.audio.onended = () => {
   this.playerNext();
@@ -47,57 +49,73 @@ this.audio.onended = () => {
   this.audio.currentTime = playerTime;
   };
 
-
   this.audio.ontimeupdate = () => {
     this.progress =  100 / this.audio.duration * this.audio.currentTime;
     };
 
   }
   ngOnChanges() {
-    if (this.item.track.url !== this.audio.src) {
-     this.audio.src = this.item.track.url;
-     this.audio.idt = this.item.id;
-    //  console.log(this.item);
-  }
-  this.playerPlay();
+    // console.log(this.item);
+    let active_track =  this.audio.playlist.findIndex(x => x.id == this.item.trackid);
+    // console.log(this.audio.idt,' ',active_track );
+    if (this.audio.idt != active_track) {
+    this.audio.src = this.audio.playlist[active_track].url;
+    this.audio.idt = active_track;
+    // console.log(this.audio.idt,' ',active_track );
+    }
+    this.playerPlay();
+   
+  //   if (this.item.trackid != this.audio.playlist[this.audio.idt].id) {
+  //   this.playerUpdateTrackInfo();
+  //   console.log(this.audio.playlist[this.audio.idt].id);
+  // }
+
   }
 
   ngOnDestroy() {
   };
 
+  playerLoadTrackNext() {
+    // console.log(this.audio.idt);
+    let next = this.audio.idt + 1;
+    // console.log(this.audio.playlist[next]);
+    this.audio.src = this.audio.playlist[next].url;
+    this.audio.idt = next;
+    this.playerPlay();
+  }
+
+  playerLoadTrackPrev() {
+    let next = this.audio.idt - 1;
+    this.audio.src = this.audio.playlist[next].url;
+    this.audio.idt = next;
+    this.playerPlay();
+  }
 
 playerPlay(){
   if (this.audio.paused === true) {
       this.audio.play();
+      this.onChanged.emit(this.audio.playlist[this.audio.idt].id);
   } else {
     this.audio.pause();
     }
   }
+
+  playerUpdateTrackInfo() {
+    let idt =  this.audio.idt;
+    let track = this.audio.playlist[idt];
+    this.track_info = document.getElementById('track_info');
+    this.track_info.innerHTML = track.performer_name  + ' - ' + track.name;
+  }
+
   playerNext() {
-    this.onChanged.emit(
-      {
-        id : this.audio.idt,
-        command : 'next'
-      }
-    );
-  }
+    this.playerLoadTrackNext();
 
+  }
   playerPrev() {
-    this.onChanged.emit(
-      {
-        id : this.audio.idt,
-        command : 'prev'
-      }
-    );
-  }
+    this.playerLoadTrackPrev();
 
+  }
   shuffle() {
-    this.onChanged.emit(
-      {
-        id : this.audio.idt,
-        command : 'shuffle'
-      }
-    );
   }
 
 @HostListener('document:keydown', ['$event']) onKeydownHandler(event: KeyboardEvent) { 
@@ -110,30 +128,45 @@ playerPlay(){
 
     }
 
-    if (event.keyCode === 39) {
+    if (event.keyCode === 39 || event.keyCode === 69 ) {
       event.preventDefault();
       event.stopPropagation();
      this.playerNext();
     }
 
-    if (event.keyCode === 37) {
+    if (event.keyCode === 37 || event.keyCode === 81) {
       event.preventDefault();
       event.stopPropagation();
      this.playerPrev();
     }
 
-    if (event.keyCode === 40) {
+    if (event.keyCode === 40 || event.keyCode === 83) {
       event.preventDefault();
       event.stopPropagation();
       if (this.audio.volume >= 0.05)
      this.audio.volume = this.audio.volume - 0.05;
     }
 
-    if (event.keyCode === 38) {
+    if (event.keyCode === 38 || event.keyCode === 87) {
       event.preventDefault();
       event.stopPropagation();
       if (this.audio.volume <= 1)
      this.audio.volume = this.audio.volume + 0.05;
+    }
+
+    if (event.keyCode === 68) {
+      event.preventDefault();
+      event.stopPropagation();
+      if ( (this.audio.duration - this.audio.currentTime) > 5)
+     this.audio.currentTime = this.audio.currentTime + 5;
+    }
+
+
+    if (event.keyCode === 65) {
+      event.preventDefault();
+      event.stopPropagation();
+      if (this.audio.currentTime >=  5) 
+     this.audio.currentTime = this.audio.currentTime - 5;
     }
 
     if (event.keyCode === 82) {

@@ -13,51 +13,50 @@ import { PlayerService } from '../player/player.service';
 export class PlaylistComponent implements OnInit {
   @Input() bandurl;
   lorem  =  {};
+  item ;
   playlist;
+  var_event;
 
   constructor(private playlistService: PlaylistService, private playerService: PlayerService ) { }
 
   ngOnInit() {
-
+    this.uploadPlaylist();
+  };
+  uploadPlaylist() {
     if (this.bandurl) {
       this.playlistService.getPlaylistByBand(this.bandurl).subscribe(res => {
-        this.playlist = res; document.getElementById('player').playlist = res ; });
+        this.playlist = res; this.playerFirstTrack(res,false); });
     }
 
     else {
       this.playlistService.getPlaylist().subscribe(res => {
-        this.playlist = res; });
+        this.playlist = res;  this.playerFirstTrack(res,false); });
     }
 
-  };
-
-  addtoPlayer(Track,listid) {
- this.lorem = {
-  track : Track,
-  id : listid
- };
- this.changeActive(Track);
   }
+
+  playerFirstTrack(res, reload) {
+    let player =  document.getElementById('player');
+    if (player.playlist == undefined || reload == true) {
+    player.playlist = res ;
+    player.src = res[0].url;
+    player.idt = 0;
+    // console.log('loaded');
+    }
+  }
+  addtoPlayer(id) {
+    this.lorem = {
+      trackid :  id,
+      playerSt : document.getElementById('player').paused
+    };
+    // console.log( document.getElementById('player').playlist[document.getElementById('player').idt].id);
+    if (document.getElementById('player').playlist[document.getElementById('player').idt].id != id)
+   this.playerFirstTrack(this.playlist, true);
+  }
+
   onChanged(activeTrack){
-    if (activeTrack.command == 'next' || activeTrack.command == 'prev'){
-      if (activeTrack.command == 'next') {
-        activeTrack.id++;
-      }
-      if (activeTrack.command == 'prev') {
-        activeTrack.id--;
-      }
-      this.lorem = {
-        // track : this.playlist.find(x => x.id == activeTrack.id);
-        track : this.playlist[activeTrack.id],
-        id : activeTrack.id
-      };
-      this.changeActive(this.playlist[activeTrack.id]);
-  }
-  if (activeTrack.command == 'shuffle') {
-  this.playlist = this.shuffle(this.playlist);
-
-  }
-
+    let active_track = this.playlist.findIndex(x => x.id == activeTrack);
+     this.changeActive(active_track);
   }
   shuffle(a) {
     for (let i = a.length - 1; i > 0; i--) {
@@ -67,11 +66,10 @@ export class PlaylistComponent implements OnInit {
     return a;
 }
 
-  changeActive(item) {
+  changeActive(id) {
    let old_item = this.playlist.find(x => x.isactive == true);
    if (old_item) old_item.isactive = false;
-      item.isactive = true;
-      // console.log(item);
+      this.playlist[id].isactive = true;
   }
 }
 

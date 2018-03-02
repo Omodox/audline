@@ -1,4 +1,5 @@
- <div class="bands">
+<app-player [item]="lorem" (onChanged)="onChanged($event)"></app-player>
+<div class="bands">
    <a class="item"
     *ngFor="let i of bands; let id = index;"
     [routerLink]="['/band', i.url]">
