@@ -58,13 +58,6 @@ export class PlaylistComponent implements OnInit {
     let active_track = this.playlist.findIndex(x => x.id == activeTrack);
      this.changeActive(active_track);
   }
-  shuffle(a) {
-    for (let i = a.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [a[i], a[j]] = [a[j], a[i]];
-    }
-    return a;
-}
 
   changeActive(id) {
    let old_item = this.playlist.find(x => x.isactive == true);

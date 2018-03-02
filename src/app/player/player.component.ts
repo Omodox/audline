@@ -115,8 +115,13 @@ playerPlay(){
     this.playerLoadTrackPrev();
 
   }
-  shuffle() {
-  }
+  shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+}
 
 @HostListener('document:keydown', ['$event']) onKeydownHandler(event: KeyboardEvent) { 
   if (document.activeElement.tagName == 'INPUT') return;
@@ -172,7 +177,7 @@ playerPlay(){
     if (event.keyCode === 82) {
       event.preventDefault();
       event.stopPropagation();
-     this.shuffle();
+      this.audio.playlist =  this.shuffle(this.audio.playlist);
 
     }
 }
