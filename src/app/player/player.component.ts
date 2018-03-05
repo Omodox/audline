@@ -65,6 +65,7 @@ this.audio.onended = () => {
   ngOnChanges() {
     // console.log(this.item);
     let active_track =  this.audio.playlist.findIndex(x => x.id == this.item.trackid);
+    
     // console.log(this.audio.idt,' ',active_track );
     if (this.audio.idt != active_track) {
     this.audio.src = this.audio.playlist[active_track].url;
@@ -72,12 +73,6 @@ this.audio.onended = () => {
     // console.log(this.audio.idt,' ',active_track );
     }
     this.playerPlay();
-   
-  //   if (this.item.trackid != this.audio.playlist[this.audio.idt].id) {
-  //   this.playerUpdateTrackInfo();
-  //   console.log(this.audio.playlist[this.audio.idt].id);
-  // }
-
   }
 
   ngOnDestroy() {

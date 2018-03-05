@@ -41,8 +41,6 @@ export class PlaylistComponent implements OnInit {
     player.playlist = res;
     player.src = res[0].url;
     player.idt = 0;
-
-    console.log('loaded');
     }
   }
   addtoPlayer(id) {

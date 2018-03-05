@@ -1,5 +1,9 @@
 .player_box {
   float: right;
+
+  @media screen and (max-width: 1024px) {
+    float: none;
+}
 }
 .player {
     background: #fff;
@@ -7,6 +11,11 @@
     top: 4px;
     margin-left: -512px;
     z-index: 101;
+
+
+    @media screen and (max-width: 1024px) {
+        margin-left: 0px;
+    }
     
 }
 
@@ -21,6 +30,10 @@
     position: relative;
     z-index: 2;
     cursor: pointer;
+
+    @media screen and (max-width: 1024px) {
+        width: 240px;
+    }
 }
 
 .track_name_text {

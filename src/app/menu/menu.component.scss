@@ -10,7 +10,7 @@ nav {
 }
 nav li {
     display: inline-block;
-    padding: 10px 18px;
+    padding: 10px 15px;
 
 }
 
@@ -36,9 +36,16 @@ nav ul {
     font-weight: 600;
 }
 
+form{
+    display: inline-block;
+}
+
 .button_search {
-    padding: 4px 7px;
+    padding: 5px 8px;
     margin-left: -5px;
-    visibility: hidden;
+    border: 1px solid #999;
+    color: #fff;
+    border-left: 0px;
     transition: 0.3s;
+    background: #2196f3;
 }

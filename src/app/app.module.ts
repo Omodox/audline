@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule }   from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { PlayerComponent } from './player/player.component';
@@ -31,7 +32,8 @@ import { AudioinfoComponent } from './audioinfo/audioinfo.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpModule
+    HttpModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

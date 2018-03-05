@@ -3,6 +3,11 @@
     display: inline-block;
     width: 250px;
     position: relative;
+
+    @media screen and (max-width: 1024px) {
+        display: none;
+    }
+
 }
 .left_menu {
     min-height: 124px;

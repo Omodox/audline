@@ -7,9 +7,9 @@
     <li><a routerLink="/video">Video</a></li>
     <li><a routerLink="/bands">Rooms</a></li>
   </ul>
-  <span class="form">
-    <input class="search_form" type="text" name="search" id="search_input" placeholder="Search...">
-    <button class="button_search"><span class="glyphicon glyphicon-search"></span></button>
-  </span>
+  <form class="form" (ngSubmint)="search_form()">
+    <input class="search_form" [(ngModel)]="search" type="text" name="search" id="search_input" placeholder="Search...">
+    <button class="button_search" (click)="search_form(search)"><span class="glyphicon glyphicon-search"></span></button>
+  </form>
   <audio id="player"></audio>
 </nav>
