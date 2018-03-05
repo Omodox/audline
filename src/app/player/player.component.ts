@@ -24,11 +24,19 @@ export class PlayerComponent implements OnInit {
   ngOnInit() {
 // this.audio = new Audio();
 this.audio = document.getElementById('player');
-this.audio.volume = 0.3;
+
+if (localStorage.getItem('volume')) {
+  this.audio.volume = localStorage.getItem('volume');
+}
+else 
+{
+  localStorage.setItem('volume', '0.3');
+  this.audio.volume = 0.3;
+}
+
 this.audio.onpause = () => {
 ;
 };
-
 
 this.audio.onplay = () => {
   this.playerUpdateTrackInfo();
@@ -150,6 +158,7 @@ playerPlay(){
       event.stopPropagation();
       if (this.audio.volume >= 0.05)
      this.audio.volume = this.audio.volume - 0.05;
+     localStorage.setItem('volume', this.audio.volume);
     }
 
     if (event.keyCode === 38 || event.keyCode === 87) {
@@ -157,6 +166,7 @@ playerPlay(){
       event.stopPropagation();
       if (this.audio.volume <= 1)
      this.audio.volume = this.audio.volume + 0.05;
+     localStorage.setItem('volume', this.audio.volume);
     }
 
     if (event.keyCode === 68) {

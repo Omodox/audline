@@ -16,7 +16,6 @@ export class PlaylistComponent implements OnInit {
   item ;
   playlist;
   var_event;
-
   constructor(private playlistService: PlaylistService, private playerService: PlayerService ) { }
 
   ngOnInit() {
@@ -36,21 +35,24 @@ export class PlaylistComponent implements OnInit {
   }
 
   playerFirstTrack(res, reload) {
-    let player =  document.getElementById('player');
+    let player =  <any>document.getElementById('player');
     if (player.playlist == undefined || reload == true) {
-    player.playlist = res ;
+
+    player.playlist = res;
     player.src = res[0].url;
     player.idt = 0;
-    // console.log('loaded');
+
+    console.log('loaded');
     }
   }
   addtoPlayer(id) {
+    let player = <any>document.getElementById('player');
     this.lorem = {
       trackid :  id,
-      playerSt : document.getElementById('player').paused
+      playerSt : player.paused
     };
-    // console.log( document.getElementById('player').playlist[document.getElementById('player').idt].id);
-    if (document.getElementById('player').playlist[document.getElementById('player').idt].id != id)
+  
+    if (player.playlist[player.idt].id != id)
    this.playerFirstTrack(this.playlist, true);
   }
 

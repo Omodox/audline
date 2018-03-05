@@ -21,7 +21,7 @@
     
   </div>
 </div>
-<app-bandinfo *ngIf="bandurl"></app-bandinfo>
+<app-bandinfo *ngIf="bandurl" [band] = 'bandurl'></app-bandinfo>
 <app-audioinfo *ngIf="!bandurl"></app-audioinfo>
 
 
