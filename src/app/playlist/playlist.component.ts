@@ -19,6 +19,11 @@ export class PlaylistComponent implements OnInit {
   playlist;
   var_event;
   search;
+  list; 
+
+
+
+
   private querySubscription: Subscription;
 
   constructor(
@@ -29,13 +34,18 @@ export class PlaylistComponent implements OnInit {
     this.querySubscription = route.queryParams.subscribe(
         (queryParam: any) => {
             this.search = queryParam['search'];
-            if (this.search) this.uploadPlaylist();
+            if (this.search) {
+              this.uploadPlaylist();
+            }
+
         }
     );
   }
 
   ngOnInit() {
+    this.list =  Boolean(localStorage.getItem('list'));
     this.uploadPlaylist();
+
   };
 
   ngOnChanges() {
@@ -91,8 +101,13 @@ export class PlaylistComponent implements OnInit {
    if (old_item) old_item.isactive = false;
       this.playlist[id].isactive = true;
   }
-}
 
+
+listTo() {
+  this.list = !this.list;
+  localStorage.setItem('list', String(this.list));
+}
+}
 
 
 

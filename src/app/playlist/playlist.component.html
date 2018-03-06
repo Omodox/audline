@@ -1,7 +1,16 @@
 <app-player [item]="lorem" (onChanged)="onChanged($event)"></app-player>
-<app-leftmenu></app-leftmenu>
+<app-bandinfo *ngIf="bandurl" [band] = 'bandurl'></app-bandinfo>
+<app-audioinfo *ngIf="!bandurl"></app-audioinfo>
 <div class="mine">
-  <div class="collection">
+  <div class="playlist_nav">
+    <div class="playlist_nav_right">
+        <button class="player_button" (click)="shuffle()"><span class="glyphicon glyphicon-random"></span></button>
+        <button class="player_button" (click)="shuffle()"><span class="glyphicon glyphicon-repeat"></span></button>
+        <button class="player_button" (click)="listTo()"><span class="glyphicon glyphicon-th-list"></span></button>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="collection" [class.list] = " list === false" >
     <div
     *ngFor="let i of playlist; let id = index;"
      class="collection-item"
@@ -14,15 +23,26 @@
       </span>
     </span>
     <div class="track_info">
-        <span class="track_name">{{i.name}}</span> <br>
+        <span class="track_name">{{i.name}}</span>
        <span class="performer_name" ><a [routerLink]="['/band', i.performer_url]">{{i.performer_name}}</a></span>
      </div>
     </div>
-    
+  </div>
+  <div *ngIf = "bandurl" class="video_blocks">
+    <div class="video">
+      <img src="https://img.youtube.com/vi/AFShDQEDpwA/0.jpg" alt="">
+    </div>
+    <div class="video">
+      <img src="https://img.youtube.com/vi/seFhoLRJziY/0.jpg" alt="">
+    </div>
+    <div class="video">
+      <img src="https://img.youtube.com/vi/EQcA_2pcU3U/0.jpg" alt="">
+    </div>
+    <div class="video">
+      <img src="https://img.youtube.com/vi/EQcA_2pcU3U/0.jpg" alt="">
+    </div>
   </div>
 </div>
-<app-bandinfo *ngIf="bandurl" [band] = 'bandurl'></app-bandinfo>
-<app-audioinfo *ngIf="!bandurl"></app-audioinfo>
 
 
 

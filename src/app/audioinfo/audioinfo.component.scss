@@ -1,14 +1,14 @@
 
 .right_menu_box {
     display: inline-block;
-    max-width: 513px;
+    max-width: 320px;
     vertical-align: top;
     margin-top: 10px;
 }
 
 .right_menu {
     min-height: 124px;
-    background: #e3f2fd;
+    background: #fff;
     padding: 4px;
 }
 
@@ -22,7 +22,7 @@ text-align: center;
 
 .video {
     display: inline-block;
-    width: 32%;
+    width: 95%;
 }
 
 .filer_buttons {
@@ -34,8 +34,9 @@ text-align: center;
     background: #2196f3;
     color: #fff;
     border: 0px;
-    padding: 6px 24px;
+    padding: 6px 6px;
     margin: 4px;
+    width: 67px;
     transition: 0.3s;
 }
 

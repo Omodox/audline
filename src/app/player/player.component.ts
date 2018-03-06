@@ -59,6 +59,7 @@ this.audio.onended = () => {
 
   this.audio.ontimeupdate = () => {
     this.progress =  100 / this.audio.duration * this.audio.currentTime;
+    if (!this.track_info) this.playerUpdateTrackInfo();
     };
 
   }
