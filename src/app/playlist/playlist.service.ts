@@ -18,4 +18,11 @@ export class PlaylistService {
      return this.http.get('https://audline.net/api/?name=api&band=' + band)
          .map(res  => res.json());
  }
+
+ getPlaylistBySearch(search) {
+         return this.http.get('https://audline.net/api/?name=api&search=' + search)
+             .map(res  => res.json());
+     }
+
+
 }

@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: '', component: PlaylistComponent },
   { path: 'bands', component: BandsComponent},
   { path: 'video', component: VideoComponent},
-  { path: 'search/:id', component: BandComponent},
+  { path: 'search', component: PlaylistComponent},
   { path: 'band/:id', component: BandComponent}
 ];
 

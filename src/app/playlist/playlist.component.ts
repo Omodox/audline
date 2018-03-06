@@ -1,7 +1,9 @@
-import { Component, OnInit, Output, Input , OnDestroy } from '@angular/core';
+import { Component, OnInit, Output, Input , OnDestroy, OnChanges } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { PlaylistService } from './playlist.service';
 import { PlayerService } from '../player/player.service';
+import { ActivatedRoute} from '@angular/router';
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-playlist',
@@ -16,12 +18,38 @@ export class PlaylistComponent implements OnInit {
   item ;
   playlist;
   var_event;
-  constructor(private playlistService: PlaylistService, private playerService: PlayerService ) { }
+  search;
+  private querySubscription: Subscription;
+
+  constructor(
+    private playlistService: PlaylistService,
+    private playerService: PlayerService,
+    private route: ActivatedRoute
+  ) {
+    this.querySubscription = route.queryParams.subscribe(
+        (queryParam: any) => {
+            this.search = queryParam['search'];
+            if (this.search) this.uploadPlaylist();
+        }
+    );
+  }
 
   ngOnInit() {
     this.uploadPlaylist();
   };
+
+  ngOnChanges() {
+  }
+
   uploadPlaylist() {
+
+    if (this.search) {
+      this.playlistService.getPlaylistBySearch(this.search).subscribe(res => {
+        this.playlist = res; this.playerFirstTrack(res,false); });
+    }
+
+    else
+
     if (this.bandurl) {
       this.playlistService.getPlaylistByBand(this.bandurl).subscribe(res => {
         this.playlist = res; this.playerFirstTrack(res,false); });
@@ -31,7 +59,6 @@ export class PlaylistComponent implements OnInit {
       this.playlistService.getPlaylist().subscribe(res => {
         this.playlist = res;  this.playerFirstTrack(res,false); });
     }
-
   }
 
   playerFirstTrack(res, reload) {
