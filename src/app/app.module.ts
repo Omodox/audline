@@ -2,7 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+
+import { TimePipe} from './playlist/time.pipe';
 
 import { AppComponent } from './app.component';
 import { PlayerComponent } from './player/player.component';
@@ -27,7 +29,8 @@ import { AudioinfoComponent } from './audioinfo/audioinfo.component';
     VideoComponent,
     BandinfoComponent,
     LeftmenuComponent,
-    AudioinfoComponent
+    AudioinfoComponent,
+    TimePipe
   ],
   imports: [
     BrowserModule,

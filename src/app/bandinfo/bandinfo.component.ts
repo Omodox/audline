@@ -12,16 +12,16 @@ export class BandinfoComponent implements OnInit {
   @Input() band;
   bandinfo;
 
-  constructor(private bandinfoService: BandinfoService ) { }
+  constructor(private bandinfoService: BandinfoService ) {
+    
+   }
 
   ngOnInit() {
-
     this.bandinfoService.getBand(this.band).subscribe(res => {
       this.bandinfo = res[0];
-    if (!this.bandinfo.img) 
-    this.bandinfo.img = 'http://www.loveknotweddingdirectory.com/wp-content/uploads/2017/04/bands_quotation_small.png';
+    // if (!this.bandinfo.img) 
+    // this.bandinfo.img = 'http://www.loveknotweddingdirectory.com/wp-content/uploads/2017/04/bands_quotation_small.png';
     });
-    
   }
 
 }

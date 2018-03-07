@@ -119,13 +119,13 @@ playerPlay(){
     this.playerLoadTrackPrev();
 
   }
-  shuffle(a) {
-    for (let i = a.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [a[i], a[j]] = [a[j], a[i]];
-    }
-    return a;
-}
+//   shuffle(a) {
+//     for (let i = a.length - 1; i > 0; i--) {
+//         const j = Math.floor(Math.random() * (i + 1));
+//         [a[i], a[j]] = [a[j], a[i]];
+//     }
+//     return a;
+// }
 
 @HostListener('document:keydown', ['$event']) onKeydownHandler(event: KeyboardEvent) { 
   if (document.activeElement.tagName == 'INPUT') return;
@@ -178,13 +178,6 @@ playerPlay(){
       event.stopPropagation();
       if (this.audio.currentTime >=  5) 
      this.audio.currentTime = this.audio.currentTime - 5;
-    }
-
-    if (event.keyCode === 82) {
-      event.preventDefault();
-      event.stopPropagation();
-      this.audio.playlist =  this.shuffle(this.audio.playlist);
-
     }
 }
 

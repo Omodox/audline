@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, Input , OnDestroy, OnChanges } from '@angular/core';
+import { Component, OnInit, Output, Input , OnDestroy, OnChanges, HostListener } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { PlaylistService } from './playlist.service';
 import { PlayerService } from '../player/player.service';
@@ -19,11 +19,9 @@ export class PlaylistComponent implements OnInit {
   playlist;
   var_event;
   search;
-  list; 
-
-
-
-
+  list;
+  transform;
+  videoUrl;
   private querySubscription: Subscription;
 
   constructor(
@@ -43,7 +41,12 @@ export class PlaylistComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.list =  Boolean(localStorage.getItem('list'));
+     if (localStorage.getItem('list') == 'true') {
+      this.list = true;
+     }
+     else {
+       this.list = false;
+     }
     this.uploadPlaylist();
 
   };
@@ -74,11 +77,12 @@ export class PlaylistComponent implements OnInit {
   playerFirstTrack(res, reload) {
     let player =  <any>document.getElementById('player');
     if (player.playlist == undefined || reload == true) {
-
     player.playlist = res;
     player.src = res[0].url;
     player.idt = 0;
+    player.ida = res[0].id;
     }
+    // console.log(this.playlist);
   }
   addtoPlayer(id) {
     let player = <any>document.getElementById('player');
@@ -91,6 +95,30 @@ export class PlaylistComponent implements OnInit {
    this.playerFirstTrack(this.playlist, true);
   }
 
+  loadFromPlayer() {
+    let player =  <any>document.getElementById('player');
+    this.playlist = player.playlist;
+  }
+
+  shuffle() {
+    let a = this.playlist;
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    let ida = a.findIndex(x => x.isactive == true);
+    if (ida > 0) {
+      let r = a[0];
+      a[0] = a[ida];
+      a[ida] = r;
+      ida = 0;
+    }
+    let player =  <any>document.getElementById('player');
+    player.playlist = a;
+    player.idt = ida;
+    return a;
+}
+
   onChanged(activeTrack){
     let active_track = this.playlist.findIndex(x => x.id == activeTrack);
      this.changeActive(active_track);
@@ -98,15 +126,44 @@ export class PlaylistComponent implements OnInit {
 
   changeActive(id) {
    let old_item = this.playlist.find(x => x.isactive == true);
-   if (old_item) old_item.isactive = false;
+   if (old_item) { old_item.isactive = false; }
       this.playlist[id].isactive = true;
   }
-
 
 listTo() {
   this.list = !this.list;
   localStorage.setItem('list', String(this.list));
 }
+
+likeTrack(i) {
+  i.liked = !i.liked;
+  console.log(i.liked);
+}
+
+showVideo(url){
+ if (url) { this.videoUrl = 'https://img.youtube.com/vi/EQcA_2pcU3U/0.jpg'; 
+console.log(this.videoUrl)}
+
+ else { this.videoUrl = url; }
+}
+
+@HostListener('document:keydown', ['$event']) onKeydownHandler(event: KeyboardEvent) { 
+  if (document.activeElement.tagName == 'INPUT') { return; }
+
+    if (event.keyCode === 82) {
+      event.preventDefault();
+      event.stopPropagation();
+      this.shuffle();
+
+    }
+    if (event.keyCode === 70) {
+      event.preventDefault();
+      event.stopPropagation();
+      this.listTo();
+
+    }
+}
+
 }
 
 
