@@ -1,8 +1,12 @@
 .right_menu_box {
     display: inline-block;
-    max-width: 320px;
+    width: 320px;
     vertical-align: top;
     margin-top: 10px;
+
+    @media screen and (max-width: 768px) {
+       display:none;
+    }
 }
 
 .right_menu {

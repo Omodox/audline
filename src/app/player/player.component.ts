@@ -26,12 +26,20 @@ export class PlayerComponent implements OnInit {
 this.audio = document.getElementById('player');
 
 if (localStorage.getItem('volume')) {
+
+  if (window.innerWidth < 769) {
+    this.audio.volume = 1;
+  }
+  else {
   this.audio.volume = localStorage.getItem('volume');
+  }
 }
-else 
+
+else
 {
   localStorage.setItem('volume', '0.3');
   this.audio.volume = 0.3;
+
 }
 
 this.audio.onpause = () => {
@@ -119,13 +127,7 @@ playerPlay(){
     this.playerLoadTrackPrev();
 
   }
-//   shuffle(a) {
-//     for (let i = a.length - 1; i > 0; i--) {
-//         const j = Math.floor(Math.random() * (i + 1));
-//         [a[i], a[j]] = [a[j], a[i]];
-//     }
-//     return a;
-// }
+
 
 @HostListener('document:keydown', ['$event']) onKeydownHandler(event: KeyboardEvent) { 
   if (document.activeElement.tagName == 'INPUT') return;

@@ -22,6 +22,16 @@
     background: #fff;
     width: 32%;
     text-align: left;
+
+
+    
+    @media screen and (max-width: 768px) {
+        width: 97%;
+        padding: 4px;
+
+    }
+
+    
     
 }
 
@@ -59,6 +69,11 @@
     font-size: 27px;
 //    box-shadow: 0px 0px 5px #0f69b1;
      transition: 0.3s;
+
+     @media screen and (max-width: 768px) {
+        padding: 9px 5px 8px 14px;
+    }
+
 }
 
 .play_button:hover {
@@ -81,6 +96,11 @@
         display: inline-block;
         width: 24%;
         margin: 3px;
+
+
+        @media screen and (max-width: 768px) {
+            width: 47%;
+        }
     }
 
     .video img {
@@ -91,6 +111,12 @@
     .playlist_nav {
         margin: 12px 6px;
         width: 100%;
+
+        
+    @media screen and (max-width: 768px) {
+        width: 97%;
+    }
+
     }
     .clear{
          clear: both;
@@ -99,6 +125,12 @@
     .playlist_nav_right {
         float: right;
     padding: 0px 6px;
+
+    
+    @media screen and (max-width: 768px) {
+        float: none;
+        display: inline-block;
+    }
     }
 
     .playlist_button_panel {
@@ -204,7 +236,7 @@
 
     .modal_video_shadow {
         content: '';
-        background: rgba(0,0,0,0.7);
+        background: rgba(0,0,0,0.9);
         width: 100%;
         height: 100%;
         display: block;
@@ -212,5 +244,10 @@
         z-index: 101;
         left: 0;
         top: 0;
+        cursor: pointer;
         }
+
+    .modal_video_container  {
+        cursor: pointer;
+    }
     

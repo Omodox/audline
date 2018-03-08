@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 
 import { TimePipe} from './playlist/time.pipe';
+import { SafePipe} from './playlist/video.pipe';
+
 
 import { AppComponent } from './app.component';
 import { PlayerComponent } from './player/player.component';
@@ -30,7 +32,8 @@ import { AudioinfoComponent } from './audioinfo/audioinfo.component';
     BandinfoComponent,
     LeftmenuComponent,
     AudioinfoComponent,
-    TimePipe
+    TimePipe,
+    SafePipe
   ],
   imports: [
     BrowserModule,

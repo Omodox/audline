@@ -4,4 +4,8 @@
     margin:40px auto;
     font-family: 'Roboto', sans-serif;
     padding: 0px;
+
+    @media screen and (max-width: 768px) {
+        margin-bottom: 50px;
+    }
 }

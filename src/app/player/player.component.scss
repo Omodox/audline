@@ -15,6 +15,10 @@
 
     @media screen and (max-width: 1024px) {
         margin-left: 0px;
+        bottom: 0;
+        top: auto;
+        width: 100%;
+        background: #fff;
     }
     
 }
@@ -31,8 +35,13 @@
     z-index: 2;
     cursor: pointer;
 
-    @media screen and (max-width: 1024px) {
-        width: 240px;
+    @media screen and (max-width: 768px) {
+        width: 100%;
+        height: 40px;
+        margin: 4px 0px;
+        border-radius: 0px;
+        margin: auto;
+        display: block;
     }
 }
 
@@ -42,9 +51,13 @@
     z-index: 3;
     height: 22px;
     overflow: hidden;
+
+    @media screen and (max-width: 768px) {
+ 
+        line-height: 31px;
+        vertical-align: middle;
+    }
 }
-
-
 
 .player_time_progress {
     position: absolute;
@@ -66,6 +79,14 @@
     font-size: 18px;
     transition: 0.3s;
     color: #fff;
+
+    @media screen and (max-width: 768px) {
+        width: 32%;
+        height: 40px;
+      border-radius: 0px;
+      font-size: 30px;
+      padding: 0px;
+    }
 }
 
 .player_button {
@@ -79,6 +100,14 @@
     border: 0px;
     color: #fff;
     transition: 0.3s;
+
+    @media screen and (max-width: 768px) {
+        width: 33%;
+        height: 40px;
+      border-radius: 0px;
+      font-size: 24px;
+      padding: 0px;
+    }
 }
 
 .player_button:hover, .playbutton_play:hover {

@@ -3,6 +3,9 @@
 <app-audioinfo *ngIf="!bandurl"></app-audioinfo>
 <div class="mine">
   <div class="playlist_nav">
+      <button class="playlist_button_panel" (click)="shuffle()"><span class="glyphicon glyphicon-sort-by-alphabet"></span></button>
+      <button class="playlist_button_panel" (click)="shuffle()"><span class="glyphicon glyphicon-sort-by-order"></span></button>
+      <button class="playlist_button_panel" (click)="shuffle()"><span class="glyphicon glyphicon-sort-by-attributes-alt"></span></button>
     <div class="playlist_nav_right">
         <button class="playlist_button_panel" (click)="listTo()"><span [ngClass] = "{'glyphicon-th-list' : !list}" class="glyphicon glyphicon-th glyphicon-th-list"></span></button>
         <button class="playlist_button_panel" (click)="shuffle()"><span class="glyphicon glyphicon-random"></span></button>
@@ -50,12 +53,11 @@
     </div>
 
 
-    
 <div *ngIf="videoUrl" class="modal_box">
     <div class="modal_video_shadow" (click)="showVideo('')"></div>
     <div class="modal_video" (click)="showVideo('')">
         <div class="modal_video_container">
-      <iframe src={{videoUrl}} width="900" height="470"  frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
+      <iframe [src]="videoUrl | safe" width="900" height="470"  frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
         </div>
     </div>
 </div>

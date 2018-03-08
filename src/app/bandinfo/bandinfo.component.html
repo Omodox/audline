@@ -1,6 +1,6 @@
 <div class="right_menu_box">
     <div class="right_menu">
-      <img src={{bandinfo.img}} alt={{bandinfo.name}}>
+      <img  [src]="bandinfo.img | safe" alt={{bandinfo.name}}>
       <h3>{{bandinfo.name}}</h3>
       <p>{{bandinfo.text}}</p>
       <ul>

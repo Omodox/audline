@@ -141,10 +141,14 @@ likeTrack(i) {
 }
 
 showVideo(url){
- if (url) { this.videoUrl = 'https://img.youtube.com/vi/EQcA_2pcU3U/0.jpg'; 
-console.log(this.videoUrl)}
+if (url) this.videoUrl = 'https://www.youtube.com/embed/' + url + '?autoplay=1&rel=0';
+else this.videoUrl = '';
 
- else { this.videoUrl = url; }
+let player = <any>document.getElementById('player');
+this.addtoPlayer(player.idt);
+
+//  else { this.videoUrl = url; }
+
 }
 
 @HostListener('document:keydown', ['$event']) onKeydownHandler(event: KeyboardEvent) { 

@@ -4,6 +4,10 @@
     max-width: 320px;
     vertical-align: top;
     margin-top: 10px;
+
+    @media screen and (max-width: 768px) {
+        display: none;
+      }
 }
 
 .right_menu {
@@ -44,4 +48,3 @@ text-align: center;
     background: #1976d2;
     transition: 0.3s;
 }
-
