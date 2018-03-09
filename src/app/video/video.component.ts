@@ -25,10 +25,8 @@ export class VideoComponent implements OnInit {
     else this.videoUrl = '';
     
     let player = <any>document.getElementById('player');
-    this.addtoPlayer(player.idt);
-    
-    //  else { this.videoUrl = url; }
-    
+    player.paused();
+
     }
     
 
