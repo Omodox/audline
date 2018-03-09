@@ -17,6 +17,7 @@ export class PlaylistComponent implements OnInit {
   lorem  =  {};
   item ;
   playlist;
+  loop;
   var_event;
   search;
   list;
@@ -74,6 +75,13 @@ export class PlaylistComponent implements OnInit {
     }
   }
 
+
+  paylistByGengre(genre){
+    console.log(genre);
+    this.playlistService.getPlaylistByGenre(genre).subscribe(res => {
+      this.playlist = res;  this.playerFirstTrack(res,false); });
+  }
+
   playerFirstTrack(res, reload) {
     let player =  <any>document.getElementById('player');
     if (player.playlist == undefined || reload == true) {
@@ -113,21 +121,23 @@ export class PlaylistComponent implements OnInit {
       a[ida] = r;
       ida = 0;
     }
-    let player =  <any>document.getElementById('player');
+    const player =  <any>document.getElementById('player');
     player.playlist = a;
     player.idt = ida;
     return a;
 }
 
-  onChanged(activeTrack){
-    let active_track = this.playlist.findIndex(x => x.id == activeTrack);
+  onChanged(activeTrack) {
+    const active_track = this.playlist.findIndex(x => x.id == activeTrack);
      this.changeActive(active_track);
   }
 
   changeActive(id) {
-   let old_item = this.playlist.find(x => x.isactive == true);
-   if (old_item) { old_item.isactive = false; }
-      this.playlist[id].isactive = true;
+    const player =  <any>document.getElementById('player');
+
+      const old_item = this.playlist.find(x => x.isactive == true);
+      if (old_item) { old_item.isactive = false; }
+         this.playlist[id].isactive = true;
   }
 
 listTo() {
@@ -135,10 +145,17 @@ listTo() {
   localStorage.setItem('list', String(this.list));
 }
 
+playerLoop() {
+  const player =  <any>document.getElementById('player');
+  player.loop = !player.loop;
+  this.loop = player.loop;
+}
+
 likeTrack(i) {
   i.liked = !i.liked;
   console.log(i.liked);
 }
+
 
 showVideo(url){
 if (url) this.videoUrl = 'https://www.youtube.com/embed/' + url + '?autoplay=1&rel=0';

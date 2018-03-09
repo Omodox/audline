@@ -1,3 +1,12 @@
+.mine {
+    display: inline-block;
+    width: 73%;
+
+    @media screen and (max-width: 768px) {
+        width: 100%;
+    }
+}
+
 .bands {
     text-align: center;
 }
@@ -5,7 +14,7 @@
 .item {
     background: #e3f2fd;
     display: inline-block;
-    width: 23%;
+    width: 32%;
     padding: 4px;
     margin: 4px;
     cursor: pointer;

@@ -1,10 +1,23 @@
- <div class="video">
-   <a class="item"
-    *ngFor="let i of video; let id = index;"
->
-<div>
-<img src="https://img.youtube.com/vi/{{i.youtube_code}}/0.jpg" alt="">
-{{i.name}}
+<app-player [item]="lorem" (onChanged)="onChanged($event)"></app-player>
+
+<app-audioinfo  (genre)="paylistByGengre($event)"></app-audioinfo>
+ <div class="mine">
+    <div class="item" 
+      *ngFor="let i of video; let id = index;"
+      (click)="showVideo(i.youtube_code)"
+  >
+    <div>
+    <img src="https://img.youtube.com/vi/{{i.youtube_code}}/0.jpg" alt="">
+    {{i.name}}
+    </div>
+  </div>
 </div>
-</a>
+
+<div *ngIf="videoUrl" class="modal_box">
+    <div class="modal_video_shadow" (click)="showVideo('')"></div>
+    <div class="modal_video" (click)="showVideo('')">
+        <div class="modal_video_container">
+      <iframe [src]="videoUrl | safe" width="900" height="510"  frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
+        </div>
+    </div>
 </div>

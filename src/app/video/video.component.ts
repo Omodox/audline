@@ -10,6 +10,7 @@ import { VideoService } from './video.service';
 export class VideoComponent implements OnInit {
 
   video;
+  videoUrl;
 
   constructor( private videoService: VideoService ) { }
 
@@ -17,6 +18,19 @@ export class VideoComponent implements OnInit {
     this.videoService.getVideo().subscribe(res => {
       this.video = res });
   };
+
+
+  showVideo(url){
+    if (url) this.videoUrl = 'https://www.youtube.com/embed/' + url + '?autoplay=1&rel=0';
+    else this.videoUrl = '';
+    
+    let player = <any>document.getElementById('player');
+    this.addtoPlayer(player.idt);
+    
+    //  else { this.videoUrl = url; }
+    
+    }
+    
 
 }
 

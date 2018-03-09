@@ -11,9 +11,9 @@ export class BandinfoComponent implements OnInit {
 
   @Input() band;
   bandinfo;
+  video_list;
 
   constructor(private bandinfoService: BandinfoService ) {
-    
    }
 
   ngOnInit() {
@@ -21,6 +21,11 @@ export class BandinfoComponent implements OnInit {
       this.bandinfo = res[0];
     // if (!this.bandinfo.img) 
     // this.bandinfo.img = 'http://www.loveknotweddingdirectory.com/wp-content/uploads/2017/04/bands_quotation_small.png';
+    });
+
+    this.bandinfoService.getBandVideo(this.band).subscribe(res => {
+      this.video_list = res;
+    console.log( this.video_list);
     });
   }
 

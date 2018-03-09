@@ -1,6 +1,6 @@
 <app-player [item]="lorem" (onChanged)="onChanged($event)"></app-player>
 <app-bandinfo *ngIf="bandurl" [band] = 'bandurl'></app-bandinfo>
-<app-audioinfo *ngIf="!bandurl"></app-audioinfo>
+<app-audioinfo *ngIf="!bandurl" (genre)="paylistByGengre($event)"></app-audioinfo>
 <div class="mine">
   <div class="playlist_nav">
       <button class="playlist_button_panel" (click)="shuffle()"><span class="glyphicon glyphicon-sort-by-alphabet"></span></button>
@@ -9,7 +9,7 @@
     <div class="playlist_nav_right">
         <button class="playlist_button_panel" (click)="listTo()"><span [ngClass] = "{'glyphicon-th-list' : !list}" class="glyphicon glyphicon-th glyphicon-th-list"></span></button>
         <button class="playlist_button_panel" (click)="shuffle()"><span class="glyphicon glyphicon-random"></span></button>
-        <button class="playlist_button_panel" (click)="shuffle()"><span class="glyphicon glyphicon-repeat"></span></button>
+        <button class="playlist_button_panel" [ngClass] = "{'loop' : loop}" (click)="playerLoop()"><span class="glyphicon glyphicon-repeat"></span></button>
         <button class="playlist_button_panel" (click)="loadFromPlayer()"><span class="glyphicon glyphicon-share-alt load_play_list"></span></button>
 
     </div>

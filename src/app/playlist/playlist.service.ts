@@ -23,5 +23,9 @@ export class PlaylistService {
              .map(res  => res.json());
      }
 
+     getPlaylistByGenre(genre) {
+             return this.http.get('https://audline.net/api/?name=api&genre=' + genre)
+                 .map(res  => res.json());
+         }
 
 }

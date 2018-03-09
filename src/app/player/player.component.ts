@@ -108,6 +108,7 @@ playerPlay(){
       this.audio.play();
       this.onChanged.emit(this.audio.playlist[this.audio.idt].id);
   } else {
+    this.onChanged.emit(this.audio.playlist[this.audio.idt].id);
     this.audio.pause();
     }
   }
