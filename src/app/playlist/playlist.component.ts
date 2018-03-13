@@ -21,6 +21,7 @@ export class PlaylistComponent implements OnInit {
   var_event;
   search;
   list;
+  last_acrive_track;
   transform;
   videoUrl;
   private querySubscription: Subscription;
