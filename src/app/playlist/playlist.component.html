@@ -9,8 +9,8 @@
     <div class="playlist_nav_right">
         <button class="playlist_button_panel" (click)="listTo()"><span [ngClass] = "{'glyphicon-th-list' : !list}" class="glyphicon glyphicon-th glyphicon-th-list"></span></button>
         <button class="playlist_button_panel" (click)="shuffle()"><span class="glyphicon glyphicon-random"></span></button>
-        <button class="playlist_button_panel" [ngClass] = "{'loop' : loop}" (click)="playerLoop()"><span class="glyphicon glyphicon-repeat"></span></button>
-        <button class="playlist_button_panel" (click)="loadFromPlayer()"><span class="glyphicon glyphicon-share-alt load_play_list"></span></button>
+        <button class="playlist_button_panel" [ngClass] = "{'loop' : loop}" (click)="playerLoop()"><span class="glyphicon glyphicon-refresh"></span></button>
+        <button class="playlist_button_panel" (click)="loadFromPlayer()"><span class="glyphicon glyphicon-minus"></span></button>
 
     </div>
     <div class="clear"></div>

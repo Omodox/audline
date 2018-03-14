@@ -16,7 +16,6 @@ import { MenuComponent } from './menu/menu.component';
 import { BandComponent } from './band/band.component';
 import { VideoComponent } from './video/video.component';
 import { BandinfoComponent } from './bandinfo/bandinfo.component';
-import { LeftmenuComponent } from './leftmenu/leftmenu.component';
 import { AudioinfoComponent } from './audioinfo/audioinfo.component';
 
 
@@ -30,7 +29,6 @@ import { AudioinfoComponent } from './audioinfo/audioinfo.component';
     BandComponent,
     VideoComponent,
     BandinfoComponent,
-    LeftmenuComponent,
     AudioinfoComponent,
     TimePipe,
     SafePipe
