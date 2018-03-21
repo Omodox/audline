@@ -6,6 +6,7 @@ import { BandsComponent } from './bands/bands.component';
 import { BandComponent } from './band/band.component';
 import { VideoComponent } from './video/video.component';
 import { TestModule } from './test/test.module';
+import { RoomsModule } from './rooms/rooms.module';
 
 
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'video', component: VideoComponent },
   { path: 'search', component: PlaylistComponent },
   { path: 'band/:id', component: BandComponent },
-  { path: 'test', loadChildren: () => TestModule }
+  { path: 'test', loadChildren: () => TestModule },
+  { path: 'rooms', loadChildren: () => RoomsModule }
 ];
 
 @NgModule({
