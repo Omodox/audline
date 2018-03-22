@@ -1,0 +1,4 @@
+<app-player></app-player>
+<div  *ngFor="let i of rooms; let id = index;">
+<a [routerLink]='"/stream/" + i.url'> {{i.name}}</a>
+</div>

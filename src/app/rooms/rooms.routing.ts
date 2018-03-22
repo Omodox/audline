@@ -6,9 +6,9 @@ import { FirstTestComponent } from './first-test/first-test.component';
 
 const routes: Routes = [
   { path: '', component: RoomsComponent, children: [
-      // {path: '', redirectTo: 'rooms'},
-      {path: 'rooms', component: FirstTestComponent},
-      {path: '**', redirectTo: 'rooms'}
+      {path: '', component: FirstTestComponent},
+      {path: ':id', component: FirstTestComponent}
+      // {path: '**', redirectTo: 'rooms'}
   ]},
 ];
 

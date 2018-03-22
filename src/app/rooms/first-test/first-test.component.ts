@@ -18,10 +18,12 @@ export class FirstTestComponent implements OnInit, OnDestroy {
   messages = [];
   connection;
   message;
+  audio;
 
   constructor(private chatService: ChatService) { }
 
   sendMessage() {
+    this.message = 'Lorem text';
     this.chatService.sendMessage(this.message);
     this.message = '';
 
@@ -31,7 +33,8 @@ export class FirstTestComponent implements OnInit, OnDestroy {
 
     this.connection = this.chatService.getMessages().subscribe(message => {
       this.messages.push(message);
-
+      this.audio = document.getElementById('player');
+      this.audio.pause();
     })
 
   }
