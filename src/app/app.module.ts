@@ -19,6 +19,8 @@ import { BandinfoComponent } from './bandinfo/bandinfo.component';
 import { AudioinfoComponent } from './audioinfo/audioinfo.component';
 import { StreamComponent } from './stream/stream.component';
 import { RoomComponent } from './stream/room/room.component';
+import { AudiolistComponent } from './audiolist/audiolist.component';
+import { AudioComponent } from './audio/audio.component';
 
 
 @NgModule({
@@ -35,7 +37,9 @@ import { RoomComponent } from './stream/room/room.component';
     TimePipe,
     SafePipe,
     StreamComponent,
-    RoomComponent
+    RoomComponent,
+    AudiolistComponent,
+    AudioComponent
   ],
   imports: [
     BrowserModule,

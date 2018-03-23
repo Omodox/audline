@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PlaylistComponent } from './playlist/playlist.component';
 import { BandsComponent } from './bands/bands.component';
 import { BandComponent } from './band/band.component';
+import { AudioComponent } from './audio/audio.component';
 import { VideoComponent } from './video/video.component';
 import { TestModule } from './test/test.module';
 import { RoomsModule } from './rooms/rooms.module';
@@ -12,7 +13,7 @@ import { RoomComponent } from './stream/room/room.component';
 
 
 const routes: Routes = [
-  { path: '', component: PlaylistComponent },
+  { path: '', component: AudioComponent },
   { path: 'bands', component: BandsComponent },
   { path: 'video', component: VideoComponent },
   { path: 'search', component: PlaylistComponent},

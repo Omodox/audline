@@ -6,14 +6,14 @@ export class ChatService {
   private url = 'http://localhost:3000';
   private socket;
 
-  sendMessage(message) {
-    this.socket.emit('add-message', message);
+  sendMessage(message,id) {
+    this.socket.emit('add-message', message, id);
     console.log("MESSAGE SENT");
   }
-  getMessages() {
+  getMessages(id) {
     let observable = new Observable(observer => {
       this.socket = io(this.url);
-      this.socket.on('message', (data) => {
+      this.socket.on(id, (data) => {
         observer.next(data);
       });
       return () => {
@@ -21,5 +21,9 @@ export class ChatService {
       }
     })
     return observable;
+  }
+  sendCommand(message,id) {
+    this.socket.emit('player', message, id);
+    // console.log(message);
   }
 }

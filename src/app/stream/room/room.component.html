@@ -1,3 +1,23 @@
-<app-player [item]="lorem" (onChanged)="onChanged($event)"></app-player>
+<!-- <app-player [item]="lorem" (onChanged)="onChanged($event)"></app-player> -->
+<div class="container">
+    <span>{{id}}</span>
 
-<span>{{id}}</span>
+<button (click)="sendMessage();">Click</button>
+
+<div *ngFor="let message of messages">
+    {{message.text}}
+   </div>
+</div>
+<div class="room_nav">
+    <button [ngClass] = "{'active' : tabs[0].state}" (click)="opentab(0);">Room Playlist</button>
+    <button [ngClass] = "{'active' : tabs[1].state}" (click)="opentab(1);">My Playlist</button>
+    <button [ngClass] = "{'active' : tabs[2].state}" (click)="opentab(2);">History Playlist</button>
+    <button [ngClass] = "{'active' : tabs[3].state}" (click)="opentab(3);">Chat</button>
+    <button [ngClass] = "{'active' : tabs[4].state}" (click)="opentab(4);">Users</button>
+</div>
+<div class="room_nav">
+    <button (click) = 'roomPlayerPlay()'>Play</button>
+    <button (click) = 'roomPlayerNext()'>Next</button>
+    <button>Prev</button>
+</div>
+   <app-audiolist [playlist] = 'audiolist' [type] = "'room'" ></app-audiolist>

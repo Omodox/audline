@@ -1,0 +1,13 @@
+.room_nav button {
+    background: #2196f3;
+    color: #fff;
+    border: 0px;
+    padding: 6px 15px;
+    margin: 4px;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.room_nav  .active{
+    background: #e53935;
+}

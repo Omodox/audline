@@ -1,6 +1,23 @@
-<app-player [item]="lorem" (onChanged)="onChanged($event)"></app-player>
-<app-bandinfo *ngIf="bandurl" [band] = 'bandurl'></app-bandinfo>
-<app-audioinfo *ngIf="!bandurl" (genre)="paylistByGengre($event)"></app-audioinfo>
+<!-- <app-bandinfo *ngIf="bandurl" [band] = 'bandurl'></app-bandinfo>
+<app-audioinfo *ngIf="!bandurl" (genre)="paylistByGengre($event)"></app-audioinfo>  -->
+
+<div class="player_box">
+  <div class="player">
+      <div id="trackname" class="player_track_name">
+      <span class="player_time_progress" id="progress_line"
+       [ngStyle] = "{'width.%': progress}">
+      </span>
+      <span class="track_name_text" id="track_info"></span>
+    </div>
+      <button class="player_button" (click)='playerPrev()'><span class="glyphicon glyphicon-backward"></span></button>
+      <button class="playbutton_play" (click)="playerService.playerPlay()">
+        <span class="glyphicon glyphicon-play"
+        [ngClass] = "{'glyphicon-pause' : !playerService.audio.paused}"></span>
+      </button>
+      <button class="player_button" (click)="playerNext()"><span class="glyphicon glyphicon-forward"></span></button>
+  </div>
+</div>
+
 <div class="mine">
   <div class="playlist_nav">
       <button class="playlist_button_panel" (click)="shuffle()"><span class="glyphicon glyphicon-sort-by-alphabet"></span></button>
@@ -15,24 +32,31 @@
     </div>
     <div class="clear"></div>
   </div>
-  <div class="collection" [class.list] = " list === !true" >
+  <div class="collection" [class.list] = " list === true" >
     <div
     *ngFor="let i of playlist; let id = index;"
      class="collection-item"
      [ngClass] = "{'active' : i.isactive}"
     >
     <span class="play_button"  
-    (click)="addtoPlayer(i.id)">
+    (click)="addtoPlayer(i)">
       <span class="glyphicon glyphicon-play"
         [ngClass] = "{'glyphicon-pause' : i.isactive}">
       </span>
     </span>
+
+    <span *ngIf = "type == 'room'"  class="play_button"  
+    (click)="addtoPlayer(i.id)">
+      <span class="glyphicon glyphicon-plus">
+      </span>
+    </span>
+
     <div class="track_info">
         <span class="track_name">{{i.name}}</span>
         <span class="performer_name" >
           <a [routerLink]="['/band', i.performer_url]">{{i.performer_name}}</a>
           </span>
-          <span class="time_track">{{i.duration | time }}</span>
+          <!-- <span class="time_track">{{i.duration | time }}</span> -->
           <span class="genre_track">{{i.genre}}</span>
           <span  (click)="likeTrack(i)"  [ngClass] = "{'liked' : i.liked}" class="like_track"><span class="glyphicon glyphicon-heart"></span></span>
      </div>
@@ -53,14 +77,14 @@
     </div>
 
 
-<div *ngIf="videoUrl" class="modal_box">
+<!-- <div *ngIf="videoUrl" class="modal_box">
     <div class="modal_video_shadow" (click)="showVideo('')"></div>
     <div class="modal_video" (click)="showVideo('')">
         <div class="modal_video_container">
       <iframe [src]="videoUrl | safe" width="900" height="510"  frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
         </div>
     </div>
-</div>
+</div> -->
   </div>
 
 </div>

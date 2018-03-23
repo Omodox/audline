@@ -17,6 +17,16 @@ export class StreamComponent implements OnInit {
       'name' : 'Room 2',
       'url' : 'room_2'
     },
+
+    {
+      'name' : 'Room 3',
+      'url' : 'room_3'
+    },
+
+    {
+      'name' : 'Room 4',
+      'url' : 'room_4'
+    },
   ]
 
   constructor() { }
