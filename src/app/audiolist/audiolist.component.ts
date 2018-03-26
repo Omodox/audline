@@ -13,6 +13,7 @@ import {Subscription} from 'rxjs/Subscription';
 })
 
 export class AudiolistComponent implements OnInit {
+  @Output() onData = new EventEmitter<any>();
   progress: number;
   progress_line: HTMLElement;
   @Input() playlist;
@@ -33,7 +34,7 @@ export class AudiolistComponent implements OnInit {
         (queryParam: any) => {
             this.search = queryParam['search'];
             if (this.search) {
-              this.uploadPlaylist();
+              // this.uploadPlaylist();
             }
 
         }
@@ -74,10 +75,17 @@ export class AudiolistComponent implements OnInit {
   ngOnChanges() {
   }
 
+  // ********
+
+  addtoData(track) {
+    console.log(track);
+    this.onData.emit(track);
+  }
+  // ********
+
   addtoPlayer(new_track) {
   this.playerService.addtoPlayer(new_track);
   this.onChanged(new_track);
- 
   }
 
   playerNext(){

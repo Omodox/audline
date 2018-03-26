@@ -5,8 +5,10 @@
     <li><a routerLink="/bands">Playlists</a></li>
     <li><a routerLink="/bands">Bands</a></li>
     <li><a routerLink="/video">Video</a></li>
-    <li><a routerLink="/rooms">Rooms</a></li>
+    <!-- <li><a routerLink="/rooms">Rooms</a></li> -->
     <li><a routerLink="/streams">Stream</a></li>
+    <li *ngIf="!ulog"><a routerLink="/login">Login</a></li>
+    <li *ngIf="ulog"><a routerLink="/login">Exit</a></li>
   </ul>
   <form class="form" (ngSubmint)="search_form()">
     <input class="search_form" autocomplete="off" [(ngModel)]="search" type="text" name="search" id="search_input" placeholder="Search...">

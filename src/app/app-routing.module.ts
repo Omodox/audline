@@ -10,11 +10,13 @@ import { TestModule } from './test/test.module';
 import { RoomsModule } from './rooms/rooms.module';
 import { StreamComponent } from './stream/stream.component';
 import { RoomComponent } from './stream/room/room.component';
+import { LoginComponent } from './login/login.component';
 
 
 const routes: Routes = [
   { path: '', component: AudioComponent },
   { path: 'bands', component: BandsComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'video', component: VideoComponent },
   { path: 'search', component: PlaylistComponent},
   { path: 'band/:id', component: BandComponent },

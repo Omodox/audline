@@ -20,4 +20,4 @@
     <button (click) = 'roomPlayerNext()'>Next</button>
     <button>Prev</button>
 </div>
-   <app-audiolist [playlist] = 'audiolist' [type] = "'room'" ></app-audiolist>
+   <app-audiolist [playlist] = 'audiolist' [type] = "'room'" (onData)="onData($event)" ></app-audiolist>

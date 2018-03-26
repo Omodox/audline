@@ -15,12 +15,12 @@ import { BandsComponent } from './bands/bands.component';
 import { MenuComponent } from './menu/menu.component';
 import { BandComponent } from './band/band.component';
 import { VideoComponent } from './video/video.component';
-import { BandinfoComponent } from './bandinfo/bandinfo.component';
 import { AudioinfoComponent } from './audioinfo/audioinfo.component';
 import { StreamComponent } from './stream/stream.component';
 import { RoomComponent } from './stream/room/room.component';
 import { AudiolistComponent } from './audiolist/audiolist.component';
 import { AudioComponent } from './audio/audio.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -32,14 +32,14 @@ import { AudioComponent } from './audio/audio.component';
     MenuComponent,
     BandComponent,
     VideoComponent,
-    BandinfoComponent,
     AudioinfoComponent,
     TimePipe,
     SafePipe,
     StreamComponent,
     RoomComponent,
     AudiolistComponent,
-    AudioComponent
+    AudioComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -9,6 +9,8 @@ import {Router} from '@angular/router';
 })
 export class MenuComponent implements OnInit {
 
+  ulog = localStorage.getItem('id');
+
   constructor(private router: Router){}
 
   search_form(search) {

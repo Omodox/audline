@@ -18,6 +18,7 @@ import { PlayerService }   from '../../audiolist/player.service';
   })
   export class RoomComponent implements OnInit {
   
+    progress_line: any;
     id = '';
     audiolist;
   
@@ -66,14 +67,19 @@ import { PlayerService }   from '../../audiolist/player.service';
           case 1: {
             this.audioService.getPlaylist().subscribe(res => {
               this.audiolist = res; }); break;}
-        }
+          case 3: {
+              break;
+          }
+          case 4: {
+                break;  
+          }
       }
+    }
   
   messages = [];
   connection;
   message;
   audio;
-
 
   sendMessage() {
     this.message = 'Lorem text';
@@ -85,33 +91,45 @@ import { PlayerService }   from '../../audiolist/player.service';
   ngOnInit() {
     this.connection = this.chatService.getMessages(this.id).subscribe(message => {
       // this.messages.push(message);
-      if (message.type == 'command') {
-          if (message.text == 'play') {
+      const msg = message;
+      if (msg.type == 'command') {
+          if (msg.text == 'play') {
             this.playerService.playerPlay();
           }
-          if (message.text == 'next') {
+          if (msg.text == 'next') {
             let active_track =  this.audiolist.findIndex(x => x.id == this.playerService.audio.ida);
             let new_track = this.audiolist[(active_track+1)];
             this.playerService.addtoPlayer(new_track);
+          }
+
+          if (typeof(msg.text) == 'object') {
+            // let active_track =  this.audiolist.findIndex(x => x.id == this.playerService.audio.ida);
+            // let new_track = this.audiolist[(active_track+1)];
+            // this.playerService.addtoPlayer(new_track);
+            console.log(msg.text);
+            this.audiolist.push(msg.text);
           }
       }
     })
 
 
-    this.audioService.getPlaylist().subscribe(res => {
-      this.audiolist = res; });
+    // this.audioService.getPlaylist().subscribe(res => {
+    //   this.audiolist = res; });
   }
 
   ngOnDestroy() {
     this.connection.unsubscribe();
   }
 
+  onData(track) {
+    this.chatService.sendTrack(track,this.id);
+  }
+
   roomPlayerPlay() {
-    this.progress_line = document.getElementById('progress_line');
+    this.progress_line = <any>document.getElementById('progress_line');
     this.progress_line.style.background = '#e53935';
   this.chatService.sendCommand('play',this.id);
   }
-
 
   roomPlayerNext() {
     this.chatService.sendCommand('next',this.id);

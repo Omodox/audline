@@ -26,4 +26,8 @@ export class ChatService {
     this.socket.emit('player', message, id);
     // console.log(message);
   }
+
+  sendTrack(track, id) {
+    this.socket.emit('player', track, id);
+  }
 }

@@ -5,6 +5,7 @@ import { OnInit, Input, Output, EventEmitter,  OnChanges, OnDestroy, HostListene
 @Injectable()
 export class PlayerService {
 
+  track_info: any;
   currentTime: number;
     constructor(){}
 
