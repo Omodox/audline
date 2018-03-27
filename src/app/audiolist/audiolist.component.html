@@ -56,6 +56,7 @@
           </span>
           <!-- <span class="time_track">{{i.duration | time }}</span> -->
           <span class="genre_track">{{i.genre}}</span>
+          <span  (click)="removeTrack(i)"  [ngClass] = "{'liked' : i.liked}" class="like_track"><span class="glyphicon glyphicon-remove"></span></span>
           <span  (click)="likeTrack(i)"  [ngClass] = "{'liked' : i.liked}" class="like_track"><span class="glyphicon glyphicon-heart"></span></span>
      </div>
     </div>

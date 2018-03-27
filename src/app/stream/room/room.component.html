@@ -1,9 +1,7 @@
 <!-- <app-player [item]="lorem" (onChanged)="onChanged($event)"></app-player> -->
 <div class="container">
     <span>{{id}}</span>
-
 <button (click)="sendMessage();">Click</button>
-
 <div *ngFor="let message of messages">
     {{message.text}}
    </div>

@@ -21,6 +21,8 @@ import { PlayerService }   from '../../audiolist/player.service';
     progress_line: any;
     id = '';
     audiolist;
+    
+    
   
       private routeSubscription: Subscription;
       private querySubscription: Subscription;
@@ -92,26 +94,27 @@ import { PlayerService }   from '../../audiolist/player.service';
     this.connection = this.chatService.getMessages(this.id).subscribe(message => {
       // this.messages.push(message);
       const msg = message;
-      if (msg.type == 'command') {
-          if (msg.text == 'play') {
+
+      console.log(message);
+      
+
+      if ((message as any).type == 'command') {
+          if ((message as any).text == 'play') {
             this.playerService.playerPlay();
           }
-          if (msg.text == 'next') {
+          if ((message as any).text == 'next') {
             let active_track =  this.audiolist.findIndex(x => x.id == this.playerService.audio.ida);
             let new_track = this.audiolist[(active_track+1)];
             this.playerService.addtoPlayer(new_track);
           }
 
-          if (typeof(msg.text) == 'object') {
-            // let active_track =  this.audiolist.findIndex(x => x.id == this.playerService.audio.ida);
-            // let new_track = this.audiolist[(active_track+1)];
-            // this.playerService.addtoPlayer(new_track);
-            console.log(msg.text);
-            this.audiolist.push(msg.text);
+          if (typeof((message as any).text) == 'object') {
+            // console.log(msg.text);
+            this.audiolist.push((message as any).text);
           }
       }
     })
-
+    
 
     // this.audioService.getPlaylist().subscribe(res => {
     //   this.audiolist = res; });

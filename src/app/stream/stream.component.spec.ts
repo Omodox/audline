@@ -12,7 +12,7 @@ describe('StreamComponent', () => {
     })
     .compileComponents();
   }));
-
+  
   beforeEach(() => {
     fixture = TestBed.createComponent(StreamComponent);
     component = fixture.componentInstance;
