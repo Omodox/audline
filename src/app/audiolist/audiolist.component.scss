@@ -204,7 +204,18 @@
 .track_info {
     display: inline-block;
     vertical-align: middle;
-    width: 75%;
+    width: 80%;
+}
+
+.hover_hide {
+    visibility: hidden;
+    transition: 0.3s;
+}
+
+.track_info:hover .hover_hide {
+    visibility: initial;
+    transition: 0.3s;
+    // display: inline !important;
 }
 
 
@@ -292,6 +303,8 @@
             display: inline-block;
             width: 35%;
         }
+
+
         .performer_name{
             width: 34%;
 
@@ -303,11 +316,11 @@
         }
 
         .track_info {
-            width: 89%;
+            width: 90%;
         }
 
         .time_track {
-            width: 8%;
+            width: 7%;
              display: inline-block;
              text-align: center;
              font-size: 14px;
@@ -336,6 +349,7 @@
             color: #ccc;
             display: inline-block;
             text-align: center;
+            float: right;
             width: 4%;
             font-size: 23px;
             padding: 0px 10px;
@@ -348,6 +362,7 @@
         color: #e53935;
         transition: 0.6s;
         }
+    
     }
 
     .modal_video {

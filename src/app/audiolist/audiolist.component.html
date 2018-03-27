@@ -32,7 +32,7 @@
   </div>
   <div class="collection" [class.list] = " list === true" >
     <div
-    *ngFor="let i of playlist; let id = index;"
+    *ngFor="let i of playlist; let i_id = index;"
      class="collection-item"
      [ngClass] = "{'active' : i.isactive}"
     >
@@ -54,9 +54,9 @@
         <span class="performer_name" >
           <a [routerLink]="['/band', i.performer_url]">{{i.performer_name}}</a>
           </span>
-          <!-- <span class="time_track">{{i.duration | time }}</span> -->
+          <span class="time_track">{{i.duration | time }}</span>
           <span class="genre_track">{{i.genre}}</span>
-          <span  (click)="removeTrack(i)"  [ngClass] = "{'liked' : i.liked}" class="like_track"><span class="glyphicon glyphicon-remove"></span></span>
+          <span  (click)="removeTrack(i,i_id,i.isactive)"  class="like_track hover_hide"><span class="glyphicon glyphicon-remove"></span></span>
           <span  (click)="likeTrack(i)"  [ngClass] = "{'liked' : i.liked}" class="like_track"><span class="glyphicon glyphicon-heart"></span></span>
      </div>
     </div>

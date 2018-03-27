@@ -151,6 +151,11 @@ likeTrack(i) {
   i.liked = !i.liked;
   console.log(i, '-' , i.liked);
 }
+removeTrack(i,id,active) {
+  if (active)  this.playerNext();
+  this.playlist.splice(id,1);
+  // console.log(i_id, i, active);  
+}
 
 
 showVideo(url){
