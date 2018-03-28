@@ -9,7 +9,7 @@ import {Router} from '@angular/router';
 })
 export class MenuComponent implements OnInit {
 
-  ulog = localStorage.getItem('id');
+  sid = localStorage.getItem('sid');
 
   constructor(private router: Router){}
 

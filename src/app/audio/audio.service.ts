@@ -6,8 +6,6 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class AudioService {
 
-    smart = '123';
-
      constructor(private http: Http) { }
 
     getPlaylist() {
@@ -29,5 +27,7 @@ export class AudioService {
              return this.http.get('https://audline.net/api/?name=api&genre=' + genre)
                  .map(res  => res.json());
          }
+
+
 
 }

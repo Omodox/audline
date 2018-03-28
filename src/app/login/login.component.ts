@@ -23,27 +23,25 @@ export class LoginComponent implements OnInit {
 
   email : string;
   password: string;
-  acc;
   constructor(private router: Router, private loginService : LoginService){}
 
   ngOnInit() {
-   if (localStorage.getItem('id'))
+   if (localStorage.getItem('sid'))
    {
-    localStorage.removeItem('id');
+    localStorage.removeItem('sid');
     // window.location.replace("/login");
    }
   }
 
   login() {
      this.loginService.login({'email': this.email, 'password' : this.password}).subscribe(res => {
- if (res) this.sing(res);
-        this.acc = res;});
+ if (res.sid) this.sing(res);});
   //  let ss =  this.users.find(x => { return x.email == this.email && x.password == this.password});   
   }
 
   sing(res) {
-    console.log(res);
-       localStorage.setItem('id',res[0].email);
+    // console.log(res);
+       localStorage.setItem('sid',res.sid);
        // this.router.navigate(['/']);  
        window.location.replace("/");
    

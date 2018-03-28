@@ -19,8 +19,8 @@ export class AudiolistComponent implements OnInit {
   @Input() playlist;
   @Input() type;
   lorem  =  {};
+  sid = localStorage.getItem('sid');
   loop;
-  search;
   list;
   videoUrl;
   private querySubscription: Subscription;
@@ -29,17 +29,7 @@ export class AudiolistComponent implements OnInit {
     private playlistService: PlaylistService,
     private playerService: PlayerService,
     private route: ActivatedRoute
-  ) {
-    this.querySubscription = route.queryParams.subscribe(
-        (queryParam: any) => {
-            this.search = queryParam['search'];
-            if (this.search) {
-              // this.uploadPlaylist();
-            }
-
-        }
-    );
-  }
+  ) {}
 
   ngOnInit() {
 
@@ -149,7 +139,10 @@ shuffle() {
 
 likeTrack(i) {
   i.liked = !i.liked;
-  console.log(i, '-' , i.liked);
+  this.playlistService.pushLikedTrack(i.id,this.sid).subscribe(res => {
+    // console.log(res)
+  });
+  // console.log(i, '-' , i.liked);
 }
 removeTrack(i,id,active) {
   if (active)  this.playerNext();
