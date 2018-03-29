@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { AudioService } from './audio.service'
 
 
@@ -12,7 +11,6 @@ import { AudioService } from './audio.service'
 export class AudioComponent implements OnInit {
 
   audiolist ;
-
 
   constructor( private audioService: AudioService,) { }
 

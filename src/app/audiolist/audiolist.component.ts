@@ -139,8 +139,9 @@ shuffle() {
 
 likeTrack(i) {
   i.liked = !i.liked;
-  this.playlistService.pushLikedTrack(i.id,this.sid).subscribe(res => {
-    // console.log(res)
+  console.log(i);
+  this.playlistService.pushLikedTrack({'sid': this.sid, 'track' : i}).subscribe(res => {
+  
   });
   // console.log(i, '-' , i.liked);
 }

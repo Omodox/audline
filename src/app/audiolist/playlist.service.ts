@@ -9,10 +9,15 @@ export class PlaylistService {
      constructor(private http: Http) { }
 
 
- pushLikedTrack(track,sid) {
-  console.log(track);    
-     return this.http.get('http://localhost:3000/my_playlist?track=' + track + '&sid=' + sid)
+ pushLikedTrack(arr) {
+     return this.http.post('http://localhost:3000/my_playlist?track=', arr)
   .map(res  => res.json());
    }
+
+
+   login(msg) {
+         return this.http.post('http://localhost:3000/login',msg).map(res  => res.json());
+     }
+
 
 }
