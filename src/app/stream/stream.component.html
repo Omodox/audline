@@ -1,4 +1,3 @@
-<app-player></app-player>
 <div class="row">
 <div class="s3" *ngFor="let i of rooms; let id = index;">
 <a class="room_link" [routerLink]='"/stream/" + i.url'> {{i.name}}</a>

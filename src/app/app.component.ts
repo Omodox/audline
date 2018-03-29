@@ -1,15 +1,13 @@
 import { Component, Output, OnInit, HostListener } from '@angular/core';
-import { PlayerService } from './player/player.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  providers: [PlayerService]
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
 
-  constructor(private playerService: PlayerService ) { }
+  constructor( ) { }
 
 
   // @HostListener('document:click', ['$event'])
