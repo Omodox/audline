@@ -21,6 +21,8 @@ import { RoomComponent } from './stream/room/room.component';
 import { AudiolistComponent } from './audiolist/audiolist.component';
 import { AudioComponent } from './audio/audio.component';
 import { LoginComponent } from './login/login.component';
+import { SetsComponent } from './sets/sets.component';
+import { ProfileComponent } from './login/profile/profile.component';
 
 
 @NgModule({
@@ -39,7 +41,9 @@ import { LoginComponent } from './login/login.component';
     RoomComponent,
     AudiolistComponent,
     AudioComponent,
-    LoginComponent
+    LoginComponent,
+    SetsComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

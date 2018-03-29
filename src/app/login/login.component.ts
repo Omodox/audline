@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { LoginService } from './login.service';
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,9 @@ export class LoginComponent implements OnInit {
   email : 'admin@audline.net',
   password : 'nimda321'
 }
-  ]
+  ];
+
+  audiolist;
 
   email : string;
   password: string;
@@ -29,8 +32,9 @@ export class LoginComponent implements OnInit {
    if (localStorage.getItem('sid'))
    {
     localStorage.removeItem('sid');
-    // window.location.replace("/login");
+    window.location.replace("/");
    }
+  
   }
 
   login() {
@@ -46,5 +50,9 @@ export class LoginComponent implements OnInit {
        window.location.replace("/");
    
      }
+
+
+    //  *****
+ 
 
 }

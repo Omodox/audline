@@ -11,6 +11,8 @@ import { VideoComponent } from './video/video.component';
 import { StreamComponent } from './stream/stream.component';
 import { RoomComponent } from './stream/room/room.component';
 import { LoginComponent } from './login/login.component';
+import { SetsComponent } from './sets/sets.component';
+import { ProfileComponent } from './login/profile/profile.component';
 
 
 const routes: Routes = [
@@ -20,6 +22,8 @@ const routes: Routes = [
   { path: 'video', component: VideoComponent },
   // { path: 'search', component: PlaylistComponent},
   { path: 'band/:id', component: BandComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'sets', component: SetsComponent },
   { path: 'streams', component: StreamComponent},
   { path: 'stream/:id', component: RoomComponent }
   // { path: 'test', loadChildren: () => TestModule },

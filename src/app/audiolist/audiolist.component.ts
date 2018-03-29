@@ -79,21 +79,21 @@ export class AudiolistComponent implements OnInit {
   }
 
   playerNext(){
-    let active_track =  this.playlist.findIndex(x => x.id == this.playerService.audio.ida);
+    let active_track =  this.playlist.findIndex(x => x._id == this.playerService.audio.ida);
     let new_track = this.playlist[(active_track+1)];
     this.playerService.addtoPlayer(new_track);
     this.onChanged(new_track);
   }
 
   playerPrev(){
-    let active_track =  this.playlist.findIndex(x => x.id == this.playerService.audio.ida);
+    let active_track =  this.playlist.findIndex(x => x._id == this.playerService.audio.ida);
     let new_track = this.playlist[(active_track-1)];
     this.playerService.addtoPlayer(new_track);
     this.onChanged(new_track);
   }
 
   onChanged(activeTrack) {
-    const active_track = this.playlist.findIndex(x => x.id == activeTrack.id);
+    const active_track = this.playlist.findIndex(x => x._id == activeTrack._id);
      const old_item = this.playlist.find(x => x.isactive == true);
       if (old_item) { old_item.isactive = false; }
          this.playlist[active_track].isactive = true;

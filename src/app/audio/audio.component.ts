@@ -18,7 +18,7 @@ export class AudioComponent implements OnInit {
 
   ngOnInit() {
 
-      this.audioService.getPlaylist().subscribe(res => {
+      this.audioService.getPlaylistV2().subscribe(res => {
         this.audiolist = res;});
 
 }

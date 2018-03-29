@@ -47,9 +47,9 @@ export class PlayerService {
   }
 
   addtoPlayer(new_track) {
-    // let player = this.playerService;
-    if (this.audio.ida !== new_track.id) {
-      this.audio.ida = new_track.id;
+    if (this.audio.ida !== new_track._id) {
+      
+      this.audio.ida = new_track._id;
     //   ****************************************
       this.audio.src = new_track.url;
       this.playerUpdateTrackInfo(new_track);
