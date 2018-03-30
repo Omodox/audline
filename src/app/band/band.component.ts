@@ -25,7 +25,7 @@ export class BandComponent implements OnInit {
     }
 
   ngOnInit() {
-    this.audioService.getPlaylistByBand(this.id).subscribe(res => {
+    this.audioService.getPlaylistByBandV2(this.id).subscribe(res => {
       this.audiolist = res;})
   }
 

@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
    if (localStorage.getItem('sid'))
    {
     localStorage.removeItem('sid');
-    window.location.replace("/");
+    window.location.replace("/login");
    }
   
   }

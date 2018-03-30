@@ -15,9 +15,13 @@ export class PlaylistService {
    }
 
 
-   login(msg) {
-         return this.http.post('http://localhost:3000/login',msg).map(res  => res.json());
+
+   pushRemoveTrack(arr) {
+       return this.http.post('http://localhost:3000/d_my_playlist?track=', arr)
+    .map(res  => res.json());
      }
+
+
 
 
 }

@@ -33,6 +33,18 @@ export class AudioService {
                  .map(res  => res.json());
          }
 
+  getMyPlaylist(sid) {
+                     return this.http.get('http://localhost:3000/get_my_playlist?sid=' + sid)
+                         .map(res  => res.json());
+            }
+
+
+            getPlaylistByBandV2(band) {
+                     return this.http.get('http://localhost:3000/band?band=' + band)
+                         .map(res  => res.json());
+                 }
+        
+
 
 
 }

@@ -52,7 +52,8 @@
     <div class="track_info">
         <span class="track_name">{{i.name}}</span>
         <span class="performer_name" >
-          <a [routerLink]="['/band', i.performer_url]">{{i.performer_name}}</a>
+          <a *ngIf ="i.performer_url" [routerLink]="['/band', i.performer_url]">{{i.performer_name}}</a>
+          <a *ngIf ="!i.performer_url">{{i.performer_name}}</a>
           </span>
           <span class="time_track">{{i.duration | time }}</span>
           <span class="genre_track">{{i.genre}}</span>
@@ -64,7 +65,6 @@
 
 
   <div *ngIf = "bandurl" class="video_blocks">
-   
 <!-- <div *ngIf="videoUrl" class="modal_box">
     <div class="modal_video_shadow" (click)="showVideo('')"></div>
     <div class="modal_video" (click)="showVideo('')">

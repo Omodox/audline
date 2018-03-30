@@ -1,14 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import { AudioService } from '../../audio/audio.service'
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss']
+  styleUrls: ['./profile.component.scss'],
+  providers: [AudioService]
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(private router: Router) { }
+   audiolist ;
+
+  constructor(private router: Router,private audioService: AudioService) { }
 
 
   sid = localStorage.getItem('sid');
@@ -18,10 +22,12 @@ export class ProfileComponent implements OnInit {
     if (!this.sid) {
       this.router.navigate(['/login']);  
     }
+
+
+    this.audioService.getMyPlaylist(this.sid).subscribe(res => {
+      this.audiolist = res;});
   
   }
 
-
-
-  
 }
+

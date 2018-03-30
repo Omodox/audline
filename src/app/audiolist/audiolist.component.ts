@@ -5,6 +5,9 @@ import { PlayerService } from './player.service';
 import { ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
 
+import {Router} from '@angular/router';
+
+
 @Component({
   selector: 'app-audiolist',
   templateUrl: './audiolist.component.html',
@@ -28,7 +31,8 @@ export class AudiolistComponent implements OnInit {
   constructor(
     private playlistService: PlaylistService,
     private playerService: PlayerService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -139,14 +143,22 @@ shuffle() {
 
 likeTrack(i) {
   i.liked = !i.liked;
-  console.log(i);
+  if (!this.sid) {
+    this.router.navigate(['/login']);  
+  }
+  else {
+    // console.log(i);
   this.playlistService.pushLikedTrack({'sid': this.sid, 'track' : i}).subscribe(res => {
-  
   });
+}
   // console.log(i, '-' , i.liked);
 }
 removeTrack(i,id,active) {
   if (active)  this.playerNext();
+
+  this.playlistService.pushRemoveTrack({'sid': this.sid, 'track' : i}).subscribe(res => {
+  });
+
   this.playlist.splice(id,1);
   // console.log(i_id, i, active);  
 }

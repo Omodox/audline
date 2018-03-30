@@ -23,6 +23,7 @@ import { AudioComponent } from './audio/audio.component';
 import { LoginComponent } from './login/login.component';
 import { SetsComponent } from './sets/sets.component';
 import { ProfileComponent } from './login/profile/profile.component';
+import { RegistrationComponent } from './login/registration/registration.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { ProfileComponent } from './login/profile/profile.component';
     AudioComponent,
     LoginComponent,
     SetsComponent,
-    ProfileComponent
+    ProfileComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
