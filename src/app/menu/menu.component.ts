@@ -15,7 +15,7 @@ export class MenuComponent implements OnInit {
 
   search_form(search) {
     console.log(search.length > 1)
-    this.router.navigate(['/search'], { queryParams: {search}} );
+    this.router.navigate(['/search'], { queryParams: { q : search}} );
 
   }
 

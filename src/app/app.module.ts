@@ -24,6 +24,7 @@ import { LoginComponent } from './login/login.component';
 import { SetsComponent } from './sets/sets.component';
 import { ProfileComponent } from './login/profile/profile.component';
 import { RegistrationComponent } from './login/registration/registration.component';
+import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { RegistrationComponent } from './login/registration/registration.compone
     LoginComponent,
     SetsComponent,
     ProfileComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

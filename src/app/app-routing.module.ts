@@ -14,11 +14,13 @@ import { LoginComponent } from './login/login.component';
 import { SetsComponent } from './sets/sets.component';
 import { ProfileComponent } from './login/profile/profile.component';
 import { RegistrationComponent } from './login/registration/registration.component';
+import { SearchComponent } from './search/search.component';
 
 
 const routes: Routes = [
   { path: '', component: AudioComponent },
   { path: 'bands', component: BandsComponent },
+  { path: 'search', component: SearchComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegistrationComponent},
   { path: 'video', component: VideoComponent },
