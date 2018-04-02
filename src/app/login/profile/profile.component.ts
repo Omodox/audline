@@ -25,7 +25,12 @@ export class ProfileComponent implements OnInit {
 
 
     this.audioService.getMyPlaylist(this.sid).subscribe(res => {
-      this.audiolist = res;});
+      this.audiolist = res;
+    this.audiolist.forEach(element => {
+      element.liked = true;
+      
+    });
+    });
   
   }
 

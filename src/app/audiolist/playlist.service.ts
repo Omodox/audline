@@ -17,7 +17,7 @@ export class PlaylistService {
 
 
    pushRemoveTrack(arr) {
-       return this.http.post('http://localhost:3000/d_my_playlist?track=', arr)
+       return this.http.post('http://localhost:3000/my_blaclist?track=', arr)
     .map(res  => res.json());
      }
 

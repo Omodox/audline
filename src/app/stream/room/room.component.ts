@@ -21,6 +21,7 @@ import { PlayerService }   from '../../audiolist/player.service';
     progress_line: any;
     id = '';
     audiolist;
+    sid = localStorage.getItem('sid');
     
     
   
@@ -67,7 +68,7 @@ import { PlayerService }   from '../../audiolist/player.service';
         switch(tab) {
           case 0: { this.audiolist = [] ; break;}
           case 1: {
-            this.audioService.getPlaylist().subscribe(res => {
+            this.audioService.getMyPlaylist(this.sid).subscribe(res => {
               this.audiolist = res; }); break;}
           case 3: {
               break;

@@ -23,18 +23,33 @@ export class AudioService {
          .map(res  => res.json());
  }
 
- getPlaylistBySearch(search) {
+ getPlaylistBySearchV1(search) {
          return this.http.get('https://audline.net/api/?name=api&search=' + search)
              .map(res  => res.json());
      }
 
-     getPlaylistByGenre(genre) {
+     getPlaylistBySearch(search) {
+             return this.http.get('http://localhost:3000/search?q=' + search)
+                 .map(res  => res.json());
+         }
+
+         getPlaylistByGenre(genre) {
+                     return this.http.get('http://localhost:3000/search?g=' + genre)
+                         .map(res  => res.json());
+                 }
+
+     getPlaylistByGenreV1(genre) {
              return this.http.get('https://audline.net/api/?name=api&genre=' + genre)
                  .map(res  => res.json());
          }
 
   getMyPlaylist(sid) {
                      return this.http.get('http://localhost:3000/get_my_playlist?sid=' + sid)
+                         .map(res  => res.json());
+            }
+
+            getMyBlackPlaylist(sid) {
+                     return this.http.get('http://localhost:3000/get_my_blacklist?sid=' + sid)
                          .map(res  => res.json());
             }
 

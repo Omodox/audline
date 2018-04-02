@@ -14,6 +14,7 @@ export class SearchComponent implements OnInit {
   audiolist;
   id;
   search;
+genre;
 
   private routeSubscription: Subscription;
   private querySubscription: Subscription;
@@ -22,17 +23,23 @@ export class SearchComponent implements OnInit {
     this.querySubscription = route.queryParams.subscribe(
       (queryParam: any) => {
           this.search = queryParam['q'];
+          this.genre = queryParam['g'];
           if (this.search) {
-          console.log(this.search);
+          // console.log(this.search);
+          this.audioService.getPlaylistBySearch(this.search).subscribe(res => {
+            this.audiolist = res;})
+        }
+        if (this.genre) {
+          // console.log(this.search);
+          this.audioService.getPlaylistByGenre(this.genre).subscribe(res => {
+            this.audiolist = res;})
+        }
           }
       }
   );
-  }
+  
 
-ngOnInit() {
-  this.audioService.getPlaylistByBandV2(this.id).subscribe(res => {
-    this.audiolist = res;})
-}
+ngOnInit(){}
 
 }
 

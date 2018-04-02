@@ -82,6 +82,7 @@ export class AudiolistComponent implements OnInit {
   this.onChanged(new_track);
   }
 
+
   playerNext(){
     let active_track =  this.playlist.findIndex(x => x._id == this.playerService.audio.ida);
     let new_track = this.playlist[(active_track+1)];

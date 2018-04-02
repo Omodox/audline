@@ -11,13 +11,40 @@ import { AudioService } from './audio.service'
 export class AudioComponent implements OnInit {
 
   audiolist ;
+  sid = localStorage.getItem('sid');
 
   constructor( private audioService: AudioService,) { }
 
   ngOnInit() {
 
-      this.audioService.getPlaylistV2().subscribe(res => {
-        this.audiolist = res;});
+  
+
+          this.audioService.getPlaylistV2().subscribe(res => {
+
+            this.audiolist = res;
+
+          if (this.sid) {
+                this.audioService.getMyPlaylist(this.sid).subscribe(res => {
+
+                res.forEach(element => {
+                  let s =  this.audiolist.findIndex(x => x._id == element._id);
+                     if (s >= 0) {
+                              this.audiolist[s].liked = true;
+                              }
+                     });
+                   });
+
+                   this.audioService.getMyBlackPlaylist(this.sid).subscribe(res => {
+                    res.forEach(element => {
+                      let s =  this.audiolist.findIndex(x => x._id == element._id);
+                         if (s >= 0) {
+                          this.audiolist.splice(s,1);
+                                  }
+                         });
+                       });
+                 }
+   
+        });
 
 }
 }
