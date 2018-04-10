@@ -7,6 +7,7 @@
       <input type="password" placeholder="Password" name="password" [(ngModel)]="password" required>
       <input class="submit" type="submit" value="Enter" [disabled]="!forma.valid">
       <a routerLink="/registration">Registration</a>
+      <div class="g-signin2" data-onsuccess="onSignIn"></div>
     </form>
     <h1>For test</h1>
     <p>Username : <i>admin@audline.net</i></p>

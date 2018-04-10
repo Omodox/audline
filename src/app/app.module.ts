@@ -25,6 +25,8 @@ import { SetsComponent } from './sets/sets.component';
 import { ProfileComponent } from './login/profile/profile.component';
 import { RegistrationComponent } from './login/registration/registration.component';
 import { SearchComponent } from './search/search.component';
+import { GoogleComponent } from './login/google/google.component';
+import { AddComponent } from './audio/add/add.component';
 
 
 @NgModule({
@@ -47,7 +49,9 @@ import { SearchComponent } from './search/search.component';
     SetsComponent,
     ProfileComponent,
     RegistrationComponent,
-    SearchComponent
+    SearchComponent,
+    GoogleComponent,
+    AddComponent
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,7 @@ import { Component, OnInit, Output, Input , OnDestroy, OnChanges, HostListener }
 import { EventEmitter } from '@angular/core';
 import { PlaylistService } from './playlist.service';
 import { PlayerService } from './player.service';
+import { AdminService } from './../adm/admin.service';
 import { ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
 
@@ -12,7 +13,7 @@ import {Router} from '@angular/router';
   selector: 'app-audiolist',
   templateUrl: './audiolist.component.html',
   styleUrls: ['./audiolist.component.scss'],
-  providers: [PlaylistService,PlayerService]
+  providers: [PlaylistService,PlayerService,AdminService]
 })
 
 export class AudiolistComponent implements OnInit {
@@ -31,6 +32,7 @@ export class AudiolistComponent implements OnInit {
   constructor(
     private playlistService: PlaylistService,
     private playerService: PlayerService,
+    private adminService: AdminService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
@@ -63,6 +65,7 @@ export class AudiolistComponent implements OnInit {
       this.playerNext();
       };
 
+      
 
   };
 
@@ -162,6 +165,11 @@ removeTrack(i,id,active) {
 
   this.playlist.splice(id,1);
   // console.log(i_id, i, active);  
+}
+
+
+dark(){
+ console.log('wiil be soon');
 }
 
 

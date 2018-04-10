@@ -3,11 +3,18 @@ nav {
     position: fixed;
     text-align: left;
     top: 0px;
-   width: 1200px;
+   width: 100%;
     padding: 0px;
     margin: 0px;
     z-index: 100;
-    border-bottom: 2px solid #2196f3;
+    border-bottom: 1px solid #cccccc;
+    box-shadow: 0px 0px 4px #c3c3c3;
+
+    a {
+        color: #000;
+        font-size: 14px;
+        font-weight: 400;
+    }
 
     @media screen and (max-width: 768px) {
         padding: 5px 0px;
@@ -33,6 +40,10 @@ nav ul {
     }
 }
 
+.nav {
+    text-align: left;
+}
+
 .search_form {
     transition: 0.3s;
     padding: 4px;
@@ -55,6 +66,7 @@ nav ul {
 .logo a {
     color: #e53935;
     font-weight: 600;
+    font-size: 23px;
 }
 
 form{

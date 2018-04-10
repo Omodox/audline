@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { TestComponent } from './test.component';
 import { FirstTestComponent } from './first-test/first-test.component';
 import { TestRoutingModule } from './test.routing';
-// import { MenuComponent } from '../menu/menu.component';
+// import { MenuComponent } from '../menu/menu.component';  
 
 @NgModule({
   imports: [

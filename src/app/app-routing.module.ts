@@ -16,6 +16,8 @@ import { ProfileComponent } from './login/profile/profile.component';
 import { RegistrationComponent } from './login/registration/registration.component';
 import { SearchComponent } from './search/search.component';
 
+import { GoogleComponent } from './login/google/google.component';
+
 
 const routes: Routes = [
   { path: '', component: AudioComponent },
@@ -24,6 +26,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegistrationComponent},
   { path: 'video', component: VideoComponent },
+  { path: 'google', component: GoogleComponent },
   // { path: 'search', component: PlaylistComponent},
   { path: 'band/:id', component: BandComponent },
   { path: 'profile', component: ProfileComponent },

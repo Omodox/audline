@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-sets',
@@ -34,6 +35,8 @@ export class SetsComponent implements OnInit {
       'url' : 'staff'
     },
   ]
+
+
 
   ngOnInit() {
   }

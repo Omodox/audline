@@ -1,4 +1,3 @@
-
 <div class="player_box">
   <div class="player">
       <div id="trackname" class="player_track_name">
@@ -21,6 +20,10 @@
       <button class="playlist_button_panel" (click)="shuffle()"><span class="glyphicon glyphicon-sort-by-alphabet"></span></button>
       <button class="playlist_button_panel" (click)="shuffle()"><span class="glyphicon glyphicon-sort-by-order"></span></button>
       <button class="playlist_button_panel" (click)="shuffle()"><span class="glyphicon glyphicon-sort-by-attributes-alt"></span></button>
+      <button class="playlist_button_panel" (click)="adminService.newTrack()"><i class="fas fa-plus-circle"></i></button>
+      <button class="playlist_button_panel" (click)="dark()"><i class="fas fa-moon"></i></button>
+      <button class="playlist_button_panel" (click)="dark()"><i class="fas fa-history"></i></button>
+    
     <div class="playlist_nav_right">
         <button class="playlist_button_panel" (click)="listTo()"><span [ngClass] = "{'glyphicon-th-list' : !list}" class="glyphicon glyphicon-th glyphicon-th-list"></span></button>
         <button class="playlist_button_panel" (click)="shuffle()"><span class="glyphicon glyphicon-random"></span></button>
@@ -30,6 +33,9 @@
     </div>
     <div class="clear"></div>
   </div>
+
+  <app-add *ngIf="adminService.addpanel"></app-add>
+
   <div class="collection" [class.list] = " list === true" >
     <div
     *ngFor="let i of playlist; let i_id = index;"
@@ -56,7 +62,8 @@
           <a *ngIf ="!i.performer_url">{{i.performer_name}}</a>
           </span>
           <span class="time_track">{{i.duration | time }}</span>
-          <a *ngIf = "i.genre" [routerLink]="['search']" [queryParams]="{ g: i.genre }" class="genre_track" >{{i.genre}}</a>
+          <a *ngIf = "i.genre" [routerLink]="['/search']" [queryParams]="{ g: i.genre }" class="genre_track" >{{i.genre}}</a>
+          <!-- <span class="like_track hover_hide"><span class="glyphicon glyphicon-list-alt"></span></span> -->
           <span  (click)="removeTrack(i,i_id,i.isactive)"  class="like_track hover_hide"><span class="glyphicon glyphicon-remove"></span></span>
           <span  (click)="likeTrack(i)"  [ngClass] = "{'liked' : i.liked}" class="like_track"><span class="glyphicon glyphicon-heart"></span></span>
      </div>
