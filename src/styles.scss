@@ -87,5 +87,21 @@
     .dark {
         background: #18191d;
         color: #fff;
+
+      
     }
+
+    .dark {
+        nav {
+            background: #18191d !important;
+            transition: 0.3s;
+            border-bottom: 1px solid #000 !important;
+             box-shadow: 0px 0px 4px #292e34 !important;
+
+            a {
+                color: #fff !important;
+            }
+        }
+    }
+    
 

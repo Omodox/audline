@@ -1,0 +1,5 @@
+<form  (ngSubmit)="send(addTrack)" class="newTrack" #addTrack="ngForm">
+  <input type="text" placeholder="Name" name="name" [ngModel]="name">
+  <textarea name="description" placeholder="Description"></textarea>
+  <button type="submit">Send</button>
+</form>

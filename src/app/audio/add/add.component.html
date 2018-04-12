@@ -1,7 +1,9 @@
-<form  class="newTrack">
-    <input type="text" placeholder="Performer name">
-    <input type="text" placeholder="Track name">
-    <input type="text" placeholder="Url" value="https://zk.fm/download/">
-    <input type="text" placeholder="Genre">
-    <input type="text" placeholder="Performer url">
+<form  (ngSubmit)="send(addTrack)" class="newTrack" #addTrack="ngForm">
+    <input type="text" placeholder="Performer name" name="performer_name" [ngModel]="performer_name">
+    <input type="text" placeholder="Track name" name="name" [ngModel]="name">
+    <input type="text" placeholder="Url"  name="url" [ngModel]="url" ngModel>
+    <input type="text" placeholder="Genre" name="genre" [ngModel]="genre">
+    <input type="text" placeholder="Performer url" name="performer_url" [ngModel]="performer_url">
+    <input type="text" placeholder="Genre" name="duration" [ngModel]="'0'">
+    <button type="submit">Send</button>
 </form>

@@ -18,11 +18,11 @@
 <div class="mine">
   <div class="playlist_nav" *ngIf="playlist">
       <button class="playlist_button_panel" (click)="shuffle()"><span class="glyphicon glyphicon-sort-by-alphabet"></span></button>
-      <button class="playlist_button_panel" (click)="shuffle()"><span class="glyphicon glyphicon-sort-by-order"></span></button>
       <button class="playlist_button_panel" (click)="shuffle()"><span class="glyphicon glyphicon-sort-by-attributes-alt"></span></button>
       <button class="playlist_button_panel" (click)="adminService.newTrack()"><i class="fas fa-plus-circle"></i></button>
-      <button class="playlist_button_panel" (click)="dark()"><i class="fas fa-moon"></i></button>
-      <button class="playlist_button_panel" (click)="dark()"><i class="fas fa-history"></i></button>
+      <button class="playlist_button_panel" (click)="adminService.newPlaylist()"><i class="far fa-list-alt"></i></button>
+      <button class="playlist_button_panel" (click)="darkMode()"><i class="fas fa-moon"></i></button>
+      <button class="playlist_button_panel" (click)="darkMode()"><i class="fas fa-history"></i></button>
     
     <div class="playlist_nav_right">
         <button class="playlist_button_panel" (click)="listTo()"><span [ngClass] = "{'glyphicon-th-list' : !list}" class="glyphicon glyphicon-th glyphicon-th-list"></span></button>
@@ -35,8 +35,9 @@
   </div>
 
   <app-add *ngIf="adminService.addpanel"></app-add>
+  <app-addset *ngIf="adminService.addplaylist"></app-addset>
 
-  <div class="collection" [class.list] = " list === true" >
+  <div class="collection" [class.list] = " list === true" [class.dark] = " dark === true" >
     <div
     *ngFor="let i of playlist; let i_id = index;"
      class="collection-item"

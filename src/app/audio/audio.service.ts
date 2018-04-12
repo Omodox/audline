@@ -58,7 +58,9 @@ export class AudioService {
                      return this.http.get('http://localhost:3000/band?band=' + band)
                          .map(res  => res.json());
                  }
-        
+
+
+  
 
 
 

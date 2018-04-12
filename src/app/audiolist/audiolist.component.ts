@@ -6,6 +6,8 @@ import { AdminService } from './../adm/admin.service';
 import { ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
 
+import * as $ from 'jquery';
+
 import {Router} from '@angular/router';
 
 
@@ -26,6 +28,7 @@ export class AudiolistComponent implements OnInit {
   sid = localStorage.getItem('sid');
   loop;
   list;
+  dark;
   videoUrl;
   private querySubscription: Subscription;
 
@@ -168,8 +171,10 @@ removeTrack(i,id,active) {
 }
 
 
-dark(){
+darkMode(){
  console.log('wiil be soon');
+  this.dark = !this.dark;
+  $('body').toggleClass('dark');
 }
 
 

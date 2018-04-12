@@ -15,6 +15,7 @@ import { SetsComponent } from './sets/sets.component';
 import { ProfileComponent } from './login/profile/profile.component';
 import { RegistrationComponent } from './login/registration/registration.component';
 import { SearchComponent } from './search/search.component';
+import { SetComponent } from './set/set.component';
 
 import { GoogleComponent } from './login/google/google.component';
 
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: 'band/:id', component: BandComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'sets', component: SetsComponent },
+  { path: 'set/:id', component: SetComponent },
   { path: 'streams', component: StreamComponent},
   { path: 'stream/:id', component: RoomComponent }
   // { path: 'test', loadChildren: () => TestModule },

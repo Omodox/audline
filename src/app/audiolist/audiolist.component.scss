@@ -6,7 +6,6 @@
   }
   }
   .player {
-      background: #fff;
       position: fixed;
       top: 6px;
       margin-left: -437px;
@@ -142,6 +141,7 @@
     width: 32%;
     text-align: left;
 
+   
     
     @media screen and (max-width: 768px) {
         width: 97%;
@@ -364,6 +364,23 @@
     
     }
 
+
+    .dark {
+        .collection-item {
+            background: #292e34;
+            color: #fff;
+            border: 1px solid #000;
+        }
+
+        .track_name {
+            color: #fff;
+        }
+
+        .player_track_name {
+            color: #fff;
+        }
+    }
+
     .modal_video {
         position: fixed;
         left: 0;
@@ -394,6 +411,8 @@
     .loop {
         background: #e53935;
     }
+
+
 
 
    

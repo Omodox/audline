@@ -27,6 +27,8 @@ import { RegistrationComponent } from './login/registration/registration.compone
 import { SearchComponent } from './search/search.component';
 import { GoogleComponent } from './login/google/google.component';
 import { AddComponent } from './audio/add/add.component';
+import { SetComponent } from './set/set.component';
+import { AddsetComponent } from './sets/addset/addset.component';
 
 
 @NgModule({
@@ -51,7 +53,9 @@ import { AddComponent } from './audio/add/add.component';
     RegistrationComponent,
     SearchComponent,
     GoogleComponent,
-    AddComponent
+    AddComponent,
+    SetComponent,
+    AddsetComponent
   ],
   imports: [
     BrowserModule,

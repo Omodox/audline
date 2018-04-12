@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { AdminService } from './../../adm/admin.service';
 
 @Component({
-  selector: 'app-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss'],
+  selector: 'app-addset',
+  templateUrl: './addset.component.html',
+  styleUrls: ['./addset.component.scss'],
   providers: [AdminService]
 })
-export class AddComponent implements OnInit {
+export class AddsetComponent implements OnInit {
 
   url = 'https://zk.fm/download/';
   name;
