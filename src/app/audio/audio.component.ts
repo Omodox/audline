@@ -19,8 +19,11 @@ export class AudioComponent implements OnInit {
 
   
 
-          this.audioService.getPlaylistV2().subscribe(res => {
-
+          this.audioService.audGetAudio().subscribe(res => {
+              res.forEach(function(item) {
+                  item._id = item.id;
+              });
+              
             this.audiolist = res;
 
           if (this.sid) {

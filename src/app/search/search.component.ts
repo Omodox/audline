@@ -28,6 +28,11 @@ export class SearchComponent implements OnInit {
         if (this.search) {
           // console.log(this.search);
           this.audioService.getPlaylistBySearch(this.search).subscribe(res => {
+
+            res.forEach(function(item) {
+              item._id = item.id;
+          });
+
             this.audiolist = res;
           });
         }

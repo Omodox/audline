@@ -30,7 +30,11 @@ export class BandComponent implements OnInit {
     //   this.audiolist = res;})
 
 
-      this.audioService.getPlaylistByBandV2(this.id).subscribe(res => {
+      this.audioService.audGetBandPlaylist(this.id).subscribe(res => {
+
+        res.forEach(function(item) {
+          item._id = item.id;
+      });
 
         this.audiolist = res;
 

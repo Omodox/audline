@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
   }
 
   sing(res) {
-    // console.log(res);
+    console.log(res);
        localStorage.setItem('sid',res.sid);
       // this.router.navigate(['/']);  
        window.location.replace("/");
