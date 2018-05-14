@@ -37,14 +37,14 @@ export class AudioComponent implements OnInit {
                      });
                    });
 
-                   this.audioService.getMyBlackPlaylist(this.sid).subscribe(res => {
-                    res.forEach(element => {
-                      let s =  this.audiolist.findIndex(x => x._id == element._id);
-                         if (s >= 0) {
-                          this.audiolist.splice(s,1);
-                                  }
-                         });
-                       });
+                    this.audioService.getMyBlackPlaylist(this.sid).subscribe(res => {
+                      res.forEach(element => {
+                        let s =  this.audiolist.findIndex(x => x._id == element._id);
+                          if (s >= 0) {
+                            this.audiolist.splice(s,1);
+                                    }
+                          });
+                        });
                  }
    
         });
