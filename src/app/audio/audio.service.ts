@@ -51,10 +51,10 @@ host = 'http://audline.xyz/api/?set='
                          .map(res  => res.json());
             }
 
-            getMyBlackPlaylist(sid) {
-                     return this.http.get('http://localhost:3000/get_my_blacklist?sid=' + sid)
-                         .map(res  => res.json());
-            }
+        //     getMyBlackPlaylist(sid) {
+        //              return this.http.get('http://localhost:3000/get_my_blacklist?sid=' + sid)
+        //                  .map(res  => res.json());
+        //     }
 
 
 //             getPlaylistByBandV2(band) {
@@ -81,6 +81,13 @@ host = 'http://audline.xyz/api/?set='
              return this.http.get(this.host + 'search&q=' + search)
                  .map(res  => res.json());
          }
+
+
+
+            getMyBlackPlaylist(sid) {
+                     return this.http.get(`${this.host}my_blacklist&sid=${sid}`)
+                         .map(res  => res.json());
+            }
 
 
  

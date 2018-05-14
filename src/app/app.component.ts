@@ -1,4 +1,5 @@
 import { Component, Output, OnInit, HostListener } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,18 +8,20 @@ import { Component, Output, OnInit, HostListener } from '@angular/core';
 })
 export class AppComponent {
 
-  constructor( ) { }
+
+  constructor(public router: Router) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        ga('set', 'page', event.urlAfterRedirects);
+        ga('send', 'pageview');
+      }
+    });
+  }
 
 
-  // @HostListener('document:click', ['$event'])
-  // onDocumentClicked(ev) {
-  //   console.log('clicked', ev);
-  // }
 
   ngOnInit() {
 
-    //  this.playerService.audio.src= "lorem"; 
-    // console.log(this.playerService.audio);
     
   }
 
