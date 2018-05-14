@@ -1,5 +1,4 @@
 import { Component, Output, OnInit, HostListener } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,15 +7,7 @@ import { NavigationEnd, Router } from '@angular/router';
 })
 export class AppComponent {
 
-
-  constructor(public router: Router) {
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        ga('set', 'page', event.urlAfterRedirects);
-        ga('send', 'pageview');
-      }
-    });
-  }
+  constructor( ) { }
 
 
 
