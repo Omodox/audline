@@ -2,7 +2,7 @@
 <div class="row">
   <div class="s6">
     <h1>Sign Up</h1>
-    <form (ngSubmit)="login(); forma.reset();" #forma="ngForm"  class="login_form">
+    <form (ngSubmit)="signUp(); forma.reset();" #forma="ngForm"  class="login_form">
       <input type="text" placeholder="Email" [(ngModel)]="email" name="email" required email>
       <input type="password" placeholder="Password" name="password" [(ngModel)]="password" required>
       <input type="password" placeholder="Confirm password" name="password2" [(ngModel)]="password2" required>

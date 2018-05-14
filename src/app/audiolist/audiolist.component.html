@@ -37,7 +37,7 @@
   <app-add *ngIf="adminService.addpanel"></app-add>
   <app-addset *ngIf="adminService.addplaylist"></app-addset>
 
-  <div class="collection" [class.list] = " list === true" [class.dark] = " dark === true" >
+  <div class="collection" [class.list] = " list === !true" [class.dark] = " dark === true" >
     <div
     *ngFor="let i of playlist; let i_id = index;"
      class="collection-item"
@@ -59,7 +59,7 @@
     <div class="track_info">
         <span class="track_name">{{i.name}}</span>
         <span class="performer_name" >
-          <a *ngIf ="i.performer_url" [routerLink]="['/band', i.performer_url]">{{i.performer_name}}</a>
+          <a *ngIf ="i.performer_url" [routerLink]="['/performer', i.performer_url]">{{i.performer_name}}</a>
           <a *ngIf ="!i.performer_url">{{i.performer_name}}</a>
           </span>
           <span class="time_track">{{i.duration | time }}</span>

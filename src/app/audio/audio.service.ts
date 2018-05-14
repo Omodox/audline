@@ -47,7 +47,7 @@ host = 'http://audline.xyz/api/?set='
 //          }
 
   getMyPlaylist(sid) {
-                     return this.http.get('http://localhost:3000/get_my_playlist?sid=' + sid)
+                     return this.http.get(`${this.host}my_list&sid=${sid}`)
                          .map(res  => res.json());
             }
 

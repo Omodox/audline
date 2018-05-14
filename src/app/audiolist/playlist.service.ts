@@ -9,15 +9,17 @@ export class PlaylistService {
      constructor(private http: Http) { }
 
 
+ server = 'http://audline.xyz/api/'
+
+
  pushLikedTrack(arr) {
-     return this.http.post('http://localhost:3000/my_playlist?track=', arr)
+     return this.http.get(`${this.server}?set=like&sid=${arr.sid}&track=${arr.track.id}`)
   .map(res  => res.json());
    }
 
 
-
    pushRemoveTrack(arr) {
-       return this.http.post('http://localhost:3000/my_blaclist?track=', arr)
+       return this.http.get(`${this.server}?set=disclike&sid=${arr.sid}&track=${arr.track.id}`)
     .map(res  => res.json());
      }
 

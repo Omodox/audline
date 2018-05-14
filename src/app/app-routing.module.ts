@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: 'video', component: VideoComponent },
   { path: 'google', component: GoogleComponent },
   // { path: 'search', component: PlaylistComponent},
-  { path: 'band/:id', component: BandComponent },
+  { path: 'performer/:id', component: BandComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'sets', component: SetsComponent },
   { path: 'set/:id', component: SetComponent },
