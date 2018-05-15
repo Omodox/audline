@@ -29,9 +29,7 @@ export class AudioComponent implements OnInit {
           if (this.sid) {
                 this.audioService.getMyPlaylist(this.sid).subscribe(res => {
 
-                  res.forEach(function(item) {
-                    item._id = item.id;
-                });
+            
 
                 res.forEach(element => {
                   let s =  this.audiolist.findIndex(x => x._id == element._id);

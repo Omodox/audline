@@ -36,12 +36,45 @@ nav ul {
     padding-left: 15px;
 
     @media screen and (max-width: 768px) {
-      display: none;
+    //   display: none;
     }
 }
 
 .nav {
     text-align: left;
+
+    ul {
+        @media screen and (max-width: 768px) {
+            position: fixed;
+            background: #fff;
+            right: 0px;
+            top: 46px;
+            width: 100%;
+            box-shadow: 0px 10px 16px #d3d3d3;
+         }
+    }
+
+    form {
+        @media screen and (max-width: 768px) {
+            float: right;
+            padding: 4px 2px;
+        }
+    }
+}
+
+.mobile_nav {
+    display: none;
+
+    @media screen  and (max-width:768px){
+        display: inline-block;
+        float: right;
+        background: none;
+        border: 0px;
+        font-size: 25px;
+        padding: 2px 15px;
+        
+        
+    }
 }
 
 .search_form {
