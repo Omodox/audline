@@ -1,6 +1,6 @@
 <nav>
-  <div class="container">
-    <div class="row">
+  <div class="scontainer">
+    <div class="srow">
       <div class="s1 sp2 middle">
         <a routerLink="/" class="logo"> Audline</a>
       </div>
@@ -13,8 +13,11 @@
             <a routerLink="/sets">Плейлисты</a>
           </li>
           <li>
-            <a routerLink="/login">Войти</a>
-            <a routerLink="/profile">Профиль</a>
+              <a routerLink="/radio">Радио</a>
+          </li>
+          <li>
+            <a routerLink="/login" *ngIf="!sid">Войти</a>
+            <a routerLink="/profile" *ngIf="sid">Профиль</a>
           </li>
         </ul>
       </div>
