@@ -146,12 +146,11 @@
     text-align: left;
  
 
-   
-    
+
     @media screen and (max-width: 768px) {
         width: 97%;
         padding: 4px;
-        margin: 2px;
+        margin: -2px 2px;
         overflow: hidden;
     }
 
@@ -195,9 +194,25 @@
      transition: 0.3s;
 
      @media screen and (max-width: 768px) {
-        padding: 9px 5px 8px 14px;
+        padding: 9px 3px 8px 10px;
+        font-size: 20px;
     }
 
+}
+
+.mobile_track_button {
+    display: none; 
+    @media screen and (max-width: 768px) { 
+        display: inline;
+        background: none;
+        position: absolute;
+        right: 0px;
+        top: 23%;
+        border: 0px;
+        font-size: 20px;
+        color: #777;
+
+    }
 }
 
 .play_button:hover {
@@ -210,6 +225,7 @@
     display: inline-block;
     vertical-align: middle;
     width: 80%;
+    position: relative;
 }
 
 .hover_hide {

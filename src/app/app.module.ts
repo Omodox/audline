@@ -29,6 +29,7 @@ import { GoogleComponent } from './login/google/google.component';
 import { AddComponent } from './audio/add/add.component';
 import { SetComponent } from './set/set.component';
 import { AddsetComponent } from './sets/addset/addset.component';
+import { RadioComponent } from './radio/radio.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { AddsetComponent } from './sets/addset/addset.component';
     GoogleComponent,
     AddComponent,
     SetComponent,
-    AddsetComponent
+    AddsetComponent,
+    RadioComponent
   ],
   imports: [
     BrowserModule,
