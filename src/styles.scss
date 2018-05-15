@@ -17,7 +17,7 @@
     .block_a a{color:#fff;}
     .px4{margin:4px;padding:4px;}
     .img_block{text-align:center;}
-    .middle{vertical-align:middle;}
+    .middle{vertical-align:middle !important;}
     .s1{width:8.3333333%;}
     .s2{width:16.666666%;}
     .s3{width:24.9999999%;}
@@ -104,4 +104,9 @@
         }
     }
     
-
+main {
+    @media screen and (max-width: 768px) {
+        padding-top: 40px;
+        
+    }
+}

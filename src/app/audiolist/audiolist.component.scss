@@ -38,7 +38,7 @@
   
       @media screen and (max-width: 768px) {
           width: 99%;
-          height: 40px;
+          height: 30x;
           margin: 4px 0px;
           border-radius: 0px;
           margin: auto;
@@ -53,11 +53,12 @@
       z-index: 3;
       height: 22px;
       overflow: hidden;
-  
+    
       @media screen and (max-width: 768px) {
    
-          line-height: 31px;
+          line-height: 24px;
           vertical-align: middle;
+    
       }
   }
   
@@ -143,7 +144,7 @@
     background: #fff;
     width: 32%;
     text-align: left;
-    overflow: hidden;
+ 
 
    
     
@@ -151,6 +152,7 @@
         width: 97%;
         padding: 4px;
         margin: 2px;
+        overflow: hidden;
     }
 
     
@@ -254,6 +256,7 @@
         
     @media screen and (max-width: 768px) {
         width: 97%;
+        display: none;
     }
 
     }
