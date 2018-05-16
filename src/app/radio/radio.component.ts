@@ -20,7 +20,7 @@ export class RadioComponent implements OnInit {
       name : 'NRJ',
       performer_name : 'Киев',
       genre: 'radio' ,
-      img : 'http://nrj.ua/media/default/images/logo_v2.png',
+      img : 'http://zk.fm/userdata/radio/1e26fb4a082d0c8118756e6a1a732abe.jpg',
       active : false
     },
     {
@@ -29,7 +29,7 @@ export class RadioComponent implements OnInit {
       name : 'Hit FM',
       performer_name : 'Киев',
       genre: 'radio' ,
-      img : 'https://www.hitfm.ua/static/img/content/new_main/HitFM_logo.png',
+      img : 'http://zk.fm/userdata/radio/20c36a401d69c001e5c39dccddc6a0d4.jpg',
       active : false
     },
 
@@ -39,7 +39,7 @@ export class RadioComponent implements OnInit {
       name : 'KISS FM',
       performer_name : 'Киев',
       genre: 'radio' ,
-      img : 'http://auto-art.com.ua/image/cache/data/goods/music/kiss-fm-315x315.png',
+      img : 'http://zk.fm/userdata/radio/694e7fbc2a803dc542fc3796eae33983.jpg',
       active : false
     },
 
@@ -49,12 +49,20 @@ export class RadioComponent implements OnInit {
       name : 'Lux FM',
       performer_name : 'Киев',
       genre: 'radio',
-      img : 'https://lux.fm/images/logo512.png',
+      img : 'http://zk.fm/userdata/radio/89a595c0e3a45971e7cdf51ef223a42d.jpg',
+      active : false
+    },
+    {
+      id : 5,
+      url : 'http://online-radioroks.tavrmedia.ua:8000/RadioROKS',
+      name : 'Radio Rock',
+      performer_name : 'Киев',
+      genre: 'radio',
+      img : 'http://zk.fm/userdata/radio/4640d2aaa4b7666a9ec564380c8823cf.jpg',
       active : false
     }
 
 
-    
   ];
 
 
