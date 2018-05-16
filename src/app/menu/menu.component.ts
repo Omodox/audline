@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import { HeartService } from '../audiolist/heart.service';
 
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+  styleUrls: ['./menu.component.scss'],
+  providers: [HeartService]
 })
 export class MenuComponent implements OnInit {
 
@@ -16,7 +18,7 @@ export class MenuComponent implements OnInit {
 
   sid = localStorage.getItem('sid');
 
-  constructor(private router: Router){}
+  constructor(private router: Router, private heartService : HeartService){}
 
   search_form(search) {
     console.log(search.length > 1);
@@ -31,6 +33,25 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    // console.log(this.heartService.track_id);
+
+    
+
+
+    this.heartService.track_id.subscribe(res => {
+      console.log(res);
+     });
+
   }
+
+
+
+  send() {
+    this.heartService.track_id.emit('0000');
+  }
+
+
+  
 
 }
