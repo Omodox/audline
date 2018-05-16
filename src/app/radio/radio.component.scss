@@ -1,4 +1,5 @@
-.radio {
+.radio_page {
+    padding-bottom: 60px;
   
 }
 
@@ -9,8 +10,12 @@
     transition: 0.3s;
     background: #fff;
     text-align: left;
-    width: 98%;
-    margin: 4px;
+    width: 96%;
+    margin: 6px;
+
+    img {
+        max-width: 100px;
+    }
 }
 
 
@@ -26,4 +31,8 @@
     font-size: 27px;
     -webkit-transition: 0.3s;
     transition: 0.3s;
+}
+
+.active {
+    background: #e53935;
 }
