@@ -8,13 +8,12 @@ import 'rxjs/add/operator/map';
 
 import { ChatService }   from '../stream.service';
 import { AudioService }   from '../../audio/audio.service';
-import { PlayerService }   from '../../audiolist/player.service';
   
   @Component({
     selector: 'app-band',
     templateUrl: './room.component.html',
     styleUrls: ['./room.component.scss'],
-    providers: [ChatService, AudioService, PlayerService]
+    providers: [ChatService, AudioService]
   })
   export class RoomComponent implements OnInit {
   
@@ -30,8 +29,7 @@ import { PlayerService }   from '../../audiolist/player.service';
      constructor(
        private route: ActivatedRoute,
         private chatService: ChatService,
-        private audioService : AudioService,
-        private playerService : PlayerService
+        private audioService : AudioService
         ){
   
           this.routeSubscription = route.params.subscribe(params => this.id = params['id']);

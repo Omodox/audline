@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, Input , OnDestroy, OnChanges, HostListener } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { PlaylistService } from './playlist.service';
-import { PlayerService } from './player.service';
 import { AdminService } from './../adm/admin.service';
 import { ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
@@ -9,19 +8,19 @@ import {Subscription} from 'rxjs/Subscription';
 import * as $ from 'jquery';
 
 import {Router} from '@angular/router';
+import { HeartService } from './heart.service';
 
 
 @Component({
   selector: 'app-audiolist',
   templateUrl: './audiolist.component.html',
   styleUrls: ['./audiolist.component.scss'],
-  providers: [PlaylistService,PlayerService,AdminService]
+  providers: [PlaylistService,AdminService]
 })
 
 export class AudiolistComponent implements OnInit {
   @Output() onData = new EventEmitter<any>();
-  progress: number;
-  progress_line: HTMLElement;
+
   @Input() playlist;
   @Input() type;
   lorem  =  {};
@@ -30,14 +29,15 @@ export class AudiolistComponent implements OnInit {
   list;
   dark;
   videoUrl;
+  paused_on_track;
   private querySubscription: Subscription;
 
   constructor(
     private playlistService: PlaylistService,
-    private playerService: PlayerService,
     private adminService: AdminService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private heartService : HeartService
   ) {}
 
   ngOnInit() {
@@ -49,26 +49,26 @@ export class AudiolistComponent implements OnInit {
        this.list = false;
      }
 
-    this.progress_line = document.getElementById('trackname');
-    this.progress_line.onclick = (e) => {
-    //  console.log(e);
-     var offset = this.progress_line.getBoundingClientRect();
-     var position = 100 / offset.width * (e.clientX - offset.left);
-    //  console.log(position);
-     var playerTime =  this.playerService.audio.duration /100 * position;
-    //  console.log(playerTime);
-    this.playerService.audio.currentTime = playerTime;
-    };
-  
-    this.playerService.audio.ontimeupdate = () => {
-      this.progress =  100 / this.playerService.audio.duration * this.playerService.audio.currentTime;
-      };
 
-    this.playerService.audio.onended = () => {
-      this.playerNext();
-      };
+     this.heartService.from_player.subscribe(res => {
+    
+      if (res == 'next') {
+        this.playerNext();
+      } 
 
-      
+      if (res == 'prev') {
+        this.playerPrev();
+      } 
+
+      if (res == 'stop') {
+        // this.playerNext();
+        console.log('add pause effect');
+        this.paused_on_track = true;
+      } 
+    
+     });
+
+
 
   };
 
@@ -84,23 +84,28 @@ export class AudiolistComponent implements OnInit {
   // ********
 
   addtoPlayer(new_track) {
-  this.playerService.addtoPlayer(new_track);
+  // this.playerService.addtoPlayer(new_track);
   this.onChanged(new_track);
+  this.heartService.track.emit(new_track);
+  
   }
 
 
   playerNext(){
-    let active_track =  this.playlist.findIndex(x => x._id == this.playerService.audio.ida);
+     let active_track =  this.playlist.findIndex(x => x._id == this.heartService.track_active.id);
     let new_track = this.playlist[(active_track+1)];
-    this.playerService.addtoPlayer(new_track);
+    // this.playerService.addtoPlayer(new_track);
     this.onChanged(new_track);
+    this.heartService.track.emit(new_track);
+   
   }
 
   playerPrev(){
-    let active_track =  this.playlist.findIndex(x => x._id == this.playerService.audio.ida);
+    let active_track =  this.playlist.findIndex(x => x._id == this.heartService.track_active.id);
     let new_track = this.playlist[(active_track-1)];
-    this.playerService.addtoPlayer(new_track);
+    // this.playerService.addtoPlayer(new_track);
     this.onChanged(new_track);
+    this.heartService.track.emit(new_track);
   }
 
   onChanged(activeTrack) {
@@ -191,7 +196,6 @@ else this.videoUrl = '';
 @HostListener('document:keydown', ['$event']) onKeydownHandler(event: KeyboardEvent) { 
   if (document.activeElement.tagName == 'INPUT') { return; }
 
-  const player = this.playerService; 
 
     if (event.keyCode === 82) {
       event.preventDefault();
@@ -206,12 +210,6 @@ else this.videoUrl = '';
 
     }
     
-    if (event.keyCode === 32) {
-      event.preventDefault();
-      event.stopPropagation();
-      player.playerPlay();
-
-    }
 
     if (event.keyCode === 39 || event.keyCode === 69 ) {
       event.preventDefault();
@@ -225,36 +223,9 @@ else this.videoUrl = '';
      this.playerPrev();
     }
 
-    if (event.keyCode === 40 || event.keyCode === 83) {
-      event.preventDefault();
-      event.stopPropagation();
-      if (player.audio.volume >= 0.05)
-      player.audio.volume = player.audio.volume - 0.05;
-     localStorage.setItem('volume', player  .audio.volume);
-    }
-
-    if (event.keyCode === 38 || event.keyCode === 87) {
-      event.preventDefault();
-      event.stopPropagation();
-      if (player.audio.volume <= 1)
-      player.audio.volume = player.audio.volume + 0.05;
-     localStorage.setItem('volume', player.audio.volume);
-    }
-
-    if (event.keyCode === 68) {
-      event.preventDefault();
-      event.stopPropagation();
-      if ( (player.audio.duration - player.audio.currentTime) > 5)
-      player.audio.currentTime = player.audio.currentTime + 5;
-    }
+ 
 
 
-    if (event.keyCode === 65) {
-      event.preventDefault();
-      event.stopPropagation();
-      if (player.currentTime >=  5) 
-      player.audio.currentTime = player.currentTime - 5;
-    }
 }
 
 }

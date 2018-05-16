@@ -6,8 +6,7 @@ import { HeartService } from '../audiolist/heart.service';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss'],
-  providers: [HeartService]
+  styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
 
@@ -37,21 +36,15 @@ export class MenuComponent implements OnInit {
     // console.log(this.heartService.track_id);
 
     
-
-
-    this.heartService.track_id.subscribe(res => {
-      console.log(res);
-     });
+    // this.heartService.track.subscribe(res => {
+    //   console.log(res);
+    //  });
 
   }
 
+  // send() {
+  //   this.heartService.track_id.emit('0000');
+  // }
 
-
-  send() {
-    this.heartService.track_id.emit('0000');
-  }
-
-
-  
 
 }

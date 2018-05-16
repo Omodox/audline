@@ -30,6 +30,8 @@ import { AddComponent } from './audio/add/add.component';
 import { SetComponent } from './set/set.component';
 import { AddsetComponent } from './sets/addset/addset.component';
 import { RadioComponent } from './radio/radio.component';
+import { HeartService } from './audiolist/heart.service';
+import { PlayerComponent } from './menu/player/player.component';
 
 
 @NgModule({
@@ -57,7 +59,8 @@ import { RadioComponent } from './radio/radio.component';
     AddComponent,
     SetComponent,
     AddsetComponent,
-    RadioComponent
+    RadioComponent,
+    PlayerComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +68,7 @@ import { RadioComponent } from './radio/radio.component';
     HttpModule,
     FormsModule
   ],
-  providers: [],
+  providers: [HeartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

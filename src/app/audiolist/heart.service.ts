@@ -5,7 +5,9 @@ export class HeartService {
 
   constructor() { }
 
-  audio = new Audio;
-  track_id: EventEmitter<any> = new EventEmitter();
+
+  track: EventEmitter<any> = new EventEmitter();
+  track_active;
+  from_player :  EventEmitter<any> = new EventEmitter();
 
 }
