@@ -99,12 +99,12 @@ import { AudioService }   from '../../audio/audio.service';
 
       if ((message as any).type == 'command') {
           if ((message as any).text == 'play') {
-            this.playerService.playerPlay();
+            // this.playerService.playerPlay();
           }
           if ((message as any).text == 'next') {
-            let active_track =  this.audiolist.findIndex(x => x.id == this.playerService.audio.ida);
-            let new_track = this.audiolist[(active_track+1)];
-            this.playerService.addtoPlayer(new_track);
+            // let active_track =  this.audiolist.findIndex(x => x.id == this.playerService.audio.ida);
+            // let new_track = this.audiolist[(active_track+1)];
+            // this.playerService.addtoPlayer(new_track);
           }
 
           if (typeof((message as any).text) == 'object') {

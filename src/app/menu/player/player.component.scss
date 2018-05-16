@@ -3,6 +3,8 @@
   
     @media screen and (max-width: 1024px) {
       float: none;
+
+
   }
   }
   .player {
@@ -19,6 +21,13 @@
           width: 100%;
           background: #fff;
           padding: 4px;
+      }
+
+      @media screen and (max-width: 768px) {
+
+        width: 98%;
+        border-top: 1px solid #c0c0c0;
+
       }
       
   }
@@ -43,7 +52,7 @@
           border-radius: 0px;
           margin: auto;
           display: block;
-          margin: 8px 1px;
+          margin: 4px 2px;
       }
   }
   
@@ -85,9 +94,9 @@
   
       @media screen and (max-width: 768px) {
           width: 31%;
-          height: 40px;
+          height: 32px;
         border-radius: 0px;
-        font-size: 30px;
+        font-size: 27px;
         padding: 0px;
       }
   }
@@ -106,9 +115,9 @@
   
       @media screen and (max-width: 768px) {
           width: 33%;
-          height: 40px;
+          height: 32px;
         border-radius: 0px;
-        font-size: 24px;
+        font-size: 22px;
         padding: 0px;
       }
   }
@@ -117,3 +126,5 @@
       background: #1976d2;
       transition: 0.3s;
   }
+
+

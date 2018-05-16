@@ -29,7 +29,7 @@ export class AudiolistComponent implements OnInit {
   list;
   dark;
   videoUrl;
-  paused_on_track;
+  popOverMobileTrack;
   private querySubscription: Subscription;
 
   constructor(
@@ -51,25 +51,26 @@ export class AudiolistComponent implements OnInit {
 
 
      this.heartService.from_player.subscribe(res => {
+
+    
     
       if (res == 'next') {
-        this.playerNext();
+        this.playerNext(1);
       } 
 
       if (res == 'prev') {
-        this.playerPrev();
+        this.playerNext(-1);
       } 
 
       if (res == 'stop') {
-        // this.playerNext();
         console.log('add pause effect');
-        this.paused_on_track = true;
+      //  let coin =  this.playlist.findIndex(x => x._id == this.heartService.track_active.id);  
+      //    this.playlist[coin].paused_on_track = true;
       } 
     
      });
 
-
-
+   
   };
 
   ngOnChanges() {
@@ -83,30 +84,28 @@ export class AudiolistComponent implements OnInit {
   }
   // ********
 
-  addtoPlayer(new_track) {
-  // this.playerService.addtoPlayer(new_track);
-  this.onChanged(new_track);
-  this.heartService.track.emit(new_track);
+ 
+
+  playerNext(index){
+   
+    if (!this.heartService.track_active) {
+      let new_track = this.playlist[0];
+      this.send_track(new_track);
+      if (index == '-1') new_track = this.playlist[this.playlist.length - 1];
+    }
+    else {
+      let active_track =  this.playlist.findIndex(x => x._id == this.heartService.track_active.id);
+      let new_track = this.playlist[(active_track+index)];
+      this.send_track(new_track);
+    }
   
   }
 
-
-  playerNext(){
-     let active_track =  this.playlist.findIndex(x => x._id == this.heartService.track_active.id);
-    let new_track = this.playlist[(active_track+1)];
-    // this.playerService.addtoPlayer(new_track);
-    this.onChanged(new_track);
-    this.heartService.track.emit(new_track);
-   
+  send_track(track){
+    this.onChanged(track);
+    this.heartService.track.emit(track);
   }
 
-  playerPrev(){
-    let active_track =  this.playlist.findIndex(x => x._id == this.heartService.track_active.id);
-    let new_track = this.playlist[(active_track-1)];
-    // this.playerService.addtoPlayer(new_track);
-    this.onChanged(new_track);
-    this.heartService.track.emit(new_track);
-  }
 
   onChanged(activeTrack) {
     const active_track = this.playlist.findIndex(x => x._id == activeTrack._id);
@@ -166,7 +165,7 @@ likeTrack(i) {
   // console.log(i, '-' , i.liked);
 }
 removeTrack(i,id,active) {
-  if (active)  this.playerNext();
+  if (active)  this.playerNext(1);
 
   this.playlistService.pushRemoveTrack({'sid': this.sid, 'track' : i}).subscribe(res => {
   });
@@ -193,6 +192,12 @@ else this.videoUrl = '';
 
 }
 
+
+closeMobilePopOver() {
+  this.popOverMobileTrack = '';
+}
+
+
 @HostListener('document:keydown', ['$event']) onKeydownHandler(event: KeyboardEvent) { 
   if (document.activeElement.tagName == 'INPUT') { return; }
 
@@ -214,13 +219,13 @@ else this.videoUrl = '';
     if (event.keyCode === 39 || event.keyCode === 69 ) {
       event.preventDefault();
       event.stopPropagation();
-     this.playerNext();
+     this.playerNext(1);
     }
 
     if (event.keyCode === 37 || event.keyCode === 81) {
       event.preventDefault();
       event.stopPropagation();
-     this.playerPrev();
+     this.playerNext(-1);
     }
 
  
