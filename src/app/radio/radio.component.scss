@@ -1,3 +1,29 @@
 .radio {
-  word-spacing: 0px;
+  
+}
+
+.radio_item {
+    display: inline-block;
+    padding: 10px 4px;
+    border: 1px solid #eee;
+    transition: 0.3s;
+    background: #fff;
+    text-align: left;
+    width: 98%;
+    margin: 4px;
+}
+
+
+.play_button {
+    background: #2196f3;
+    border-radius: 5px;
+    margin: 6px;
+    padding: 10px 26px;
+    border: 0px;
+    vertical-align: middle;
+    color: #fff;
+    cursor: pointer;
+    font-size: 27px;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
 }

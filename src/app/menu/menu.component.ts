@@ -9,13 +9,24 @@ import {Router} from '@angular/router';
 })
 export class MenuComponent implements OnInit {
 
+
+  mobile_nav_open = false;
+  mobile_nav_search_open = false;
+
+
   sid = localStorage.getItem('sid');
 
   constructor(private router: Router){}
 
   search_form(search) {
-    console.log(search.length > 1)
-    this.router.navigate(['/search'], { queryParams: { q : search}} );
+    console.log(search.length > 1);
+    if (search.length > 1) {
+      this.router.navigate(['/search'], { queryParams: { q : search}} );
+
+      this.mobile_nav_search_open = false;
+      this.mobile_nav_open = false;
+    }
+   
 
   }
 

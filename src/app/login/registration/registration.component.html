@@ -1,6 +1,6 @@
 <app-audiolist [playlist] = 'audiolist' ></app-audiolist>
-<div class="row">
-  <div class="s6">
+<div class="srow">
+  <div class="s6 ssm12">
     <h1>Sign Up</h1>
     <form (ngSubmit)="signUp(); forma.reset();" #forma="ngForm"  class="login_form">
       <input type="text" placeholder="Email" [(ngModel)]="email" name="email" required email>

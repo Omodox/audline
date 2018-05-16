@@ -1,6 +1,6 @@
 <app-audiolist [playlist] = 'audiolist' ></app-audiolist>
-<div class="row">
-  <div class="s3" *ngFor="let i of rooms; let id = index;">
+<div class="srow">
+  <div class="s3 ssm6" *ngFor="let i of rooms; let id = index;">
   <a class="room_link" [routerLink]='"/set/" + i.url'> {{i.name}}</a>
   </div>
   </div>

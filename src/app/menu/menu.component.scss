@@ -8,6 +8,12 @@ nav {
     z-index: 100;
     min-height: 50px;
     padding: 5px;
+
+
+    @media screen  and (max-width:768px){ 
+        min-height: initial;
+        height: 50px;
+    }
 }
 
 .logo {
@@ -35,6 +41,26 @@ nav {
     @media screen  and (max-width:768px){
         position: relative;
         top: 0px;
+
+ 
+    }
+
+}
+
+.form {
+
+
+    @media screen  and (max-width:768px){
+       display: none;
+
+       width: 100%;
+       background: #fff;
+       padding: 10px;
+       z-index: 1001;
+       top: 7px;
+       box-shadow: 0px 0px 4px #000;
+
+ 
     }
 
 }
@@ -49,28 +75,128 @@ nav {
     background: no-repeat;
     border: 0px;
     top: 7px;
+    outline: none;
     @media screen  and (max-width:768px){
-        top: 2px;
+     display: none;
     }
     
 }
+
+.mibile_bar_search {
+    display: none;
+
+    @media screen  and (max-width:768px){
+        outline: none;
+        background: no-repeat;
+        background: none;
+        border: 0px;
+        position: fixed;
+        top: 7px;
+        right: 56px;
+        font-size: 21px;
+    }
+
+}
+
+
+.mobile_nav_search_open { 
+
+    @media screen  and (max-width:768px){ 
+        display: block;
+    }
+
+    .button_search {
+
+        @media screen  and (max-width:768px){ 
+            display: block;
+            right: 10px;
+            top: 13px;
+        }
+
+    }
+  
+}
+
+
 
 ul {
     padding-left: 0px;
     margin: 0px;
     padding-left: 10px;
 
-    li a{
-        width: 100%;
-        padding: 4px 6px;
-        color: #000;
-        font-weight: 400;
-        font-size: 18px;
+    li  {
 
-        @media screen and (max-width:768px){
-            font-size: 14px;
-            
-        }
+        a{
+            width: 100%;
+            padding: 4px 6px;
+            color: #000;
+            font-weight: 400;
+            font-size: 16px;
+    
+            @media screen and (max-width:768px){
+           
+    
+                
+            }
+         } 
+
+    @media screen and (max-width:768px){
+        display: block;
+        margin: 8px;    
+        border-bottom: 1px solid #ccc;
+        padding: 4px;
+
+      }   
     }
 
+
+    @media screen and (max-width:768px){
+
+        position: absolute;
+        right: 0px;
+        top: 38px;
+        text-align: left;
+        z-index: 1001;
+        background: #fff;
+        width: 100%;
+        // border-bottom: 1px solid #999;
+        height: 0px;
+        overflow: hidden;
+        transition: 0.3s;
+        padding-bottom: 12px;
+
+     }
+
 } 
+
+
+.mobile_nav_open{ 
+
+    @media screen and (max-width:768px){
+        height: initial;
+        transition: 0.3s;
+        box-shadow: 0px 9px 12px #969696;
+     }
+    
+}
+
+.mibile_bar {
+    display: none;
+    position: absolute;
+    right: 0px;
+    top: 5px;
+    position: absolute;
+    right: 8px;
+    top: 2px;
+    font-size: 30px;
+    background: none;
+    border: 0px;
+    outline: none;
+
+
+    @media screen and (max-width:768px){
+        display: block;
+        
+    }
+
+}
