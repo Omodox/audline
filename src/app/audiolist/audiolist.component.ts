@@ -96,7 +96,7 @@ export class AudiolistComponent implements OnInit {
       if (index == '-1') new_track = this.playlist[this.playlist.length - 1];
     }
     else {
-      let active_track =  this.playlist.findIndex(x => x._id == this.heartService.track_active.id);
+      let active_track =  this.playlist.findIndex(x => x.id == this.heartService.track_active.id);
       let new_track = this.playlist[(active_track+index)];
       this.send_track(new_track);
     }
@@ -110,7 +110,7 @@ export class AudiolistComponent implements OnInit {
 
 
   onChanged(activeTrack) {
-    const active_track = this.playlist.findIndex(x => x._id == activeTrack._id);
+    const active_track = this.playlist.findIndex(x => x.id == activeTrack.id);
      const old_item = this.playlist.find(x => x.isactive == true);
       if (old_item) { old_item.isactive = false; }
          this.playlist[active_track].isactive = true;
