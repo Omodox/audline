@@ -27,9 +27,17 @@ export class PlaylistService {
 
 
 
-     getMyPlaylists(sid) {
-             return this.http.get(`${this.server}?set=my_playlists&sid=${sid}`)
+     getMyPlaylists(sid,track_id) {
+             return this.http.get(`${this.server}?set=my_playlists&sid=${sid}&track=${track_id}`)
                  .map(res  => res.json());
+    }
+
+
+    set_playlist_track(sid,track_id,playlist) {
+
+        return this.http.get(`${this.server}?set=set_playlist_track&sid=${sid}&track=${track_id}&playlist=${playlist}`)
+        .map(res  => res.json());
+        
     }
 
 

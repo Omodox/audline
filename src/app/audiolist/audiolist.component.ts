@@ -200,11 +200,21 @@ closeMobilePopOver() {
 }
 
 
-getMyPlaylists() {
-  this.playlistService.getMyPlaylists(this.sid).subscribe(res => {
+getMyPlaylists(track) {
+  this.playlistService.getMyPlaylists(this.sid,track.id).subscribe(res => {
     this.overMyPlaylists = res;
+    this.overMyPlaylists.track = track;
+    console.log(this.overMyPlaylists);
+  })
+}
+
+set_playlist_track(track,playlist) {
+  console.log('ok');
+  console.log(track,playlist);
+  this.playlistService.set_playlist_track(this.sid,track.id,playlist).subscribe(res => {
     console.log(res);
   })
+  
 }
 
 

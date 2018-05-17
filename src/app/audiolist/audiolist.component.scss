@@ -561,7 +561,7 @@
     z-index: 400;
     z-index: 1002;
     position: fixed;
-    top:25%;
+    top:10%;
     width: 100%;
     padding: 8px;
     left: 0px;
@@ -585,11 +585,19 @@
             font-size: 16px;
             padding-left: 19px;
         }
-        
-        .performer {
-            color: #428bca;
-            font-size: 18px;
+
+        ul {
+            list-style: none;
+            text-align: left;
+            padding-left: 5px;
+
+            li {
+                margin: 5px 0px;
+
+            }
         }
+        
+     
 
         button {
             padding: 4px 8px;
@@ -600,10 +608,12 @@
             border-radius: 3px;
             // margin: 0px 4px;
             margin-top: 10px;
+            margin-right: 10px;
+            min-width: 100px;
           
         }
 
-        .saved {
+        .remove {
             background: #e53935;
         }
 
