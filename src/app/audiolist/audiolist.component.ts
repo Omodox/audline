@@ -208,12 +208,13 @@ getMyPlaylists(track) {
   })
 }
 
-set_playlist_track(track,playlist) {
+set_playlist_track(track,playlist,i) {
   console.log('ok');
   console.log(track,playlist);
   this.playlistService.set_playlist_track(this.sid,track.id,playlist).subscribe(res => {
     console.log(res);
-  })
+  });
+this.overMyPlaylists[i].active = !this.overMyPlaylists[i].active;
   
 }
 

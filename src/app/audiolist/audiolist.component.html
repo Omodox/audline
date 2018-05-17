@@ -96,9 +96,9 @@
 <div class="over_my_playlists" *ngIf="overMyPlaylists">
   <div class="over_my_playlists_content">
     <ul>
-      <li *ngFor="let item of overMyPlaylists">
-        <button (click)="set_playlist_track(overMyPlaylists.track,item.id)"  class="edit_playlist_button" *ngIf="!item.active">Добавить</button>
-        <button (click)="set_playlist_track(overMyPlaylists.track,item.id)" class="edit_playlist_button remove" *ngIf="item.active">Убрать</button>
+      <li *ngFor="let item of overMyPlaylists; let i = index">
+        <button (click)="set_playlist_track(overMyPlaylists.track,item.id,i)"  class="edit_playlist_button" *ngIf="!item.active">Добавить</button>
+        <button (click)="set_playlist_track(overMyPlaylists.track,item.id,i)" class="edit_playlist_button remove" *ngIf="item.active">Убрать</button>
         {{item.name}}
       </li>
     </ul>
