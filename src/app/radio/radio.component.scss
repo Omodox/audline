@@ -14,8 +14,18 @@
     margin: 6px;
 
 
+    @media screen and (max-width: 768px) {
+        padding: 2px;
+        margin: 2px;
+    }
+
+
     img {
         max-width: 110px;
+
+        @media screen and (max-width: 768px) {
+            max-width: 80px;
+        }
     }
 }
 

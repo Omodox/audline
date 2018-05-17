@@ -69,8 +69,7 @@ export class PlayerComponent implements OnInit {
       this.audio.volume = 1;
     }
 
-    console.log(window.innerWidth);
-    console.log(this.audio.volume);
+
 
 }
 

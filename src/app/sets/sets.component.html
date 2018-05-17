@@ -1,8 +1,18 @@
-<app-audiolist [playlist] = 'audiolist' ></app-audiolist>
-<div class="srow">
-  <div class="s3 ssm6" *ngFor="let i of rooms; let id = index;">
-  <a class="room_link" [routerLink]='"/set/" + i.url'> {{i.name}}</a>
+<div class="scontainer">
+  <div class="radio_page">
+    <div class="srow">
+      <div class="s3 ssm12" *ngFor="let item of playlists; let id = index;">
+        <a class="radio_item" [routerLink]='"/set/" + item.url'>
+          <div class="srow">
+            <div class="s5 middle">
+              <img src="{{item.img}}" alt="{{item.name}}">
+            </div>
+            <div class="s7 middle">
+              {{item.name}}
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
   </div>
-  </div>
-
-  
+</div>
