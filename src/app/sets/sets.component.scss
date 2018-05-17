@@ -13,6 +13,7 @@
     width: 96%;
     margin: 6px;
     text-decoration: none;
+    position: relative;
 
 
     @media screen and (max-width: 768px) {
@@ -48,4 +49,13 @@
 
 .active {
     background: #e53935;
+}
+
+.counte {
+    position: absolute;
+    right: 12px;
+    top: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
 }
