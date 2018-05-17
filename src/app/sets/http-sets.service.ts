@@ -16,6 +16,12 @@ export class HttpSetsService {
 }
 
 
+  getPlaylist(sid,id) {
+    return this.http.get(`http://audline.xyz/api/?set=playlist&sid=${sid}&url=${id}`)
+       .map(res  => res.json());
+}
+
+
 }
 
 

@@ -25,11 +25,13 @@ export class AudiolistComponent implements OnInit {
   @Input() type;
   lorem  =  {};
   sid = localStorage.getItem('sid');
+  my_status = localStorage.getItem('status');
   loop;
   list;
   dark;
   videoUrl;
   popOverMobileTrack;
+  overMyPlaylists;
   private querySubscription: Subscription;
 
   constructor(
@@ -195,6 +197,14 @@ else this.videoUrl = '';
 
 closeMobilePopOver() {
   this.popOverMobileTrack = '';
+}
+
+
+getMyPlaylists() {
+  this.playlistService.getMyPlaylists(this.sid).subscribe(res => {
+    this.overMyPlaylists = res;
+    console.log(res);
+  })
 }
 
 

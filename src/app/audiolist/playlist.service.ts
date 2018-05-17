@@ -27,5 +27,12 @@ export class PlaylistService {
 
 
 
+     getMyPlaylists(sid) {
+             return this.http.get(`${this.server}?set=my_playlists&sid=${sid}`)
+                 .map(res  => res.json());
+    }
+
+
+
 
 }

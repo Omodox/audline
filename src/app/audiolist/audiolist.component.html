@@ -1,34 +1,22 @@
-<!-- <div class="player_box">
-  <div class="player">
-      <div id="trackname" class="player_track_name">
-      <span class="player_time_progress" id="progress_line"
-       [ngStyle] = "{'width.%': progress}">
-      </span>
-      <span class="track_name_text" id="track_info"></span>
-    </div>
-      <button class="player_button" (click)='playerPrev()'><span class="glyphicon glyphicon-backward"></span></button>
-      <button class="playbutton_play" (click)="playerService.playerPlay()">
-        <span class="glyphicon glyphicon-play"
-        [ngClass] = "{'glyphicon-pause' : !playerService.audio.paused}"></span>
-      </button>
-      <button class="player_button" (click)="playerNext()"><span class="glyphicon glyphicon-forward"></span></button>
-  </div>
-</div> -->
+<div *ngIf="!playlist" class="lds-dual-ring"></div>
 
 <div class="mine">
   <div class="playlist_nav" *ngIf="playlist">
-      <button class="playlist_button_panel" (click)="shuffle()"><span class="glyphicon glyphicon-sort-by-alphabet"></span></button>
-      <button class="playlist_button_panel" (click)="shuffle()"><span class="glyphicon glyphicon-sort-by-attributes-alt"></span></button>
-      <button class="playlist_button_panel" (click)="adminService.newTrack()"><i class="fas fa-plus-circle"></i></button>
-      <button class="playlist_button_panel" (click)="adminService.newPlaylist()"><i class="far fa-list-alt"></i></button>
+      <button class="playlist_button_panel" *ngIf="my_status >= 2 " (click)="adminService.newTrack()"><i class="fas fa-plus-circle"></i></button>
+      <button class="playlist_button_panel" *ngIf="my_status >= 2 " (click)="adminService.newPlaylist()"><i class="far fa-list-alt"></i></button>
       <button class="playlist_button_panel" (click)="darkMode()"><i class="fas fa-moon"></i></button>
       <button class="playlist_button_panel" (click)="darkMode()"><i class="fas fa-history"></i></button>
+      <select name="filter" id="" class="select">
+        <option value="rand">Random</option>
+        <option value="rand">New</option>
+        <option value="rand">Top</option>
+      </select>
     
     <div class="playlist_nav_right">
         <button class="playlist_button_panel" (click)="listTo()"><span [ngClass] = "{'glyphicon-th-list' : !list}" class="glyphicon glyphicon-th glyphicon-th-list"></span></button>
         <button class="playlist_button_panel" (click)="shuffle()"><span class="glyphicon glyphicon-random"></span></button>
         <button class="playlist_button_panel" [ngClass] = "{'loop' : loop}" (click)="playerLoop()"><span class="glyphicon glyphicon-refresh"></span></button>
-        <button class="playlist_button_panel" (click)="loadFromPlayer()"><span class="glyphicon glyphicon-minus"></span></button>
+        <button class="playlist_button_panel" *ngIf="sid" (click)="loadFromPlayer()"><span class="glyphicon glyphicon-minus"></span></button>
 
     </div>
     <div class="clear"></div>
@@ -67,6 +55,7 @@
           <a *ngIf = "i.genre" [routerLink]="['/search']" [queryParams]="{ g: i.genre }" class="genre_track" >{{i.genre}}</a>
           <!-- <span class="like_track hover_hide"><span class="glyphicon glyphicon-list-alt"></span></span> -->
           <span  (click)="removeTrack(i,i_id,i.isactive)"  class="like_track hover_hide"><span class="glyphicon glyphicon-remove"></span></span>
+          <span  (click)="getMyPlaylists()" *ngIf="sid"  class="like_track"><i class="far fa-list-alt"></i></span>
           <span  (click)="likeTrack(i)"  [ngClass] = "{'liked' : i.liked}" class="like_track"><span class="glyphicon glyphicon-heart"></span></span>
           <button (click)="popOverMobileTrack = i" class="mobile_track_button"><i class="fas fa-ellipsis-v"></i></button>
      </div>
@@ -101,4 +90,15 @@
       <button>Remove</button>
   </div>
  <div class="close" (click)="closeMobilePopOver()"><i class="far fa-times-circle"></i></div>
+</div>
+
+
+<div class="over_my_playlists" *ngIf="overMyPlaylists">
+  <div class="over_my_playlists_content">
+    <ul>
+      <li *ngFor="let item of overMyPlaylists">{{item.name}}</li>
+    </ul>
+    <button>Создать Плейлист</button>
+    <div class="close" (click)="overMyPlaylists = ''"><i class="far fa-times-circle"></i></div>
+  </div>
 </div>

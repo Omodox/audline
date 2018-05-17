@@ -331,7 +331,7 @@
 
 
         .performer_name{
-            width: 33%;
+            width: 30%;
 
         }
 
@@ -530,5 +530,113 @@
     }
     
 
-  
-  
+  .select {
+    vertical-align: bottom;
+    padding: 6px 14px;
+    border-radius: 3px;
+    border: 0px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    background: #2196f3;
+    cursor: pointer;
+  }
+
+  option {
+    color: #fff;
+    font-size: 16px;
+    padding: 6px;
+    display: block;
+    font-weight: 400;
+    cursor: pointer;
+
+}
+
+
+
+
+.over_my_playlists {
+    display: block;
+    transition: 0.2s;
+    z-index: 400;
+    z-index: 1002;
+    position: fixed;
+    top:25%;
+    width: 100%;
+    padding: 8px;
+    left: 0px;
+    
+    .over_my_playlists_content {
+        background: #fff;
+        box-shadow: 0px 0px 3px #292e34;
+        padding:10px 6px;
+        max-width: 400px;
+        margin: auto;
+        transition: 0.2s;
+        position: relative;
+        z-index: 400;
+        min-height: 150px;
+        border-radius: 4px;
+
+        span {
+            display: block;
+            text-align: left;
+            padding: 0px 4px;
+            font-size: 16px;
+            padding-left: 19px;
+        }
+        
+        .performer {
+            color: #428bca;
+            font-size: 18px;
+        }
+
+        button {
+            padding: 4px 8px;
+            background: #2196f3;
+            color: #fff;
+            font-size: 16px;
+            border: 0px;
+            border-radius: 3px;
+            // margin: 0px 4px;
+            margin-top: 10px;
+          
+        }
+
+        .saved {
+            background: #e53935;
+        }
+
+
+
+    }
+
+    .close {
+        position: absolute;
+        right: 17px;
+        top: 17px;
+        color: #000;
+        font-size: 32px;
+        z-index: 401;
+    }
+
+    @media screen and (max-width: 768px) {
+     
+       
+    
+    }
+
+    
+}
+
+.over_my_playlists::before {
+    content: "";
+    position: fixed;
+    background: rgba(0,0,0,0.3);
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    z-index: 300;
+}
+

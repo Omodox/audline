@@ -15,7 +15,7 @@ import { SetsComponent } from './sets/sets.component';
 import { ProfileComponent } from './login/profile/profile.component';
 import { RegistrationComponent } from './login/registration/registration.component';
 import { SearchComponent } from './search/search.component';
-import { SetComponent } from './set/set.component';
+import { SetComponent } from './sets/set/set.component';
 
 import { GoogleComponent } from './login/google/google.component';
 import { RadioComponent } from './radio/radio.component';

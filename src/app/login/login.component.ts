@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
    if (localStorage.getItem('sid'))
    {
     localStorage.removeItem('sid');
+    localStorage.removeItem('status');
     window.location.replace("/login");
    }
   
@@ -46,6 +47,7 @@ export class LoginComponent implements OnInit {
   sing(res) {
     console.log(res);
        localStorage.setItem('sid',res.sid);
+       localStorage.setItem('status',res.status);
       // this.router.navigate(['/']);  
        window.location.replace("/");
    
