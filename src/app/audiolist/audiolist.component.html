@@ -54,7 +54,7 @@
           <span class="time_track">{{i.duration | time }}</span>
           <a *ngIf = "i.genre" [routerLink]="['/search']" [queryParams]="{ g: i.genre }" class="genre_track" >{{i.genre}}</a>
           <!-- <span class="like_track hover_hide"><span class="glyphicon glyphicon-list-alt"></span></span> -->
-          <span  (click)="removeTrack(i,i_id,i.isactive)"  class="like_track hover_hide"><span class="glyphicon glyphicon-remove"></span></span>
+          <span  (click)="removeTrack(i,i_id,i.isactive)" *ngIf="sid"  class="like_track hover_hide"><span class="glyphicon glyphicon-remove"></span></span>
           <span  (click)="getMyPlaylists()" *ngIf="sid"  class="like_track"><i class="far fa-list-alt"></i></span>
           <span  (click)="likeTrack(i)"  [ngClass] = "{'liked' : i.liked}" class="like_track"><span class="glyphicon glyphicon-heart"></span></span>
           <button (click)="popOverMobileTrack = i" class="mobile_track_button"><i class="fas fa-ellipsis-v"></i></button>

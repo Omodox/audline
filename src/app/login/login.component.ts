@@ -22,8 +22,7 @@ export class LoginComponent implements OnInit {
 }
   ];
 
-  audiolist;
-
+ 
   email : string;
   password: string;
   constructor(private router: Router, private loginService : LoginService){}
