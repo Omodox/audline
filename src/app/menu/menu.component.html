@@ -27,7 +27,7 @@
       <div class="s2 ssm12 ">
         <div class="clear"></div>
         <form class="form" (ngSubmint)="search_form()" [ngClass]="{'mobile_nav_search_open' : mobile_nav_search_open }">
-          <input class="search_form" autocomplete="off" [(ngModel)]="search" type="text" name="search" id="search_input" placeholder="Search...">
+          <input class="search_form" autocomplete="off" [(ngModel)]="search" type="text" name="search" id="search_input" placeholder="Поиск..." #searchinput>
           <button class="button_search" (click)="search_form(search)">
             <i class="fas fa-search"></i> 
           </button>
@@ -39,6 +39,6 @@
     </div>
   </div>
   <button class="mibile_bar" (click)="mobile_nav_open = !mobile_nav_open"><i class="fas fa-bars"></i></button>
-  <button class="mibile_bar_search" (click)="mobile_nav_search_open = !mobile_nav_search_open">  <i class="fas fa-search"></i> </button>
+  <button class="mibile_bar_search" (click)="mobile_nav_search_open = !mobile_nav_search_open; mobile_search(searchinput);">  <i class="fas fa-search"></i> </button>
 </nav>
 <!-- <audio id="player"></audio> -->

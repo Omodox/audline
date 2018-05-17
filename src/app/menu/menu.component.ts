@@ -17,6 +17,11 @@ export class MenuComponent implements OnInit {
 
   sid = localStorage.getItem('sid');
 
+
+  mobile_search(item){
+    item.focus();
+  };
+
   constructor(private router: Router, private heartService : HeartService){}
 
   search_form(search) {

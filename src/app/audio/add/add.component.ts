@@ -9,7 +9,7 @@ import { AdminService } from './../../adm/admin.service';
 })
 export class AddComponent implements OnInit {
 
-  url = 'https://zk.fm/download/';
+  url = '';
   name;
   performer_name;
   performer_url;
@@ -30,7 +30,7 @@ export class AddComponent implements OnInit {
 
     this.name = '';
     this.performer_name = '';
-    this.url = 'https://zk.fm/download/';
+    this.url = '';
     this.performer_url = '';
 
   }

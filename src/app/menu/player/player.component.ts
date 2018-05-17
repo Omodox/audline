@@ -57,19 +57,21 @@ export class PlayerComponent implements OnInit {
   
  playerVolume() {
   if (localStorage.getItem('volume')) {
-
-      if (window.innerWidth < 769) {
-        this.audio.volume = 1;
-      }
-      else {
       this.audio.volume = Number(localStorage.getItem('volume'));
-      }
     }
     else
     {
       localStorage.setItem('volume', '0.3');
       this.audio.volume = 0.3;
     }
+
+    if (window.innerWidth < 769) {
+      this.audio.volume = 1;
+    }
+
+    console.log(window.innerWidth);
+    console.log(this.audio.volume);
+
 }
 
 playerPlay() {

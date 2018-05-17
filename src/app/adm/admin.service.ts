@@ -24,7 +24,7 @@ export class AdminService {
    }
 
   addNewTrack(track,sid){
-    return this.http.post('http://localhost:3000/newtrack',{track, sid})
+    return this.http.get(`http://audline.xyz/api/?set=adm_add_track&name=${track.name}&&performer_name=${track.performer_name}&track_id=${track.url}&sid=${sid}`)
        .map(res  => res.json());
 }
 
