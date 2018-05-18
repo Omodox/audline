@@ -32,7 +32,6 @@ nav {
 
 .search_form {
     width: 100%;
-    position: absolute;
     border-radius: 4px;
     border: 1px solid #999;
     padding: 4px;
@@ -82,7 +81,7 @@ nav {
     
 }
 
-.mibile_bar_search {
+.mobile_bar_search {
     display: none;
 
     @media screen  and (max-width:768px){
@@ -92,7 +91,7 @@ nav {
         background: none;
         border: 0px;
         position: fixed;
-        top: 7px;
+        top: 8px;
         right: 56px;
         font-size: 21px;
     }
@@ -184,7 +183,7 @@ ul {
     
 }
 
-.mibile_bar {
+.mobile_bar {
     display: none;
     position: absolute;
     right: 0px;

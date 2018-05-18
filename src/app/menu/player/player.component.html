@@ -1,16 +1,23 @@
 <div class="player_box">
+  
   <div class="player">
-      <div id="trackname" class="player_track_name">
-      <span class="player_time_progress" id="progress_line"
-       [ngStyle] = "{'width.%': progress}">
+    <div id="trackname" class="player_track_name">
+      <span class="player_time_progress" id="progress_line" [ngStyle]="{'width.%': progress}">
       </span>
       <span class="track_name_text" id="track_info"></span>
     </div>
-      <button class="player_button" (click)='playerPrevTrack()'><span class="glyphicon glyphicon-backward"></span></button>
-      <button class="playbutton_play" (click)="playerPlay()">
-        <span class="glyphicon glyphicon-play"
-        [ngClass] = "{'glyphicon-pause' : !audio.paused}"></span>
-      </button>
-      <button class="player_button" (click)="playerNextTrack()"><span class="glyphicon glyphicon-forward"></span></button>
+    <button class="player_button" (click)='playerPrevTrack()'>
+      <span class="glyphicon glyphicon-backward"></span>
+    </button>
+    <button class="playbutton_play" (click)="playerPlay()">
+      <span class="glyphicon glyphicon-play" [ngClass]="{'glyphicon-pause' : !audio.paused}"></span>
+    </button>
+    <button class="player_button" (click)="playerNextTrack()">
+      <span class="glyphicon glyphicon-forward"></span>
+    </button>
+    <div class="volume_box">
+        <input class="slider" #volumeslider type="range" min="0" max="1" step="0.01" value="{{audio.volume}}" (input)="playerVolumeSlider(volumeslider.value)"
+        (change)="playerVolumeSlider(volumeslider.value)">
+      </div>
   </div>
 </div>

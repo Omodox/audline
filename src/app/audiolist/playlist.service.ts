@@ -28,17 +28,23 @@ export class PlaylistService {
 
 
      getMyPlaylists(sid,track_id) {
-             return this.http.get(`${this.server}?set=my_playlists&sid=${sid}&track=${track_id}`)
+             return this.http.get(`${this.server}?set=my_playlists&sid=${sid}&track=${track_id}&time=${this.unixtime()}`)
                  .map(res  => res.json());
     }
 
 
     set_playlist_track(sid,track_id,playlist) {
 
-        return this.http.get(`${this.server}?set=set_playlist_track&sid=${sid}&track=${track_id}&playlist=${playlist}`)
+        return this.http.get(`${this.server}?set=set_playlist_track&sid=${sid}&track=${track_id}&playlist=${playlist}&time=${this.unixtime()}`)
         .map(res  => res.json());
         
     }
+
+
+    unixtime(){
+        return new Date().getTime()/1000
+        }
+      
 
 
 

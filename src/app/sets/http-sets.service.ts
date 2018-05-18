@@ -11,15 +11,21 @@ export class HttpSetsService {
 
 
   getPlaylists(sid){
-    return this.http.get(`http://audline.xyz/api/?set=playlists&sid=${sid}`)
+    return this.http.get(`http://audline.xyz/api/?set=playlists&sid=${sid}&time=${this.unixtime()}`)
        .map(res  => res.json());
 }
 
 
   getPlaylist(sid,id) {
-    return this.http.get(`http://audline.xyz/api/?set=playlist&sid=${sid}&url=${id}`)
+    return this.http.get(`http://audline.xyz/api/?set=playlist&sid=${sid}&url=${id}&time=${this.unixtime()}`)
        .map(res  => res.json());
 }
+
+
+
+ unixtime(){
+  return new Date().getTime()/1000
+  }
 
 
 }

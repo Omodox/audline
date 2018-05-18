@@ -16,12 +16,13 @@ export class PlayerComponent implements OnInit {
    track_info;
    active_track = 0 ;
 
-
    progress: number;
    progress_line: HTMLElement;
   
 
   ngOnInit() {
+
+    this.audio.volume = Number(localStorage.getItem('volume'));
 
 
     this.heartService.track.subscribe(res => {
@@ -50,6 +51,13 @@ export class PlayerComponent implements OnInit {
       // this.playerNext();
       };
 
+
+  }
+
+
+  playerVolumeSlider(res) {
+    this.audio.volume = res
+   localStorage.setItem('volume', String(res));
 
   }
 
@@ -136,16 +144,18 @@ playerStopTrack() {
     if (event.keyCode === 40 || event.keyCode === 83) {
       event.preventDefault();
       event.stopPropagation();
-      if (player.audio.volume >= 0.05)
+      if (Math.floor(player.audio.volume*100) >= 5)
       player.audio.volume = player.audio.volume - 0.05;
+      if (player.audio.volume <= 0.06) player.audio.volume = 0;
      localStorage.setItem('volume', String(player.audio.volume));
     }
 
     if (event.keyCode === 38 || event.keyCode === 87) {
       event.preventDefault();
       event.stopPropagation();
-      if (player.audio.volume <= 1)
+      if (Math.floor(player.audio.volume*100) <= 100)
       player.audio.volume = player.audio.volume + 0.05;
+      if (player.audio.volume >= 0.94) player.audio.volume = 1;
      localStorage.setItem('volume', String(player.audio.volume));
     }
 
