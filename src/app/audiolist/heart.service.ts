@@ -9,5 +9,7 @@ export class HeartService {
   track: EventEmitter<any> = new EventEmitter();
   track_active;
   from_player :  EventEmitter<any> = new EventEmitter();
+  filter = 'random';
+  new_filter :  EventEmitter<any> = new EventEmitter();
 
 }

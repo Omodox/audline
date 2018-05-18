@@ -136,6 +136,7 @@
     opacity: 0.7;
     -webkit-transition: .2s;
     transition: opacity .2s;
+    cursor: pointer;
 }
 
 .slider::-webkit-slider-thumb {
@@ -161,6 +162,26 @@
     width: 65%;
     position: absolute;
     bottom: -16px;
-    left: 31px;
+    left: 13px;
   }
   
+
+
+  .playlist_button_panel {
+    border-radius: 4px;
+    padding: 3px 8px;
+    font-size: 18px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    background: #2196f3;
+    border: 0px;
+    color: #fff;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+
+
+.loop {
+    background: #e53935;
+}

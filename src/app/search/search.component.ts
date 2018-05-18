@@ -40,6 +40,7 @@ export class SearchComponent implements OnInit {
           // console.log(this.search);
           this.audioService.getPlaylistByGenre(this.genre).subscribe(res => {
             this.audiolist = res;
+            console.log(res);
           });
         }
       }

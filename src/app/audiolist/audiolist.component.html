@@ -6,16 +6,16 @@
       <button class="playlist_button_panel" *ngIf="my_status >= 2 " (click)="adminService.newPlaylist()"><i class="far fa-list-alt"></i></button>
       <button class="playlist_button_panel" (click)="darkMode()"><i class="fas fa-moon"></i></button>
       <button class="playlist_button_panel" (click)="darkMode()"><i class="fas fa-history"></i></button>
-      <select name="filter" id="" class="select">
-        <option value="rand">Random</option>
-        <option value="rand">New</option>
-        <option value="rand">Top</option>
+      <select name="filter" id="" class="select" (change)="newFilter($event.target.value)">
+        <option value="random">Random</option>
+        <option value="new">New</option>
+        <option value="top">Top</option>
       </select>
+      {{filter}}
     
     <div class="playlist_nav_right">
         <button class="playlist_button_panel" (click)="listTo()"><span [ngClass] = "{'glyphicon-th-list' : !list}" class="glyphicon glyphicon-th glyphicon-th-list"></span></button>
         <button class="playlist_button_panel" (click)="shuffle()"><span class="glyphicon glyphicon-random"></span></button>
-        <button class="playlist_button_panel" [ngClass] = "{'loop' : loop}" (click)="playerLoop()"><span class="glyphicon glyphicon-refresh"></span></button>
         <button class="playlist_button_panel" *ngIf="sid" (click)="loadFromPlayer()"><span class="glyphicon glyphicon-minus"></span></button>
 
     </div>

@@ -23,15 +23,14 @@ export class AudiolistComponent implements OnInit {
 
   @Input() playlist;
   @Input() type;
-  lorem  =  {};
   sid = localStorage.getItem('sid');
   my_status = localStorage.getItem('status');
-  loop;
   list;
   dark;
   videoUrl;
   popOverMobileTrack;
   overMyPlaylists;
+  filter;
   private querySubscription: Subscription;
 
   constructor(
@@ -42,7 +41,11 @@ export class AudiolistComponent implements OnInit {
     private heartService : HeartService
   ) {}
 
+  
+
   ngOnInit() {
+
+
 
      if (localStorage.getItem('list') == 'true') {
       this.list = true;
@@ -74,6 +77,11 @@ export class AudiolistComponent implements OnInit {
 
    
   };
+
+  newFilter(res) {
+    console.log(res);
+    this.heartService.new_filter.emit(res);
+  }
 
   ngOnChanges() {
   }
@@ -125,12 +133,6 @@ export class AudiolistComponent implements OnInit {
 listTo() {
   this.list = !this.list;
   localStorage.setItem('list', String(this.list));
-}
-
-playerLoop() {
-  const player =  <any>document.getElementById('player');
-  player.loop = !player.loop;
-  this.loop = player.loop;
 }
 
 

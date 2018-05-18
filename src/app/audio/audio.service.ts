@@ -13,10 +13,7 @@ host = 'http://audline.xyz/api/?set='
 
 
 
-         getPlaylistByGenre(genre) {
-                     return this.http.get('http://localhost:3000/search?g=' + genre)
-                         .map(res  => res.json());
-                 }
+   
 
 
 
@@ -29,10 +26,12 @@ host = 'http://audline.xyz/api/?set='
 
 
         
-        audGetAudio() {
-                     return this.http.get(this.host + 'audio' + `&time=${this.unixtime()}`)
+        audGetAudio(filter) {
+                     return this.http.get(this.host + 'audio' + `&filter=${filter}` + `&time=${this.unixtime()}`)
                          .map(res  => res.json());
                  }
+
+
 
         audGetBandPlaylist(band) {
      return this.http.get(this.host + 'band&name=' + band)
@@ -44,6 +43,15 @@ host = 'http://audline.xyz/api/?set='
              return this.http.get(this.host + 'search&q=' + search)
                  .map(res  => res.json());
          }
+
+
+         getPlaylistByGenre(search) {
+                     return this.http.get(this.host + 'genre&q=' + search + `&time=${this.unixtime()}`)
+                         .map(res  => res.json());
+                 }
+        
+
+
 
 
 

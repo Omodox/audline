@@ -15,6 +15,7 @@ export class PlayerComponent implements OnInit {
    audio = new Audio;
    track_info;
    active_track = 0 ;
+   loop = false;
 
    progress: number;
    progress_line: HTMLElement;
@@ -48,7 +49,7 @@ export class PlayerComponent implements OnInit {
       };
 
     this.audio.onended = () => {
-      // this.playerNext();
+      this.playerNextTrack();
       };
 
 
@@ -90,6 +91,12 @@ playerPlay() {
     this.playerStopTrack();
     }
 } 
+
+
+playerLoop() {
+  this.audio.loop = ! this.audio.loop;
+  this.loop =  this.audio.loop;
+}
 
 
 
