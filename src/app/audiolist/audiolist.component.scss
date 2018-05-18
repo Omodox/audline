@@ -578,13 +578,7 @@
         min-height: 150px;
         border-radius: 4px;
 
-        span {
-            display: block;
-            text-align: left;
-            padding: 0px 4px;
-            font-size: 16px;
-            padding-left: 19px;
-        }
+
 
         ul {
             list-style: none;
@@ -609,7 +603,8 @@
             // margin: 0px 4px;
             margin-top: 10px;
             margin-right: 10px;
-            min-width: 100px;
+            min-width: 120px;
+            text-align: center;
           
         }
 

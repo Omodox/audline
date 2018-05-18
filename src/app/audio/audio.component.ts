@@ -23,9 +23,9 @@ export class AudioComponent implements OnInit {
 
     console.log(this.filter);
 
-
     this.heartService.new_filter.subscribe(res => {
       this.filter = res;
+      this.heartService.filter =  res;
       this.getMinePage();
     });
 
