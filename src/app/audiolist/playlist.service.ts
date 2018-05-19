@@ -41,6 +41,17 @@ export class PlaylistService {
     }
 
 
+    change_track_time(track_id,track_time) {
+        // console.log(`${this.server}?set=change_track_time&track=${track_id}&track_time=${track_time}`);
+
+        return this.http.get(`${this.server}?set=change_track_time&track=${track_id}&track_time=${track_time}`)
+        .map(res  => res.json());
+
+
+
+    }
+
+
     unixtime(){
         return new Date().getTime()/1000
         }

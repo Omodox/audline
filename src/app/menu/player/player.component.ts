@@ -1,21 +1,26 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { HeartService } from '../../audiolist/heart.service';
 import * as $ from 'jquery';
+import { PlaylistService } from '../../audiolist/playlist.service';
 
 @Component({
   selector: 'app-player',
   templateUrl: './player.component.html',
-  styleUrls: ['./player.component.scss']
+  styleUrls: ['./player.component.scss'],
+  providers : [PlaylistService]
 })
 export class PlayerComponent implements OnInit {
 
-  constructor(private  heartService : HeartService) {
+  constructor(
+    private  heartService : HeartService,
+  private playlistService : PlaylistService) {
    }
 
    audio = new Audio;
    track_info;
    active_track = 0 ;
    loop = false;
+   active_track_object;
 
    progress: number;
    progress_line: HTMLElement;
@@ -52,6 +57,18 @@ export class PlayerComponent implements OnInit {
       this.audio.pause();
       this.playerNextTrack();
       };
+
+
+        this.audio.oncanplay = () => {
+        if (this.active_track_object.duration <= 0 ) {
+          let track_duration = this.audio.duration;
+          this.playlistService.change_track_time(this.active_track_object.id,track_duration).subscribe(res => {
+            // console.log(res);
+          });
+          this.active_track_object.duration = this.audio.duration;
+          // this.playerPlay();
+        }
+    };
 
 
   }
@@ -111,6 +128,7 @@ addtoPlayer(new_track) {
     this.audio.src = new_track.url;
     this.playerUpdateTrackInfo(new_track);
     this.active_track = new_track.id;
+    this.active_track_object = new_track;
   }
  
   this.playerPlay();
