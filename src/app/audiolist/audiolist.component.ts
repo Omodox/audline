@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, Input , OnDestroy, OnChanges, HostListener } from '@angular/core';
+import { Component, OnInit, Output, Input , OnDestroy, OnChanges, HostListener ,  } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { PlaylistService } from './playlist.service';
 import { AdminService } from './../adm/admin.service';
@@ -9,6 +9,7 @@ import * as $ from 'jquery';
 
 import {Router} from '@angular/router';
 import { HeartService } from './heart.service';
+
 
 
 @Component({
@@ -31,6 +32,7 @@ export class AudiolistComponent implements OnInit {
   popOverMobileTrack;
   overMyPlaylists;
   filter;
+  SubFromPlayerToRemoveAfterDesctroy;
   private querySubscription: Subscription;
 
   constructor(
@@ -55,10 +57,8 @@ export class AudiolistComponent implements OnInit {
      }
 
 
-     this.heartService.from_player.subscribe(res => {
+   this.SubFromPlayerToRemoveAfterDesctroy =   this.heartService.from_player.subscribe(res => {
 
-    
-    
       if (res == 'next') {
         this.playerNext(1);
       } 
@@ -77,6 +77,11 @@ export class AudiolistComponent implements OnInit {
 
    
   };
+
+
+  ngOnDestroy() {
+    this.SubFromPlayerToRemoveAfterDesctroy.unsubscribe();
+  }
 
   newFilter(res) {
     console.log(res);
@@ -97,6 +102,8 @@ export class AudiolistComponent implements OnInit {
  
 
   playerNext(index){
+
+    console.log(this.heartService.track_active);
    
     if (!this.heartService.track_active) {
       let new_track = this.playlist[0];
@@ -114,6 +121,7 @@ export class AudiolistComponent implements OnInit {
   send_track(track){
     this.onChanged(track);
     this.heartService.track.emit(track);
+
   }
 
 

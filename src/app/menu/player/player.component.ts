@@ -49,6 +49,7 @@ export class PlayerComponent implements OnInit {
       };
 
     this.audio.onended = () => {
+      this.audio.pause();
       this.playerNextTrack();
       };
 

@@ -43,7 +43,7 @@ export class AudioComponent implements OnInit {
         this.audioService.getMyPlaylist(this.sid).subscribe(res => {
 
           res.forEach(element => {
-            let s = this.audiolist.findIndex(x => x._id == element._id);
+            let s = this.audiolist.findIndex(x => x.id == element.id);
             if (s >= 0) {
               this.audiolist[s].liked = true;
             }
@@ -53,7 +53,7 @@ export class AudioComponent implements OnInit {
         this.audioService.getMyBlackPlaylist(this.sid).subscribe(res => {
 
           res.forEach(element => {
-            let s = this.audiolist.findIndex(x => x._id == element._id);
+            let s = this.audiolist.findIndex(x => x.id == element.id);
             if (s >= 0) {
               this.audiolist.splice(s, 1);
             }

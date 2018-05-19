@@ -13,7 +13,7 @@ export class PlaylistService {
 
 
  pushLikedTrack(arr) {
-     return this.http.get(`${this.server}?set=like&sid=${arr.sid}&track=${arr.track.id}`)
+     return this.http.get(`${this.server}?set=like&sid=${arr.sid}&track=${arr.track.id}&sts=${arr.track.liked}`)
   .map(res  => res.json());
    }
 
