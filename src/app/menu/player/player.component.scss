@@ -178,7 +178,11 @@
     border: 0px;
     color: #fff;
     -webkit-transition: 0.3s;
-    transition: 0.3s;
+    transition: 0.3s; 
+
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
 }
 
 
