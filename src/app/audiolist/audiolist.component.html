@@ -85,9 +85,9 @@
         <span class="performer">{{popOverMobileTrack.performer_name}}</span>
     </div>
     
-      <button (click)="likeTrack(popOverMobileTrack);closeMobilePopOver()" [ngClass]="{'saved' : popOverMobileTrack.liked }">Save</button>
-      <a  href="{{popOverMobileTrack.url}}" download (click)="closeMobilePopOver()"><button>Download</button></a>
-      <button>Remove</button>
+      <button (click)="likeTrack(popOverMobileTrack);closeMobilePopOver()" [ngClass]="{'saved' : popOverMobileTrack.liked }">Сохранить</button>
+      <a  href="{{popOverMobileTrack.url}}" download (click)="closeMobilePopOver()"><button>Скачать</button></a>
+      <!-- <button></button> -->
   </div>
  <div class="close" (click)="closeMobilePopOver()"><i class="far fa-times-circle"></i></div>
 </div>

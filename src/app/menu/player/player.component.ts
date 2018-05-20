@@ -3,6 +3,8 @@ import { HeartService } from '../../audiolist/heart.service';
 import * as $ from 'jquery';
 import { PlaylistService } from '../../audiolist/playlist.service';
 
+declare let ga: Function;
+
 @Component({
   selector: 'app-player',
   templateUrl: './player.component.html',
@@ -121,9 +123,7 @@ playerLoop() {
 addtoPlayer(new_track) {
 
 
-
   if (this.active_track !=  new_track.id) {
-
 
     this.audio.src = new_track.url;
     this.playerUpdateTrackInfo(new_track);
@@ -132,6 +132,10 @@ addtoPlayer(new_track) {
   }
  
   this.playerPlay();
+
+
+  ga('send', 'event', 'Music', 'play', this.active_track_object.performer_name + ' - ' + this.active_track_object.name );
+
   }
 
 playerUpdateTrackInfo(new_track) {
