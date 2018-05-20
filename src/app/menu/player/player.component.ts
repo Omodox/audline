@@ -90,8 +90,8 @@ export class PlayerComponent implements OnInit {
     }
     else
     {
-      localStorage.setItem('volume', '0.3');
-      this.audio.volume = 0.3;
+      localStorage.setItem('volume', '0.75');
+      this.audio.volume = 0.75;
     }
 
     if (window.innerWidth < 769) {
