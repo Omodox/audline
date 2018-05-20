@@ -9,7 +9,7 @@ export class PlaylistService {
      constructor(private http: Http) { }
 
 
- server = 'http://audline.xyz/api/'
+ server = 'https://audline.net/api/'
 
 
  pushLikedTrack(arr) {

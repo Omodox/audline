@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 export class AudioService {
 
 
-host = 'http://audline.xyz/api/?set='
+host = 'https://audline.net/api/?set='
 
      constructor(private http: Http) { }
 

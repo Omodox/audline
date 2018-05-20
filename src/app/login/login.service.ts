@@ -8,7 +8,7 @@ export class LoginService {
 
      constructor(private http: Http) { }
 
- server = 'http://audline.xyz/api/?';
+ server = 'https://audline.net/api/?';
 
     login(msg) {
          return this.http.get(`${this.server}set=login&email=${msg.email}&password=${msg.password}`).map(res  => res.json());
