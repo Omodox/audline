@@ -1,5 +1,5 @@
 .player_box {
-    padding: 3px;
+    padding: 3px 0px;
     position: relative;
     @media screen and (max-width: 1024px) {
       float: none;
@@ -43,6 +43,7 @@
       position: relative;
       z-index: 2;
       cursor: pointer;
+      background: #f8f8f8;
   
       @media screen and (max-width: 768px) {
           width: 99%;
@@ -56,11 +57,13 @@
   }
   
   .track_name_text {
-      position: absolute;
-      color: #000;
-      z-index: 3;
-      height: 22px;
-      overflow: hidden;
+    z-index: 3;
+    position: absolute;
+    color: #1c1b1b;
+    height: 22px;
+    overflow: hidden;
+    font-weight: 600;
+    text-shadow: 0px 0px 3px #fff;
     
       @media screen and (max-width: 768px) {
    
@@ -102,14 +105,17 @@
 
   .play_buttons_panel {
       display: block;
-      padding: 0px 4px;
+      padding: 0px 0px;
+      padding-left: 6px;
       @media screen and (max-width: 768px){
           position: fixed;
           bottom: 0px;
           left: 0px;
           width: 100%;
           background: #fff;
+          padding-left: 0px;
           padding: 3px 0px;
+
       }
   }
 
