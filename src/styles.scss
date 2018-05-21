@@ -63,9 +63,9 @@
     .sm0{display:none;}
     }
     @media screen and (max-width:479px){.ssm1{width:8.3333333%;}
-    .ssm2{width:16.666666%;}
-    .ssm3{width:24.9999999%;}
-    .ssm4{width:33.3333333%;}
+    .ssm2{width:16.666666%; display:inline-block;}
+    .ssm3{width:24.9999999%; display:inline-block;}
+    .ssm4{width:33.3333333%; display:inline-block;}
     .ssm5{width:41.666666666%;}
     .ssm6{width:50%;}
     .sm7{width:58.333333%;}

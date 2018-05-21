@@ -1,24 +1,59 @@
 <div class="player_box">
-  
-  <div class="player">
-    <div id="trackname" class="player_track_name">
-      <span class="player_time_progress" id="progress_line" [ngStyle]="{'width.%': progress}">
-      </span>
-      <span class="track_name_text" id="track_info"></span>
-    </div>
-    <button class="player_button" (click)='playerPrevTrack()'>
-      <span class="glyphicon glyphicon-backward"></span>
-    </button>
-    <button class="playbutton_play" (click)="playerPlay()">
-      <span class="glyphicon glyphicon-play" [ngClass]="{'glyphicon-pause' : !audio.paused}"></span>
-    </button>
-    <button class="player_button" (click)="playerNextTrack()">
-      <span class="glyphicon glyphicon-forward"></span>
-    </button>
-    <button class="playlist_button_panel" [ngClass] = "{'loop' : loop}" (click)="playerLoop()"><span class="glyphicon glyphicon-refresh"></span></button>
-    <div class="volume_box">
-        <input class="slider" #volumeslider type="range" min="0" max="1" step="0.01" value="{{audio.volume}}" (input)="playerVolumeSlider(volumeslider.value)"
-        (change)="playerVolumeSlider(volumeslider.value)">
+  <div class="srow">
+    <div class="s7 ssm12">
+      <div class="player">
+        <div id="trackname" class="player_track_name">
+          <span class="player_time_progress" id="progress_line" [ngStyle]="{'width.%': progress}">
+          </span>
+          <span class="track_name_text" id="track_info"></span>
+        </div>
       </div>
+    </div>
+    <div class="s5 ssm12">
+      <div class="play_buttons_panel">
+        <div class="srow">
+          <div class="s0 ssm2">
+            <div class="bt_x">
+              <button class="playlist_button_panel" (click)="newsort()">
+                  <i class="fas fa-random"></i>
+              </button>
+            </div>
+          </div>
+          <div class="s3 ssm3">
+            <div class="bt_x">
+              <button class="player_button" (click)='playerPrevTrack()'>
+                <span class="glyphicon glyphicon-backward"></span>
+              </button>
+            </div>
+          </div>
+          <div class="s4 ssm2">
+            <div class="bt_x">
+              <button class="player_button" (click)="playerPlay()">
+                <span class="glyphicon glyphicon-play" [ngClass]="{'glyphicon-pause' : !audio.paused}"></span>
+              </button>
+            </div>
+          </div>
+          <div class="s3 ssm3">
+            <div class="bt_x">
+              <button class="player_button" (click)="playerNextTrack()">
+                <span class="glyphicon glyphicon-forward"></span>
+              </button>
+            </div>
+          </div>
+          <div class="s2 ssm2">
+            <div class="bt_x">
+              <button class="playlist_button_panel loop_btn" [ngClass]="{'loop' : loop}" (click)="playerLoop()">
+                <span class="glyphicon glyphicon-refresh"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="volume_box">
+      <input class="slider" #volumeslider type="range" min="0" max="1" step="0.01" value="{{audio.volume}}" (input)="playerVolumeSlider(volumeslider.value)"
+        (change)="playerVolumeSlider(volumeslider.value)">
+    </div>
   </div>
 </div>

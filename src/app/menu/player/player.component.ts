@@ -70,6 +70,7 @@ export class PlayerComponent implements OnInit {
           this.active_track_object.duration = this.audio.duration;
           // this.playerPlay();
         }
+        this.audio.play;
     };
 
 
@@ -151,6 +152,10 @@ playerPrevTrack() {
 }
 playerStopTrack() {
   this.heartService.from_player.emit('stop');
+}
+
+newsort() {
+  this.heartService.from_player.emit('sort');
 }
 
 

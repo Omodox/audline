@@ -1,10 +1,11 @@
 .player_box {
+    padding: 3px;
     position: relative;
     @media screen and (max-width: 1024px) {
       float: none;
+            }
+  }
 
-  }
-  }
   .player {
     
   
@@ -23,7 +24,7 @@
         width: 98%;
         border-top: 1px solid #c0c0c0;
         position: fixed;
-        bottom: 0px;
+        bottom: 31px;
         left: 0px;
 
       }
@@ -38,7 +39,7 @@
       vertical-align: middle;
       min-height: 31px;
       border-radius: 4px;
-      width: 325px;
+      width: 100%;
       position: relative;
       z-index: 2;
       cursor: pointer;
@@ -98,6 +99,23 @@
         padding: 0px;
       }
   }
+
+  .play_buttons_panel {
+      display: block;
+      padding: 0px 4px;
+      @media screen and (max-width: 768px){
+          position: fixed;
+          bottom: 0px;
+          left: 0px;
+          width: 100%;
+          background: #fff;
+          padding: 3px 0px;
+      }
+  }
+
+  .bt_x {
+      padding: 0px 2px;
+  }
   
   .player_button {
       border-radius: 4px;
@@ -110,13 +128,11 @@
       border: 0px;
       color: #fff;
       transition: 0.3s;
+      width: 100%;
+      border-radius: 3px;
   
       @media screen and (max-width: 768px) {
-          width: 33%;
-          height: 32px;
-        border-radius: 0px;
-        font-size: 22px;
-        padding: 0px;
+  
       }
   }
   
@@ -159,16 +175,15 @@
 
 
   .volume_box {
-    width: 65%;
+    width: 58%;
     position: absolute;
-    bottom: -16px;
-    left: 13px;
-  }
+    bottom: -11px;
+    left: 2px;
+}
   
 
 
   .playlist_button_panel {
-    border-radius: 4px;
     padding: 3px 8px;
     font-size: 18px;
     text-align: center;
@@ -179,13 +194,27 @@
     color: #fff;
     -webkit-transition: 0.3s;
     transition: 0.3s; 
+    border-radius: 3px;
+    width: 100%;
+
+    &:hover {
+        background: #1976d2;
+        transition: 0.3s;
+    }
 
     @media screen and (max-width: 768px) {
-        display: none;
     }
 }
 
 
+.loop_btn {
+    padding: 3px 3px 3px 4px;
+}
+
 .loop {
     background: #e53935;
+
+    &:hover {
+        background: #e53935;
+    }
 }

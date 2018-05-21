@@ -72,7 +72,11 @@ export class AudiolistComponent implements OnInit {
       //  let coin =  this.playlist.findIndex(x => x._id == this.heartService.track_active.id);  
       //    this.playlist[coin].paused_on_track = true;
       } 
-    
+
+      if (res == 'sort') {
+      this.shuffle();
+      } 
+
      });
 
    
@@ -239,12 +243,11 @@ this.overMyPlaylists[i].active = !this.overMyPlaylists[i].active;
       this.shuffle();
 
     }
-    if (event.keyCode === 70) {
-      event.preventDefault();
-      event.stopPropagation();
-      this.listTo();
-
-    }
+    // if (event.keyCode === 70) {
+    //   event.preventDefault();
+    //   event.stopPropagation();
+    //   this.listTo();
+    // }
     
 
     if (event.keyCode === 39 || event.keyCode === 69 ) {
