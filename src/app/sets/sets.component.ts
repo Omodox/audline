@@ -13,6 +13,7 @@ export class SetsComponent implements OnInit {
   constructor(private httpservices :  HttpSetsService ) { }
 
 sid = localStorage.getItem('sid');
+my_sts = localStorage.getItem('status');
 playlists ;
 
   ngOnInit() {

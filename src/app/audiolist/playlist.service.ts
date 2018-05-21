@@ -9,7 +9,7 @@ export class PlaylistService {
      constructor(private http: Http) { }
 
 
- server = 'https://audline.net  /api/'
+ server = 'https://audline.net/api/'
 
 
  pushLikedTrack(arr) {
@@ -24,7 +24,6 @@ export class PlaylistService {
    
     .map(res  => res.json());
      }
-
 
 
      getMyPlaylists(sid,track_id) {

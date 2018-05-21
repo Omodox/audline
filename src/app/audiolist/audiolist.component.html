@@ -7,9 +7,9 @@
       <button class="playlist_button_panel" (click)="darkMode()"><i class="fas fa-moon"></i></button>
       <button class="playlist_button_panel" (click)="darkMode()"><i class="fas fa-history"></i></button>
       <select name="filter" id="" class="select" (change)="newFilter($event.target.value)">
-        <option value="random" [selected]="heartService.filter == 'random'">Random</option>
-        <option value="new" [selected]="heartService.filter == 'new'">New</option>
-        <option value="top" [selected]="heartService.filter == 'top'">Top</option>
+        <option value="random" [selected]="heartService.filter == 'random'">Случайные</option>
+        <option value="new" [selected]="heartService.filter == 'new'">Новые</option>
+        <option value="top" [selected]="heartService.filter == 'top'">Популярные</option>
       </select>
     <div class="playlist_nav_right">
         <button class="playlist_button_panel" (click)="listTo()"><span [ngClass] = "{'glyphicon-th-list' : !list}" class="glyphicon glyphicon-th glyphicon-th-list"></span></button>

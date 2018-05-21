@@ -1,6 +1,13 @@
 <div class="scontainer">
   <div class="radio_page">
     <div class="srow">
+      <div class="s12">
+        <div class="buttons_nav" *ngIf="my_sts > 1">
+          <button>Создать Плейлист</button>
+        </div>
+      </div>
+    </div>
+    <div class="srow">
       <div class="s3 ssm12" *ngFor="let item of playlists; let id = index;">
         <a class="radio_item" [routerLink]='"/set/" + item.url'>
           <div class="srow">

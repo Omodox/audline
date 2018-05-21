@@ -153,6 +153,11 @@
     -webkit-transition: .2s;
     transition: opacity .2s;
     cursor: pointer;
+
+    @media screen and (max-width : 768px ) {
+        display: none;
+        
+    }
 }
 
 .slider::-webkit-slider-thumb {

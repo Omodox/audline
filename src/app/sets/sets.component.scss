@@ -1,6 +1,4 @@
-.radio_page {
-    padding-bottom: 60px;
-  
+.radio_page {  
 }
 
 .radio_item {
@@ -59,3 +57,21 @@
     font-weight: bold;
     display: block;
 }
+
+.buttons_nav {
+    padding: 8px 0px;
+
+    button {
+        border-radius: 4px;
+        padding: 3px 8px;
+        font-size: 18px;
+        text-align: center;
+        display: inline-block;
+        vertical-align: middle;
+        background: #2196f3;
+        border: 0px;
+        color: #fff;
+        transition: 0.3s;
+    }
+}
+
