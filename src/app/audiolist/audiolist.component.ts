@@ -9,7 +9,7 @@ import * as $ from 'jquery';
 
 import {Router} from '@angular/router';
 import { HeartService } from './heart.service';
-
+declare let ga: Function;
 
 
 @Component({
@@ -142,6 +142,14 @@ export class AudiolistComponent implements OnInit {
   }
 
 
+  downloadTrack(track) {
+   
+  ga('send', 'event', 'Music', 'download', track.performer_name + ' - ' + track.name );
+
+  window.location.replace(track.url);
+  }
+
+
 listTo() {
   this.list = !this.list;
   localStorage.setItem('list', String(this.list));
@@ -195,6 +203,14 @@ darkMode(){
  console.log('wiil be soon');
   this.dark = !this.dark;
   $('body').toggleClass('dark');
+
+  ga('send', 'event', 'Interface', 'Mode', `Dark - ${this.dark}` );
+}
+
+morebuttons(track) {
+  track.more_buttons =  !track.more_buttons;
+  console.log(track.more_buttons);
+
 }
 
 

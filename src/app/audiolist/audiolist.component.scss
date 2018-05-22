@@ -230,9 +230,10 @@
 }
 
 .hover_hide {
-    visibility: hidden;
+    // visibility: hidden;
     transition: 0.3s;
 }
+
 
 .track_info:hover .hover_hide {
     visibility: initial;
@@ -240,9 +241,21 @@
     // display: inline !important;
 }
 
+.buttons_track_panel {
+    display: inline-block;
+    overflow: hidden;
+    position: absolute;
+    right: 0px;
+    text-align: right;
+
+}
+
+
 
 .active {
     background: #e1f2ff;
+
+ 
 }
 
 .active_player {
@@ -326,12 +339,12 @@
 
         .track_name {
             display: inline-block;
-            width: 35%;
+            width: 33%;
         }
 
 
         .performer_name{
-            width: 30%;
+            width: 25%;
 
         }
 
@@ -341,7 +354,7 @@
         }
 
         .track_info {
-            width: 90%;
+            width: 95%;
         }
 
         .time_track {
@@ -374,18 +387,25 @@
             color: #ccc;
             display: inline-block;
             text-align: center;
-            float: right;
-            width: 4%;
             font-size: 23px;
             padding: 0px 10px;
             cursor: pointer;
             transition: 0.3s;
             vertical-align: middle;
+
+            &:hover {
+                color: #2196f3;
+                transition: 0.3s;
+            }
         }
 
     .liked {
         color: #e53935;
         transition: 0.6s;
+
+        &:hover{
+            color: #e53935;
+        }
         }
 
     }
@@ -474,7 +494,7 @@
             }
 
             button {
-                width: 30%;
+                width: 33%;
                 padding: 4px 8px;
                 background: #2196f3;
                 color: #fff;
@@ -645,4 +665,9 @@
     top: 0px;
     z-index: 300;
 }
+
+.hide_button {
+    display: none !important;
+    transition: 0.3s;
+   }
 
