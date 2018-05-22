@@ -226,6 +226,8 @@ showVideo(track){
  let youtube =  track.youtube_code;
 if (youtube) this.videoUrl = 'https://www.youtube.com/embed/' + youtube + '?autoplay=1&rel=0';
 else this.videoUrl = '';
+ga('send', 'event', 'Video', 'Play', `${track.performer_name} - ${track.name}` );
+
 this.send_pause();
 // console.log(youtube);
 //  else { this.videoUrl = url; }
