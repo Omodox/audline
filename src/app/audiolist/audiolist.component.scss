@@ -695,6 +695,19 @@
         min-height: 150px;
         border-radius: 4px;
 
+        input[type=text] {
+            margin: 3px;
+            padding: 4px;
+            width: 97%;
+        }
+
+        .td_name {
+            margin: 3px;
+            padding: 4px;
+            display: block;
+
+        }
+
     }
    }
 

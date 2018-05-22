@@ -240,6 +240,23 @@ closeMobilePopOver() {
 }
 
 
+sendEditTrack(track) {
+
+
+  let editted_track = this.playlist.find(x => x.id == track.value.id);
+
+  editted_track.youtube_code = track.value.youtube_code;
+
+
+
+  console.log(track.value);
+  this.playlistService.updateTrack(this.sid,track.value).subscribe(res => {
+    console.log(res);
+  });
+
+}
+
+
 getMyPlaylists(track) {
   this.playlistService.getMyPlaylists(this.sid,track.id).subscribe(res => {
     this.overMyPlaylists = res;

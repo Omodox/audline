@@ -60,7 +60,7 @@
         <span class="time_track">{{i.duration | time }}</span>
         <a *ngIf="i.genre && !i.more_buttons || !sid" [routerLink]="['/search']" [queryParams]="{ g: i.genre }" class="genre_track">{{i.genre}}</a>
         <div class="buttons_track_panel">
-          <span (click)="showVideo(i)" *ngIf="i.youtube_code" class="like_track">
+          <span (click)="showVideo(i)" *ngIf="i.youtube_code && i.youtube_code != 'null'" class="like_track">
             <i class="fab fa-youtube"></i>
           </span>
           <span (click)="likeTrack(i)" [ngClass]="{'liked' : i.liked}" class="like_track">
@@ -150,44 +150,63 @@
 </div>
 
 
+
+
 <div class="over_edit_track" *ngIf="edit_track_obj">
   <div class="over_edit_track_content">
-    <form action="">
+      <div class="close" (click)="edit_track_obj = ''">
+          <i class="far fa-times-circle"></i>
+        </div>
+    <form  (ngSubmit)="sendEditTrack(editTrack); edit_track_obj = '';"   #editTrack="ngForm">
+        <div class="srow">
+            <div class="s3"><span class="td_name" >ID</span></div>
+            <div class="s9">
+              <input type="text" placeholder="ID" readonly name="id" [ngModel]="edit_track_obj.id">
+            </div>
+          </div>
       <div class="srow">
-        <div class="s3">Исполнитель</div>
+        <div class="s3"><span class="td_name">Исполнитель</span></div>
         <div class="s9">
-          <input type="text" placeholder="Исполнитель">
+          <input type="text" placeholder="Исполнитель" name="performer_name" [ngModel]="edit_track_obj.performer_name">
         </div>
       </div>
       <div class="srow">
-        <div class="s3">Песня</div>
+        <div class="s3"><span class="td_name">Песня</span></div>
         <div class="s9">
-          <input type="text" placeholder="Песня">
+          <input type="text" placeholder="Песня" name="name" [ngModel]="edit_track_obj.name">
         </div>
       </div>
       <div class="srow">
-        <div class="s3">YouTube</div>
+          <div class="s3"><span class="td_name">URL ID</span></div>
+          <div class="s9">
+            <input type="text" placeholder="URL" name="url" [ngModel]="edit_track_obj.url">
+          </div>
+        </div>
+      <div class="srow">
+        <div class="s3"><span class="td_name">YouTube</span></div>
         <div class="s9">
-          <input type="text" placeholder="YouTube">
+          <input type="text" placeholder="YouTube" name="youtube_code" [ngModel]="edit_track_obj.youtube_code">
         </div>
       </div>
       <div class="srow">
-        <div class="s3">Жанр</div>
+        <div class="s3"><span class="td_name">Жанр</span></div>
         <div class="s9">
-          <input type="text" placeholder="Жанр">
+          <input type="text" placeholder="Жанр" name="genre" [ngModel]="edit_track_obj.genre">
         </div>
       </div>
       <div class="srow">
-        <div class="s3">Длительность</div>
+        <div class="s3"><span class="td_name">Длительность</span></div>
         <div class="s9">
-          <input type="text" placeholder="Длительность">
+          <input type="text" placeholder="Длительность" name="duration" [ngModel]="edit_track_obj.duration">
         </div>
       </div>
-
+      <div class="srow">
+          <div class="s3"><span class="td_name">Аудит</span></div>
+          <div class="s9">
+            <input type="text" placeholder="Аудит" name="auditions" [ngModel]="edit_track_obj.auditions">
+          </div>
+        </div>
+      <input type="submit">
     </form>
-
-    <div class="close" (click)="edit_track_obj = ''">
-      <i class="far fa-times-circle"></i>
-    </div>
   </div>
 </div>

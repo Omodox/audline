@@ -40,6 +40,14 @@ export class PlaylistService {
     }
 
 
+    updateTrack(sid,track) {
+
+        return this.http.get(`${this.server}?set=update_track&sid=${sid}&track=${track.id}&name=${track.name}&performer_name=${track.performer_name}&duration=${track.duration}&youtube_code=${track.youtube_code}&genre=${track.genre}`)
+        .map(res  => res.json());
+        
+    }
+
+
     change_track_time(track_id,track_time) {
         // console.log(`${this.server}?set=change_track_time&track=${track_id}&track_time=${track_time}`);
 
