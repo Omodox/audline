@@ -563,13 +563,13 @@
   }
 
   option {
-    color: #fff;
+    color: #000;
     font-size: 16px;
     padding: 6px;
     display: block;
     font-weight: 400;
     cursor: pointer;
-    background: #64afea;
+    background: #fff;
 
 }
 
@@ -669,5 +669,44 @@
 .hide_button {
     display: none !important;
     transition: 0.3s;
+   }
+
+
+   .over_edit_track {
+    display: block;
+    transition: 0.2s;
+    z-index: 400;
+    z-index: 1002;
+    position: fixed;
+    top:10%;
+    width: 100%;
+    padding: 8px;
+    left: 0px;  
+
+  .over_edit_track_content  {
+        background: #fff;
+        box-shadow: 0px 0px 3px #292e34;
+        padding:10px 6px;
+        max-width: 400px;
+        margin: auto;
+        transition: 0.2s;
+        position: relative;
+        z-index: 400;
+        min-height: 150px;
+        border-radius: 4px;
+
+    }
+   }
+
+
+   .over_edit_track:before {
+    content: "";
+    position: fixed;
+    background: rgba(0,0,0,0.3);
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    z-index: 300;
    }
 

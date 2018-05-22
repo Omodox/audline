@@ -33,6 +33,7 @@ export class AudiolistComponent implements OnInit {
   overMyPlaylists;
   filter;
   SubFromPlayerToRemoveAfterDesctroy;
+  edit_track_obj;
   private querySubscription: Subscription;
 
   constructor(

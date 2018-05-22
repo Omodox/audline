@@ -78,7 +78,7 @@
           <span [ngClass]="{'hide_button' : !i.more_buttons}" (click)="removeTrack(i,i_id,i.isactive)" *ngIf="sid" class="like_track">
             <i class="fas fa-eye-slash"></i>
           </span>
-          <span [ngClass]="{'hide_button' : !i.more_buttons}" (click)="editTrack(i)" *ngIf="my_status == 3" class="like_track">
+          <span [ngClass]="{'hide_button' : !i.more_buttons}" (click)="edit_track_obj = i" *ngIf="my_status == 3" class="like_track">
             <i class="fas fa-edit"></i>
           </span>
           <span [ngClass]="{'hide_button' : !i.more_buttons}" (click)="infoTrack(i)" class="like_track">
@@ -144,6 +144,49 @@
     </ul>
     <button>Создать Плейлист</button>
     <div class="close" (click)="overMyPlaylists = ''">
+      <i class="far fa-times-circle"></i>
+    </div>
+  </div>
+</div>
+
+
+<div class="over_edit_track" *ngIf="edit_track_obj">
+  <div class="over_edit_track_content">
+    <form action="">
+      <div class="srow">
+        <div class="s3">Исполнитель</div>
+        <div class="s9">
+          <input type="text" placeholder="Исполнитель">
+        </div>
+      </div>
+      <div class="srow">
+        <div class="s3">Песня</div>
+        <div class="s9">
+          <input type="text" placeholder="Песня">
+        </div>
+      </div>
+      <div class="srow">
+        <div class="s3">YouTube</div>
+        <div class="s9">
+          <input type="text" placeholder="YouTube">
+        </div>
+      </div>
+      <div class="srow">
+        <div class="s3">Жанр</div>
+        <div class="s9">
+          <input type="text" placeholder="Жанр">
+        </div>
+      </div>
+      <div class="srow">
+        <div class="s3">Длительность</div>
+        <div class="s9">
+          <input type="text" placeholder="Длительность">
+        </div>
+      </div>
+
+    </form>
+
+    <div class="close" (click)="edit_track_obj = ''">
       <i class="far fa-times-circle"></i>
     </div>
   </div>
