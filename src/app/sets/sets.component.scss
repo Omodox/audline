@@ -8,10 +8,9 @@
     transition: 0.3s;
     background: #fff;
     text-align: left;
-    width: 96%;
-    margin: 6px;
     text-decoration: none;
     position: relative;
+    width: 100%;
 
 
     @media screen and (max-width: 768px) {
@@ -27,6 +26,10 @@
             max-width: 80px;
         }
     }
+}
+
+.radio_item_box {
+    padding: 4px;
 }
 
 
@@ -59,7 +62,8 @@
 }
 
 .buttons_nav {
-    padding: 8px 0px;
+    padding: 8px 5px;
+    text-align: left;
 
     button {
         border-radius: 4px;
@@ -75,3 +79,14 @@
     }
 }
 
+
+.info_playlist {
+    position: relative;
+}
+
+.private {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    color: orange;
+}

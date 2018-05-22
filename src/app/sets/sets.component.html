@@ -9,17 +9,22 @@
     </div>
     <div class="srow">
       <div class="s3 ssm12" *ngFor="let item of playlists; let id = index;">
-        <a class="radio_item" [routerLink]='"/set/" + item.url'>
-          <div class="srow">
-            <div class="s5 middle">
-              <img src="{{item.img}}" alt="{{item.name}}">
+        <div class="radio_item_box">
+          <a class="radio_item" [routerLink]='"/set/" + item.url'>
+            <div class="srow">
+              <div class="s5 middle">
+                <img src="{{item.img}}" alt="{{item.name}}">
+              </div>
+              <div class="s7 middle">
+                <div class="info_playlist">
+                    {{item.name}}
+                    <span *ngIf="item.tracks > 0" class="counte">{{item.tracks}}</span>
+                    <span class="private">Приватный</span>
+                </div>
+              </div>
             </div>
-            <div class="s7 middle">
-              {{item.name}}
-              <span *ngIf="item.tracks > 0" class="counte">{{item.tracks}}</span>
-            </div>
-          </div>
-        </a>
+          </a>
+        </div>
       </div>
     </div>
   </div>
