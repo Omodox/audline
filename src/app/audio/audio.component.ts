@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AudioService } from './audio.service'
 import { HeartService } from '../audiolist/heart.service';
 
@@ -14,6 +14,7 @@ export class AudioComponent implements OnInit {
   audiolist;
   sid = localStorage.getItem('sid');
   filter;
+  subToFilter;
 
   constructor(private audioService: AudioService, private heartService: HeartService) { }
 
@@ -23,7 +24,7 @@ export class AudioComponent implements OnInit {
 
     console.log(this.filter);
 
-    this.heartService.new_filter.subscribe(res => {
+  this.subToFilter =   this.heartService.new_filter.subscribe(res => {
       this.filter = res;
       this.heartService.filter =  res;
       this.getMinePage();
@@ -31,6 +32,10 @@ export class AudioComponent implements OnInit {
 
 
     this.getMinePage();
+  }
+
+  ngOnDestroy() {
+    this.subToFilter.unsubscribe();
   }
 
   getMinePage() {

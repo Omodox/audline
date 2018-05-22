@@ -107,7 +107,7 @@ export class AudiolistComponent implements OnInit {
 
   playerNext(index){
 
-    console.log(this.heartService.track_active);
+    // console.log(this.heartService.track_active);
    
     if (!this.heartService.track_active) {
       let new_track = this.playlist[0];
@@ -126,6 +126,13 @@ export class AudiolistComponent implements OnInit {
     this.onChanged(track);
     this.heartService.track.emit(track);
 
+  }
+
+  send_pause() {
+
+   if (!this.heartService.audio.paused)
+      this.send_track(this.heartService.track_active);
+    
   }
 
 
@@ -214,12 +221,12 @@ morebuttons(track) {
 }
 
 
-showVideo(url){
-if (url) this.videoUrl = 'https://www.youtube.com/embed/' + url + '?autoplay=1&rel=0';
+showVideo(track){
+ let youtube =  track.youtube_code;
+if (youtube) this.videoUrl = 'https://www.youtube.com/embed/' + youtube + '?autoplay=1&rel=0';
 else this.videoUrl = '';
-
-
-
+this.send_pause();
+// console.log(youtube);
 //  else { this.videoUrl = url; }
 
 }
@@ -242,7 +249,7 @@ set_playlist_track(track,playlist,i) {
   console.log('ok');
   console.log(track,playlist);
   this.playlistService.set_playlist_track(this.sid,track.id,playlist).subscribe(res => {
-    console.log(res);
+    // console.log(res);
   });
 this.overMyPlaylists[i].active = !this.overMyPlaylists[i].active;
   

@@ -17,9 +17,10 @@
               </div>
               <div class="s7 middle">
                 <div class="info_playlist">
-                    {{item.name}}
+                  <span class="name">{{item.name}}</span>
                     <span *ngIf="item.tracks > 0" class="counte">{{item.tracks}}</span>
-                    <span class="private">Приватный</span>
+                    <span *ngIf="item.sts == 1" class="private">Приватный</span>
+                    <span *ngIf="item.sts == 2" class="private">Открытый</span>
                 </div>
               </div>
             </div>

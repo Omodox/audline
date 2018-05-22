@@ -19,7 +19,7 @@ export class PlaylistService {
 
 
    pushRemoveTrack(arr) {
-    console.log(arr);
+ 
        return this.http.get(`${this.server}?set=disclike&sid=${arr.sid}&track=${arr.track.id}`)
    
     .map(res  => res.json());

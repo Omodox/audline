@@ -82,11 +82,23 @@
 
 .info_playlist {
     position: relative;
+    height: 110px;
+    
+}
+
+.name {
+    position: absolute;
+    font-size: 14px;
+    left: 13px;
+    top: 28px;
+    color: #2196f3;
+    font-weight: 600;
 }
 
 .private {
     position: absolute;
-    left: 0px;
+    left: 4px;
     bottom: 0px;
-    color: orange;
+    color: #000;
+    font-size: 12px;
 }

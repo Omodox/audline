@@ -18,7 +18,7 @@ export class PlayerComponent implements OnInit {
   private playlistService : PlaylistService) {
    }
 
-   audio = new Audio;
+   audio = this.heartService.audio;
    track_info;
    active_track = 0 ;
    loop = false;
