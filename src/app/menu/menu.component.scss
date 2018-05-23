@@ -134,6 +134,15 @@ ul {
             color: #000;
             font-weight: 400;
             font-size: 16px;
+            border-bottom: 1px solid #fff;
+            transition: 0.3s;
+            text-decoration: none;
+            
+            &:hover{
+                text-decoration: none;
+                border-bottom: 1px solid #000;
+                transition: 0.3s;
+            }
     
             @media screen and (max-width:768px){
            
@@ -171,6 +180,11 @@ ul {
      }
 
 } 
+
+
+.active-link {
+    border-bottom: 1px solid #000 !important;
+}
 
 
 .mobile_nav_open{ 

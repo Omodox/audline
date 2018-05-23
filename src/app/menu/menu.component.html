@@ -7,17 +7,21 @@
       <div class="s4 sp4 ssm10 middle">
         <ul [ngClass]="{'mobile_nav_open' : mobile_nav_open }">
           <li>
-            <a routerLink="/" (click)="mobile_nav_open = false">Музыка</a>
+            <a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+              true}" (click)="mobile_nav_open = false">Музыка</a>
           </li>
           <li>
-            <a routerLink="/sets" (click)="mobile_nav_open = false">Плейлисты</a>
+            <a routerLink="/sets" (click)="mobile_nav_open = false" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+              true}">Плейлисты</a>
           </li>
           <li>
-              <a routerLink="/radio" (click)="mobile_nav_open = false">Радио</a>
+              <a routerLink="/radio" (click)="mobile_nav_open = false" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+                true}" >Радио</a>
           </li>
           <li>
             <a routerLink="/login" *ngIf="!sid" (click)="mobile_nav_open = false">Войти</a>
-            <a routerLink="/profile" *ngIf="sid" (click)="mobile_nav_open = false">Профиль</a>
+            <a routerLink="/profile" *ngIf="sid" (click)="mobile_nav_open = false" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+              true}">Профиль</a>
           </li>
           <li *ngIf="sid">
             <a routerLink="/login"  (click)="mobile_nav_open = false">Выйти</a>
