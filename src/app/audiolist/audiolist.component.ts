@@ -34,6 +34,7 @@ export class AudiolistComponent implements OnInit {
   filter;
   SubFromPlayerToRemoveAfterDesctroy;
   edit_track_obj;
+  overSharePanel;
   private querySubscription: Subscription;
 
   constructor(
@@ -155,6 +156,14 @@ export class AudiolistComponent implements OnInit {
   ga('send', 'event', 'Music', 'download', track.performer_name + ' - ' + track.name );
 
   window.location.replace(track.url);
+  }
+
+  shareTrack(track) {
+    
+    this.overSharePanel = track;
+    this.overSharePanel.full_url = "http://audline.net/track/"+track.id;
+    ga('send', 'event', 'Music', 'share', track.performer_name + ' - ' + track.name );
+
   }
 
 

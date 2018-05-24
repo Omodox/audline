@@ -19,12 +19,13 @@
                 true}" >Радио</a>
           </li>
           <li>
+            <a routerLink="/video"  (click)="mobile_nav_open = false" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+              true}">Видео</a>
+          </li>
+          <li>
             <a routerLink="/login" *ngIf="!sid" (click)="mobile_nav_open = false">Войти</a>
             <a routerLink="/profile" *ngIf="sid" (click)="mobile_nav_open = false" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
               true}">Профиль</a>
-          </li>
-          <li *ngIf="sid">
-            <a routerLink="/login"  (click)="mobile_nav_open = false">Выйти</a>
           </li>
         </ul>
       </div>

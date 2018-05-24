@@ -210,3 +210,16 @@
     </form>
   </div>
 </div>
+
+
+<div class="over_my_playlists" *ngIf="overSharePanel">
+    <div class="over_my_playlists_content">
+        <div class="close" (click)="overSharePanel = ''">
+            <i class="far fa-times-circle"></i>
+          </div>
+          <div class="div">
+            <span>{{overSharePanel.performer_name}} - {{overSharePanel.name}}</span>
+          </div>
+          <input class="shareInput" type="text" [value]="overSharePanel.full_url">
+    </div>
+  </div>

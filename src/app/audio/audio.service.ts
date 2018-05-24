@@ -32,6 +32,12 @@ host = 'https://audline.net/api/?set='
                  }
 
 
+                 audGetTrack(track) {
+                             return this.http.get(this.host + 'track' + `&track=${track}`)
+                                 .map(res  => res.json());
+                         }
+
+
 
         audGetBandPlaylist(band) {
      return this.http.get(this.host + 'band&name=' + band)
