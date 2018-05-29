@@ -162,7 +162,7 @@ newsort() {
 
 
 @HostListener('document:keydown', ['$event']) onKeydownHandler(event: KeyboardEvent) { 
-  if (document.activeElement.tagName == 'INPUT') { return; }
+  if (document.activeElement.tagName == 'INPUT' || document.activeElement.tagName == 'TEXTAREA') { return; }
 
   const player = this; 
 

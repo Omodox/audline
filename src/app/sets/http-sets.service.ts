@@ -21,6 +21,11 @@ export class HttpSetsService {
        .map(res  => res.json());
 }
 
+  setPlaylist(sid,form){
+    return this.http.get(`https://audline.net/api/?set=new_playlist&sid=${sid}&name=${form.name}&img=${form.img}`)
+    .map(res  => res.json());
+
+  }
 
 
  unixtime(){

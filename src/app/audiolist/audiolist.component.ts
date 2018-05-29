@@ -286,7 +286,7 @@ this.overMyPlaylists[i].active = !this.overMyPlaylists[i].active;
 
 
 @HostListener('document:keydown', ['$event']) onKeydownHandler(event: KeyboardEvent) { 
-  if (document.activeElement.tagName == 'INPUT') { return; }
+  if (document.activeElement.tagName == 'INPUT' || document.activeElement.tagName == 'TEXTAREA') { return; }
 
 
     if (event.keyCode === 82) {

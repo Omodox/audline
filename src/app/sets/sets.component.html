@@ -3,7 +3,7 @@
     <div class="srow">
       <div class="s12">
         <div class="buttons_nav" *ngIf="my_sts > 1">
-          <button>Создать Плейлист</button>
+          <button (click)="createPlaylistPopUp()">Создать Плейлист</button>
         </div>
       </div>
     </div>
@@ -30,3 +30,19 @@
     </div>
   </div>
 </div>
+
+
+<div class="popOver" *ngIf="createPlaylist">
+    <div class="popOver_content">
+        <div class="close" (click)="createPlaylist = ''">
+            <i class="far fa-times-circle"></i>
+          </div>
+          <form  (ngSubmit)="send(addPlaylist); addPlaylist.reset();" class="playlistService" #addPlaylist="ngForm">
+              <input type="text" placeholder="Название плейлиста" name="name" [ngModel]="name">
+              <input type="text" placeholder="Адерс Картинки" name="img" [ngModel]="img">
+              <input type="text" placeholder="Заголовок SEO" name="title" [ngModel]="title">
+             <textarea name="description" id="" cols="30" rows="10" [ngModel]="description"></textarea>
+              <button type="submit">Создать</button>
+          </form>
+    </div>
+  </div>

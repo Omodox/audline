@@ -15,6 +15,7 @@ export class SetsComponent implements OnInit {
 sid = localStorage.getItem('sid');
 my_sts = localStorage.getItem('status');
 playlists ;
+createPlaylist;
 
   ngOnInit() {
 
@@ -22,9 +23,17 @@ playlists ;
       console.log(res);
      this.playlists = res;
     });
-
-
-    
   }
+
+  createPlaylistPopUp(){
+    this.createPlaylist = true;
+  }
+
+  send(form){
+    console.log(form.value);
+
+  }
+
+  
 
 }
