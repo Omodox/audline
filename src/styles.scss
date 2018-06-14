@@ -2,7 +2,7 @@
     a:hover{text-decoration:underline;}
     a:focus{outline:none;}
     .main{max-width:2200px;margin:auto;}
-    .scontainer{max-width:1200px;margin:auto;text-align:center;}
+    .scontainer{max-width: 98%; margin:auto;text-align:center;}
     .srow{clear:both;word-spacing:-5px; text-align: center;}
     .clear{clear:both;}
     img{max-width:100%;}
@@ -106,6 +106,8 @@
     
     .mine_container {
     padding-top: 50px;
+    width: calc(100% - 240px);
+    margin-left: 240px;
 
     @media screen and (max-width: 768px) {
         padding-top: 53px;
