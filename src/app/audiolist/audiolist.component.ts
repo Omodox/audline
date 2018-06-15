@@ -16,7 +16,7 @@ declare let ga: Function;
   selector: 'app-audiolist',
   templateUrl: './audiolist.component.html',
   styleUrls: ['./audiolist.component.scss'],
-  providers: [PlaylistService,AdminService]
+  providers: [PlaylistService, AdminService]
 })
 
 export class AudiolistComponent implements OnInit {
@@ -42,10 +42,9 @@ export class AudiolistComponent implements OnInit {
     private adminService: AdminService,
     private route: ActivatedRoute,
     private router: Router,
-    private heartService : HeartService
+    private heartService: HeartService
   ) {}
 
-  
 
   ngOnInit() {
 
@@ -61,27 +60,26 @@ export class AudiolistComponent implements OnInit {
 
    this.SubFromPlayerToRemoveAfterDesctroy =   this.heartService.from_player.subscribe(res => {
 
-      if (res == 'next') {
+      if (res === 'next') {
         this.playerNext(1);
-      } 
+      }
 
-      if (res == 'prev') {
+      if (res === 'prev') {
         this.playerNext(-1);
-      } 
+      }
 
-      if (res == 'stop') {
+      if (res === 'stop') {
         console.log('add pause effect');
       //  let coin =  this.playlist.findIndex(x => x._id == this.heartService.track_active.id);  
       //    this.playlist[coin].paused_on_track = true;
       } 
 
-      if (res == 'sort') {
+      if (res === 'sort') {
       this.shuffle();
-      } 
+      }
 
      });
 
-   
   };
 
 
@@ -105,12 +103,10 @@ export class AudiolistComponent implements OnInit {
   }
   // ********
 
- 
 
   playerNext(index){
 
     // console.log(this.heartService.track_active);
-   
     if (!this.heartService.track_active) {
       let new_track = this.playlist[0];
       this.send_track(new_track);
@@ -121,7 +117,7 @@ export class AudiolistComponent implements OnInit {
       let new_track = this.playlist[(active_track+index)];
       this.send_track(new_track);
     }
-  
+
   }
 
   send_track(track){
@@ -134,7 +130,6 @@ export class AudiolistComponent implements OnInit {
 
    if (!this.heartService.audio.paused)
       this.send_track(this.heartService.track_active);
-    
   }
 
 

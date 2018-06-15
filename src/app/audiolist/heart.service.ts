@@ -10,8 +10,8 @@ export class HeartService {
 
   track: EventEmitter<any> = new EventEmitter();
   track_active;
-  from_player :  EventEmitter<any> = new EventEmitter();
+  from_player:  EventEmitter<any> = new EventEmitter();
   filter = 'top';
-  new_filter :  EventEmitter<any> = new EventEmitter();
+  new_filter:  EventEmitter<any> = new EventEmitter();
 
 }
