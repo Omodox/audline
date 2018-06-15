@@ -5,6 +5,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { BandsComponent } from './bands/bands.component';
 import { BandComponent } from './band/band.component';
 import { AudioComponent } from './audio/audio.component';
+import { NewComponent } from './audio/new/new.component';
+import { RandomComponent } from './audio/random/random.component';
 import { VideoComponent } from './video/video.component';
 // import { TestModule } from './test/test.module';
 // import { RoomsModule } from './rooms/rooms.module';
@@ -23,10 +25,12 @@ import { TrackComponent } from './track/track.component';
 
 const routes: Routes = [
   { path: '', component: AudioComponent },
+  { path: 'new', component: NewComponent },
+  { path: 'random', component: RandomComponent },
   { path: 'bands', component: BandsComponent },
   { path: 'search', component: SearchComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'registration', component: RegistrationComponent},
+  { path: 'registration', component: RegistrationComponent },
   { path: 'video', component: VideoComponent },
   { path: 'google', component: GoogleComponent },
   // { path: 'search', component: PlaylistComponent},
@@ -34,7 +38,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'sets', component: SetsComponent },
   { path: 'set/:id', component: SetComponent },
-  { path: 'streams', component: StreamComponent},
+  { path: 'streams', component: StreamComponent },
   { path: 'stream/:id', component: RoomComponent },
   { path: 'radio', component: RadioComponent },
   { path: 'track/:id', component: TrackComponent }

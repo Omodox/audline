@@ -33,6 +33,8 @@ import { RadioComponent } from './radio/radio.component';
 import { HeartService } from './audiolist/heart.service';
 import { PlayerComponent } from './menu/player/player.component';
 import { TrackComponent } from './track/track.component';
+import { NewComponent } from './audio/new/new.component';
+import { RandomComponent } from './audio/random/random.component';
 
 
 @NgModule({
@@ -62,7 +64,9 @@ import { TrackComponent } from './track/track.component';
     AddsetComponent,
     RadioComponent,
     PlayerComponent,
-    TrackComponent
+    TrackComponent,
+    NewComponent,
+    RandomComponent
   ],
   imports: [
     BrowserModule,

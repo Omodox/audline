@@ -1,10 +1,10 @@
 <nav>
   <div class="scontainer">
     <div class="srow">
-      <div class="s2 sp2 middle">
+      <div class="s1 sp2 middle">
         <a routerLink="/" class="logo"> Audline</a>
       </div>
-      <div class="s4 ssm12 ">
+      <div class="s3 ssm12 ">
         <div class="clear"></div>
         <form class="form" (ngSubmint)="search_form()" [ngClass]="{'mobile_nav_search_open' : mobile_nav_search_open }">
           <input class="search_form" autocomplete="off" [(ngModel)]="search" type="text" name="search" id="search_input" placeholder="Поиск..."
@@ -14,6 +14,7 @@
           </button>
         </form>
       </div>
+      <div class="s2"></div>
       <div class="s5 ssm12">
         <app-player></app-player>
       </div>
@@ -29,15 +30,7 @@
 <div class="nav_left">
   <ul [ngClass]="{'mobile_nav_open' : mobile_nav_open }">
     <li>
-      <a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
-        true}" (click)="mobile_nav_open = false">
-        <span class="icon_menu">
-          <i class="fas fa-music"></i>
-        </span>
-        Музыка</a>
-    </li>
-    <li>
-      <a routerLink="/hot" class="sub_href" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+      <a routerLink="/" class="sub_href" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
         true}" (click)="mobile_nav_open = false">
         <span class="icon_menu">
           <i class="fab fa-hotjar"></i>
@@ -46,7 +39,9 @@
     </li>
     <li>
       <a routerLink="/new" class="sub_href" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
-        true}" (click)="mobile_nav_open = false">Новая</a>
+        true}" (click)="mobile_nav_open = false"><span class="icon_menu">
+          <i class="fas fa-leaf"></i>
+        </span>Новая</a>
     </li>
     <li>
       <a routerLink="/random" class="sub_href" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
@@ -58,11 +53,15 @@
     </li>
     <li>
       <a routerLink="/profile" class="sub_href" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
-        true}" (click)="mobile_nav_open = false">Понравившеяся</a>
+        true}" (click)="mobile_nav_open = false"> <span class="icon_menu">
+          <i class="fas fa-heart"></i>
+        </span>Понравившаяся</a>
     </li>
     <li>
       <a routerLink="/history" class="sub_href" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
-        true}" (click)="mobile_nav_open = false">История</a>
+        true}" (click)="mobile_nav_open = false"> <span class="icon_menu">
+          <i class="fas fa-history"></i>
+        </span>История</a>
     </li>
     <li>
       <a routerLink="/sets" (click)="mobile_nav_open = false" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
@@ -91,7 +90,11 @@
     <li>
       <a routerLink="/login" *ngIf="!sid" (click)="mobile_nav_open = false">Войти</a>
       <a routerLink="/profile" *ngIf="sid" (click)="mobile_nav_open = false" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
-        true}">Профиль</a>
+        true}">
+        <span class="icon_menu">
+          <i class="fas fa-user"></i>
+        </span>
+        Профиль</a>
     </li>
   </ul>
 </div>

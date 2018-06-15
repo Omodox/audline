@@ -32,7 +32,6 @@ export class MenuComponent implements OnInit {
       this.mobile_nav_search_open = false;
       this.mobile_nav_open = false;
     }
-   
 
   }
 
@@ -40,7 +39,6 @@ export class MenuComponent implements OnInit {
 
     // console.log(this.heartService.track_id);
 
-    
     // this.heartService.track.subscribe(res => {
     //   console.log(res);
     //  });

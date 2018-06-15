@@ -13,8 +13,6 @@ host = 'https://audline.net/api/?set='
 
 
 
-   
-
 
 
   getMyPlaylist(sid) {
@@ -24,8 +22,6 @@ host = 'https://audline.net/api/?set='
 
 
 
-
-        
         audGetAudio(filter) {
                      return this.http.get(this.host + 'audio' + `&filter=${filter}` + `&time=${this.unixtime()}`)
                          .map(res  => res.json());
@@ -42,7 +38,7 @@ host = 'https://audline.net/api/?set='
         audGetBandPlaylist(band) {
      return this.http.get(this.host + 'band&name=' + band)
          .map(res  => res.json());
- }         
+ }
 
 
       getPlaylistBySearch(search) {
@@ -55,8 +51,6 @@ host = 'https://audline.net/api/?set='
                      return this.http.get(this.host + 'genre&q=' + search + `&time=${this.unixtime()}`)
                          .map(res  => res.json());
                  }
-        
-
 
 
 
@@ -71,10 +65,6 @@ host = 'https://audline.net/api/?set='
             unixtime(){
                 return new Date().getTime()/1000
                 }
-              
 
 
- 
-
-  
 }

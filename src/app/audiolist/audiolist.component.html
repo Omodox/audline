@@ -5,29 +5,15 @@
     <button class="playlist_button_panel" *ngIf="my_status >= 2 " (click)="adminService.newTrack()">
       <i class="fas fa-plus-circle"></i>
     </button>
-    <button class="playlist_button_panel" *ngIf="my_status >= 2 " (click)="adminService.newPlaylist()">
-      <i class="far fa-list-alt"></i>
-    </button>
     <button class="playlist_button_panel" (click)="darkMode()">
       <i class="fas fa-moon"></i>
     </button>
-    <button class="playlist_button_panel" (click)="darkMode()">
-      <i class="fas fa-history"></i>
-    </button>
-    <select name="filter" id="" class="select" (change)="newFilter($event.target.value)">
-      <option value="random" [selected]="heartService.filter == 'random'">Случайные</option>
-      <option value="new" [selected]="heartService.filter == 'new'">Новые</option>
-      <option value="top" [selected]="heartService.filter == 'top'">Популярные</option>
-    </select>
     <div class="playlist_nav_right">
       <button class="playlist_button_panel" (click)="listTo()">
         <span [ngClass]="{'glyphicon-th-list' : !list}" class="glyphicon glyphicon-th glyphicon-th-list"></span>
       </button>
       <button class="playlist_button_panel" (click)="shuffle()">
         <span class="glyphicon glyphicon-random"></span>
-      </button>
-      <button class="playlist_button_panel" *ngIf="sid" (click)="loadFromPlayer()">
-        <span class="glyphicon glyphicon-minus"></span>
       </button>
 
     </div>

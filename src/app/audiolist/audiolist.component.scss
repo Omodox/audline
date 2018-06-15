@@ -171,6 +171,7 @@
     position: relative;
     font-weight: 600;
     font-size: 16px;
+    vertical-align: middle;
 }
 
 .track_name {
@@ -180,6 +181,7 @@
     padding: 3px;
     margin: 0px;
     position: relative;
+    vertical-align: middle;
 }
 .play_button {
     background: #2196f3;
@@ -340,11 +342,13 @@
         .track_name {
             display: inline-block;
             width: 33%;
+            vertical-align: middle;
         }
 
 
         .performer_name{
             width: 25%;
+            vertical-align: middle;
 
         }
 

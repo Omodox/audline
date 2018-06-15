@@ -70,10 +70,10 @@ nav {
     font-size: 15px;
     z-index: 2;
     position: absolute;
-    right: 7px;
+    right: 14px;
     background: no-repeat;
     border: 0px;
-    top: 7px;
+    top: 6px;
     outline: none;
     @media screen  and (max-width:768px){
      display: none;
@@ -245,7 +245,7 @@ ul {
     }
 
     .sub_href {
-        padding-left: 70px;
+        // padding-left: 35px;
     }
 
     .icon_menu {
