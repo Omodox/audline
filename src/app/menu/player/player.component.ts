@@ -70,6 +70,9 @@ export class PlayerComponent implements OnInit {
           this.active_track_object.duration = this.audio.duration;
           // this.playerPlay();
         }
+        this.playlistService.trackAudite(this.active_track_object.id).subscribe(res => {
+          // console.log(res);
+        });
         this.audio.play;
     };
 
@@ -130,8 +133,15 @@ addtoPlayer(new_track) {
     this.playerUpdateTrackInfo(new_track);
     this.active_track = new_track.id;
     this.active_track_object = new_track;
+
+
+   let history = localStorage.getItem('history');
+
+   localStorage.setItem('history', new_track.id);
+
+
   }
- 
+
   this.playerPlay();
 
 

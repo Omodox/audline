@@ -57,7 +57,7 @@
           <i class="fas fa-heart"></i>
         </span>Понравившаяся</a>
     </li>
-    <li>
+    <li *ngIf="sid">
       <a routerLink="/history" class="sub_href" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
         true}" (click)="mobile_nav_open = false"> <span class="icon_menu">
           <i class="fas fa-history"></i>
