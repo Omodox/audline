@@ -7,6 +7,7 @@ import { BandComponent } from './band/band.component';
 import { AudioComponent } from './audio/audio.component';
 import { NewComponent } from './audio/new/new.component';
 import { RandomComponent } from './audio/random/random.component';
+import { HistoryComponent } from './audio/history/history.component';
 import { VideoComponent } from './video/video.component';
 // import { TestModule } from './test/test.module';
 // import { RoomsModule } from './rooms/rooms.module';
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: '', component: AudioComponent },
   { path: 'new', component: NewComponent },
   { path: 'random', component: RandomComponent },
+  { path: 'history', component: HistoryComponent },
   { path: 'bands', component: BandsComponent },
   { path: 'search', component: SearchComponent },
   { path: 'login', component: LoginComponent },

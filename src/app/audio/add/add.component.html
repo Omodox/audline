@@ -1,7 +1,7 @@
-<form  (ngSubmit)="send(addTrack); addTrack.reset();" class="newTrack" #addTrack="ngForm">
+<form  (ngSubmit)="send(addTrack);" class="newTrack" #addTrack="ngForm">
     <input *ngIf="track_edit_id" type="text" placeholder="" name="track_edit_id" [(ngModel)]="track_edit_id">
-    <input type="text" placeholder="Performer name" name="performer_name" [ngModel]="performer_name">
-    <input type="text" placeholder="Track name" name="name" [ngModel]="name">
-    <input type="text" placeholder="Track ID"  name="url" [ngModel]="url">
+    <input type="text" placeholder="Performer name" name="performer_name" [(ngModel)]="performer_name">
+    <input type="text" placeholder="Track name" name="name" [(ngModel)]="name">
+    <input type="text" placeholder="Track ID"  name="url" [(ngModel)]="url">
     <button type="submit">Send</button>
 </form>

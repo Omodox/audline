@@ -1,7 +1,7 @@
 <nav>
   <div class="scontainer">
     <div class="srow">
-      <div class="s1 sp2 middle">
+      <div class="s1 sp2 ssm12 sm12 middle">
         <a routerLink="/" class="logo"> Audline</a>
       </div>
       <div class="s3 ssm12 ">
@@ -27,8 +27,8 @@
     <i class="fas fa-search"></i>
   </button>
 </nav>
-<div class="nav_left">
-  <ul [ngClass]="{'mobile_nav_open' : mobile_nav_open }">
+<div class="nav_left" [ngClass]="{'mobile_nav_open' : mobile_nav_open }">
+  <ul>
     <li>
       <a routerLink="/" class="sub_href" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
         true}" (click)="mobile_nav_open = false">
@@ -88,13 +88,23 @@
         Видео</a>
     </li>
     <li>
-      <a routerLink="/login" *ngIf="!sid" (click)="mobile_nav_open = false">Войти</a>
-      <a routerLink="/profile" *ngIf="sid" (click)="mobile_nav_open = false" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+      <a routerLink="/login" *ngIf="!sid" (click)="mobile_nav_open = false" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+        true}">
+        <span class="icon_menu">
+          <i class="fas fa-sign-in-alt"></i>
+        </span>
+        Войти</a>
+      <a routerLink="/login" *ngIf="sid" (click)="mobile_nav_open = false">
+        <span class="icon_menu">
+          <i class="fas fa-sign-out-alt"></i>
+        </span>
+        Выйти</a>
+      <!-- <a routerLink="/profile" *ngIf="sid" (click)="mobile_nav_open = false" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
         true}">
         <span class="icon_menu">
           <i class="fas fa-user"></i>
         </span>
-        Профиль</a>
+        Профиль</a> -->
     </li>
   </ul>
 </div>

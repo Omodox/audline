@@ -111,8 +111,8 @@ nav {
 
         @media screen  and (max-width:768px){ 
             display: block;
-            right: 10px;
-            top: 13px;
+            right: 19px;
+            top: 16px;
         }
 
     }
@@ -150,23 +150,6 @@ ul {
     }
 
 
-    @media screen and (max-width:768px){
-
-        position: absolute;
-        right: 0px;
-        top: 38px;
-        text-align: left;
-        z-index: 1001;
-        background: #fff;
-        width: 100%;
-        // border-bottom: 1px solid #999;
-        height: 0px;
-        overflow: hidden;
-        transition: 0.3s;
-        padding-bottom: 12px;
-
-     }
-
 } 
 
 
@@ -175,15 +158,6 @@ ul {
 }
 
 
-.mobile_nav_open{ 
-
-    @media screen and (max-width:768px){
-        height: initial;
-        transition: 0.3s;
-        box-shadow: 0px 9px 12px #969696;
-     }
-    
-}
 
 .mobile_bar {
     display: none;
@@ -255,7 +229,23 @@ ul {
     }
 
 
+    @media screen  and (max-width:768px){
+
+        left: -240px;
+        z-index: 100;
+        transition: 0.3s;
+        
+    }
 
 
+}
+
+
+.mobile_nav_open{ 
+
+    @media screen and (max-width:768px){
+       left: 0px;
+       transition: 0.3s;
+     }
     
 }

@@ -14,7 +14,7 @@ export class AddComponent implements OnInit {
   performer_name;
   performer_url;
 
-  constructor(private adminService : AdminService) { }
+  constructor(private adminService: AdminService) { }
 
   ngOnInit() {
   }
@@ -22,7 +22,6 @@ export class AddComponent implements OnInit {
   sid = localStorage.getItem('sid');
 
   send(form) {
-    // console.log(form.value);
 
     this.adminService.addNewTrack(form.value,this.sid).subscribe(res => {
       console.log(res);
@@ -32,6 +31,8 @@ export class AddComponent implements OnInit {
     this.performer_name = '';
     this.url = '';
     this.performer_url = '';
+
+    this.performer_name = form.value.performer_name;
 
   }
 

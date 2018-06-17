@@ -40,9 +40,9 @@ export class PlaylistService {
     }
 
 
-    updateTrack(sid,track) {
+    updateTrack(sid, track) {
 
-        return this.http.get(`${this.server}?set=update_track&sid=${sid}&track=${track.id}&name=${track.name}&performer_name=${track.performer_name}&duration=${track.duration}&youtube_code=${track.youtube_code}&genre=${track.genre}`)
+        return this.http.get(`${this.server}?set=update_track&sid=${sid}&track=${track.id}&name=${track.name}&performer_name=${track.performer_name}&duration=${track.duration}&youtube_code=${track.youtube_code}&genre=${track.genre}&url=${track.url}`)
         .map(res  => res.json());
         
     }
