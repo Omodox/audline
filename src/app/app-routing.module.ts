@@ -23,6 +23,7 @@ import { SetComponent } from './sets/set/set.component';
 import { GoogleComponent } from './login/google/google.component';
 import { RadioComponent } from './radio/radio.component';
 import { TrackComponent } from './track/track.component';
+import { ManagerComponent } from './manager/manager.component';
 
 const routes: Routes = [
   { path: '', component: AudioComponent },
@@ -43,6 +44,7 @@ const routes: Routes = [
   { path: 'streams', component: StreamComponent },
   { path: 'stream/:id', component: RoomComponent },
   { path: 'radio', component: RadioComponent },
+  { path: 'manager', component: ManagerComponent },
   { path: 'track/:id', component: TrackComponent }
   // { path: 'test', loadChildren: () => TestModule },
   // { path: 'rooms', loadChildren: () => RoomsModule }

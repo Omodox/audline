@@ -87,6 +87,14 @@
         </span>
         Видео</a>
     </li>
+    <li *ngIf="my_status == 3">
+      <a routerLink="/manager" (click)="mobile_nav_open = false" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+        true}">
+        <span class="icon_menu">
+          <i class="fas fa-wrench"></i>
+        </span>
+        Manager</a>
+    </li>
     <li>
       <a routerLink="/login" *ngIf="!sid" (click)="mobile_nav_open = false" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
         true}">

@@ -254,7 +254,7 @@ sendEditTrack(track) {
 
 
   console.log(track.value);
-  this.playlistService.updateTrack(this.sid,track.value).subscribe(res => {
+  this.playlistService.updateTrack(this.sid, track.value).subscribe(res => {
     console.log(res);
   });
 

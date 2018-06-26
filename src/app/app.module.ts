@@ -36,6 +36,7 @@ import { TrackComponent } from './track/track.component';
 import { NewComponent } from './audio/new/new.component';
 import { RandomComponent } from './audio/random/random.component';
 import { HistoryComponent } from './audio/history/history.component';
+import { ManagerComponent } from './manager/manager.component';
 
 
 @NgModule({
@@ -68,7 +69,8 @@ import { HistoryComponent } from './audio/history/history.component';
     TrackComponent,
     NewComponent,
     RandomComponent,
-    HistoryComponent
+    HistoryComponent,
+    ManagerComponent
   ],
   imports: [
     BrowserModule,

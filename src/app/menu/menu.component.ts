@@ -16,6 +16,7 @@ export class MenuComponent implements OnInit {
 
 
   sid = localStorage.getItem('sid');
+  my_status = localStorage.getItem('status');
 
 
   mobile_search(item){
