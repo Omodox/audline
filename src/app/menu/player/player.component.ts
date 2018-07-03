@@ -4,6 +4,7 @@ import * as $ from 'jquery';
 import { PlaylistService } from '../../audiolist/playlist.service';
 
 declare let ga: Function;
+declare let  yaCounter45292596: any ;
 
 @Component({
   selector: 'app-player',
@@ -146,7 +147,9 @@ addtoPlayer(new_track) {
 
 
   ga('send', 'event', 'Music', 'play', this.active_track_object.performer_name + ' - ' + this.active_track_object.name );
-
+  if (typeof yaCounter45292596 != 'undefined') { yaCounter45292596.hit(`http://audline.net/track/${this.active_track_object.id}`,
+   {title: `Слушать онлайн песню ${this.active_track_object.performer_name} - ${this.active_track_object.name} или скачать`});
+ }
   }
 
 playerUpdateTrackInfo(new_track) {

@@ -1,8 +1,8 @@
-import {Component} from "@angular/core";
-import {Router, NavigationEnd} from "@angular/router";
+import { Component } from "@angular/core";
+import { Router, NavigationEnd } from "@angular/router";
 
 declare let ga: Function;
- 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,15 +10,14 @@ declare let ga: Function;
 })
 export class AppComponent {
   title = 'app works!';
-  
   constructor(public router: Router) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        
-        setTimeout( function(){
+
+        setTimeout(function () {
           ga('set', 'page', event.urlAfterRedirects);
-        ga('send', 'pageview');
-        },1000);
+          ga('send', 'pageview');
+        }, 1000);
       }
     });
   }
