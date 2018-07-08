@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 import { HeartService } from '../audiolist/heart.service';
+import { MenuHttpService } from './menu-http.service';
 
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+  styleUrls: ['./menu.component.scss'],
+  providers : [MenuHttpService]
 })
 export class MenuComponent implements OnInit {
 
@@ -18,17 +20,18 @@ export class MenuComponent implements OnInit {
   sid = localStorage.getItem('sid');
   my_status = localStorage.getItem('status');
 
+  money;
 
-  mobile_search(item){
+  mobile_search(item) {
     item.focus();
   };
 
-  constructor(private router: Router, private heartService : HeartService){}
+  constructor(private router: Router, private heartService: HeartService, private menuHttpService: MenuHttpService) { }
 
   search_form(search) {
     console.log(search.length > 1);
     if (search.length > 1) {
-      this.router.navigate(['/search'], { queryParams: { q : search}} );
+      this.router.navigate(['/search'], { queryParams: { q: search } });
 
       this.mobile_nav_search_open = false;
       this.mobile_nav_open = false;
@@ -36,19 +39,21 @@ export class MenuComponent implements OnInit {
 
   }
 
+
   ngOnInit() {
 
-    // console.log(this.heartService.track_id);
+  
 
-    // this.heartService.track.subscribe(res => {
-    //   console.log(res);
-    //  });
+    this.menuHttpService.getMoneyImg().subscribe(
+      res => {
+    console.log(res);
+    if (res.status)
+    this.money = res;
+      }
+    );
 
   }
 
-  // send() {
-  //   this.heartService.track_id.emit('0000');
-  // }
 
 
 }

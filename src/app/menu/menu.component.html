@@ -37,20 +37,20 @@
         </span>
         Популярная</a>
     </li>
-    <li>
+    <!-- <li>
       <a routerLink="/new" class="sub_href" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
         true}" (click)="mobile_nav_open = false"><span class="icon_menu">
           <i class="fas fa-leaf"></i>
         </span>Новая</a>
-    </li>
-    <li>
+    </li> -->
+    <!-- <li>
       <a routerLink="/random" class="sub_href" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
         true}" (click)="mobile_nav_open = false">
         <span class="icon_menu">
           <i class="fas fa-random"></i>
         </span>
         Случайная</a>
-    </li>
+    </li> -->
     <li>
       <a routerLink="/profile" class="sub_href" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
         true}" (click)="mobile_nav_open = false"> <span class="icon_menu">
@@ -115,4 +115,12 @@
         Профиль</a> -->
     </li>
   </ul>
+
+    <a *ngIf="money" target="_blank" rel="nofollow" href="{{money.link}}"><img  border="0" src="{{money.img}}" /></a>
+
+
+
+<!-- <a href="#" class="short_link">Обратная связь</a> -->
+
+
 </div>

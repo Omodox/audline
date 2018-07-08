@@ -249,3 +249,14 @@ ul {
      }
     
 }
+
+.nav_left  .short_link {
+    display: inline-block;
+    font-size: 12px;
+    margin-top: 20px;
+    padding-left: 25px;
+
+    &:hover{
+        text-decoration: underline;
+    }
+}
