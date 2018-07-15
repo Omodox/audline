@@ -27,7 +27,7 @@ export class AudiolistComponent implements OnInit {
   sid = localStorage.getItem('sid');
   my_status = localStorage.getItem('status');
   list;
-  dark;
+  dark = false;
   videoUrl;
   popOverMobileTrack;
   overMyPlaylists;
@@ -48,6 +48,9 @@ export class AudiolistComponent implements OnInit {
 
   ngOnInit() {
 
+    if (localStorage.getItem('dark') == 'true') {
+    this.darkMode();
+     }
 
 
      if (localStorage.getItem('list') == 'true') {
@@ -210,9 +213,8 @@ removeTrack(i,id,active) {
   // console.log(i_id, i, active);  
 }
 
-
-darkMode(){
- console.log('wiil be soon');
+darkMode(){  
+  
   this.dark = !this.dark;
   $('body').toggleClass('dark');
 

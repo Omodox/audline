@@ -23,7 +23,11 @@ export class MenuComponent implements OnInit {
   money;
 
   mobile_search(item) {
-    item.focus();
+    setTimeout(() => {
+      item.focus();
+    }, 200);
+  
+    console.log(item);
   };
 
   constructor(private router: Router, private heartService: HeartService, private menuHttpService: MenuHttpService) { }

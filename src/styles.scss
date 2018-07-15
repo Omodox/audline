@@ -145,4 +145,42 @@
       transform: rotate(360deg);
     }
   }
+
+  .dark .nav_left {
+    background: #292e34 !important;
+    border-right-color: #000 !important;
+    box-shadow: 0px 0px 1px #18191d !important;
+
+
+    a {
+        color: #fff !important;
+
+        &:hover {
+            background: rgba(24, 25, 29, 0.5803921568627451) !important;
+        }
+    }
+
+    .active-link {
+        background: #18191d !important;
+    }
+}
+
+.dark {
+
+    .search_form{
+        background: #292e34 !important;
+        color: #fff !important;
+    }
+
+    .player_track_name {
+        background: #292e34 !important;
+      
+    }
+
+    .track_name_text {
+        color: #fff !important;
+        text-shadow: 0px 0px 0px #000 !important;
+    }
+
+}
   

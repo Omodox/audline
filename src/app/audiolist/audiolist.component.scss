@@ -71,6 +71,10 @@
       top: 0px;
       z-index: 1;
   }
+
+  .share {
+      padding: 4px;
+  }
   
   .playbutton_play {
       border-radius: 4px;
@@ -148,7 +152,7 @@
 
 
     @media screen and (max-width: 768px) {
-        width: 97%;
+        width: 99%;
         padding: 4px;
         margin: -2px 2px;
         overflow: hidden;
