@@ -114,6 +114,16 @@
         </span>
         Профиль</a> -->
     </li>
+    <li  style="cursor:pointer">
+      <a target="_blank" (click)="mobile_nav_open = falsel; openTelegram();">
+        <span class="icon_menu">
+          <i class="fab fa-telegram"></i>
+        </span>
+        Telegram</a>
+    </li>
+   
+
+
   </ul>
 
     <a *ngIf="money" target="_blank" rel="nofollow" href="{{money.link}}"><img  border="0" src="{{money.img}}" /></a>

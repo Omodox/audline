@@ -8,7 +8,7 @@ import { MenuHttpService } from './menu-http.service';
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss'],
-  providers : [MenuHttpService]
+  providers: [MenuHttpService]
 })
 export class MenuComponent implements OnInit {
 
@@ -26,7 +26,7 @@ export class MenuComponent implements OnInit {
     setTimeout(() => {
       item.focus();
     }, 200);
-  
+
     console.log(item);
   };
 
@@ -46,17 +46,24 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {
 
-  
+
 
     this.menuHttpService.getMoneyImg().subscribe(
       res => {
-    console.log(res);
-    if (res.status)
-    this.money = res;
+        console.log(res);
+        if (res.status)
+          this.money = res;
       }
     );
 
   }
+
+  openTelegram() {
+    window.open(
+      'https://t.me/audline',
+      '_blank'
+    );
+  };
 
 
 
