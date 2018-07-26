@@ -108,7 +108,7 @@
     </div>
 
     <button *ngIf="sid" (click)="likeTrack(popOverMobileTrack);closeMobilePopOver()" [ngClass]="{'saved' : popOverMobileTrack.liked }"> {{popOverMobileTrack.liked ? 'Dislike' : 'Like'}}</button>
-    <a href="{{popOverMobileTrack.url}}" download (click)="closeMobilePopOver()">
+    <a href="{{popOverMobileTrack.url}}" download (click)="closeMobilePopOver(); openNewWindowMobile()">
       <button>Скачать</button>
     </a>
   </div>
