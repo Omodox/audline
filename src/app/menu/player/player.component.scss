@@ -1,10 +1,109 @@
+
+.mobMenu {
+    .mob_blure {
+        transition: 0.15s;
+        top: 100%;
+      bottom: 100%;
+    }
+
+}
 .player_box {
     padding: 3px 0px;
     position: relative;
+    transition: 0.15s;
     @media screen and (max-width: 1024px) {
       float: none;
             }
+
+            @media screen and (max-width : 768px ) {
+            position: fixed;
+            bottom: 0px;
+            width: 100%;
+            left: 0px;
+            background: #f4f4f4;
+            z-index: 100;
+            height: 40%;
+            padding-top: 0px;
+            
+
+            }
   }
+
+  .mob_blure {
+      display: none;
+    @media screen and (max-width : 768px ) {
+        display: block;
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 60%;
+        background: rgba(0, 0, 0, 0.77);
+        display: block;
+        transition: 0.15s;
+        z-index: 10;
+    }
+  }
+
+
+
+
+  .mobile_buttons {
+      display: none;
+    @media screen and (max-width : 768px ) { 
+        display: block;
+
+        .btn_play {
+            font-size: 70px;
+            color: #000;
+            display: inline-block;
+            margin: 0px 20px;
+            vertical-align: middle;
+
+        }
+
+        .mob_arrows {
+            font-size: 40px;
+        }
+
+        .hide_mob_player {
+            position: fixed;
+            right: 24px;
+            bottom: 20px;
+            text-align: center;
+            font-size: 20px;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #1976d2;
+            box-shadow: 0px 0px 3px #1c1b1b;
+            color: #fff;
+            vertical-align: middle;
+            padding-top: 9px;
+        }
+    }
+   
+
+  }
+
+  .goToPlaylist {
+      display: none;
+      @media screen and (max-width : 768px ) {  
+          display: block;
+          background: #466695;
+          width: 100%;
+          border: 0px;
+          position: absolute;
+          bottom: 0px;
+          left: 0px;
+          color: #f4f4f4;
+          height: 40px;
+          line-height: 40px;
+          vertical-align: middle;
+      }
+  }
+
+  
 
   .player {
     
@@ -19,14 +118,9 @@
     
       }
 
-      @media screen and (max-width: 768px) {
-
-        width: 100%;
-        border-top: 1px solid #c0c0c0;
-        position: fixed;
-        bottom: 31px;
-        left: 0px;
-
+      @media screen and (max-width : 768px ) {  
+        //   display: none;
+        padding: 0px;
       }
       
   }
@@ -44,18 +138,19 @@
       z-index: 2;
       cursor: pointer;
       background: #f8f8f8;
-  
-      @media screen and (max-width: 768px) {
-          width: 99%;
-          height: 30x;
-          margin: 4px 0px;
+
+      @media screen and (max-width : 768px ) {  
+          min-height: 28px;
+          z-index: 0;
+          background: #C8C8C8;
+          border: 0px;
           border-radius: 0px;
-          margin: auto;
-          display: block;
-          margin: 4px 2px;
+          margin-top: -4px;
       }
-  }
   
+
+  }
+
   .track_name_text {
     z-index: 3;
     position: absolute;
@@ -64,13 +159,10 @@
     overflow: hidden;
     font-weight: 600;
     // text-shadow: 0px 0px 3px #fff;
-    
-      @media screen and (max-width: 768px) {
-   
-          line-height: 24px;
-          vertical-align: middle;
-    
-      }
+    @media screen and (max-width : 768px ) {  
+        display: none;
+    }
+
   }
   
   .player_time_progress {
@@ -107,16 +199,12 @@
       display: block;
       padding: 0px 0px;
       padding-left: 6px;
-      @media screen and (max-width: 768px){
-          position: fixed;
-          bottom: 0px;
-          left: 0px;
-          width: 100%;
-          background: #fff;
-          padding-left: 0px;
-          padding: 3px 0px;
+      
 
+      @media screen and (max-width: 768px) { 
+          display: none;
       }
+
   }
 
   .bt_x {
@@ -138,7 +226,7 @@
       border-radius: 3px;
   
       @media screen and (max-width: 768px) {
-  
+
       }
   }
   
@@ -185,6 +273,47 @@
 }
 
 
+
+.timeSlider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    border-radius: 5px;   
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    cursor: pointer;
+
+}
+
+.timeSlider::-ms-fill-lower {
+    background: #777;
+    border-radius: 10px;
+}
+
+.timeSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%; 
+    background: #1976d2;
+    cursor: pointer;
+}
+
+.timeSlider::-moz-range-thumb {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #1976d2;
+    cursor: pointer;
+}
+
+
+
+
   .volume_box {
     width: 58%;
     position: absolute;
@@ -228,4 +357,43 @@
     &:hover {
         background: #e53935;
     }
+}
+
+
+
+.mob_track_info {
+    display: none;
+  @media screen and (max-width : 768px ) {  
+    display: block;
+    padding: 5px;
+    width: 80%;
+    margin-top: 10px;
+    height: 40px;
+    margin-left: 19%;
+    margin-bottom: 25px;
+}
+}
+
+
+.mob_track_name {
+    display: block;
+    font-size: 14px;
+    text-align: left;
+}
+.mob_track_performer {
+    display: block;
+    text-align: left;
+    font-size: 17px;
+    font-weight: 600;
+    margin: 8px 0px;
+    color: #1976d2;
+}
+
+.mobMenu {
+
+    height: 0px;
+    transition: 0.3s;
+
+
+
 }

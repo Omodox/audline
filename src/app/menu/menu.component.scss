@@ -23,6 +23,9 @@ nav {
      padding: 4px;  
      display: block;
      text-align: left;
+     @media screen  and (max-width:768px){ 
+        text-align: center;
+    }
 }
 
 .form {
@@ -92,7 +95,7 @@ nav {
         border: 0px;
         position: fixed;
         top: 8px;
-        right: 56px;
+        right: 24px;
         font-size: 21px;
     }
 
@@ -112,7 +115,7 @@ nav {
         @media screen  and (max-width:768px){ 
             display: block;
             right: 19px;
-            top: 16px;
+            top: 19px;
         }
 
     }
@@ -162,10 +165,9 @@ ul {
 .mobile_bar {
     display: none;
     position: absolute;
-    right: 0px;
-    top: 5px;
+    left: 18px;
+    top: 18px;
     position: absolute;
-    right: 8px;
     top: 2px;
     font-size: 30px;
     background: none;

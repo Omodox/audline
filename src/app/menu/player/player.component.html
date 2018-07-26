@@ -1,11 +1,11 @@
-<div class="player_box">
+<div class="player_box" [ngClass]="{'mobMenu': !mobMenu}">
   <div class="srow">
     <div class="s7 ssm12">
       <div class="player">
         <div id="trackname" class="player_track_name">
           <span class="player_time_progress" id="progress_line" [ngStyle]="{'width.%': progress}">
           </span>
-          <span class="track_name_text" id="track_info"></span>
+          <span class="track_name_text"> {{active_track_object.performer_name}} - {{active_track_object.name}}</span>
         </div>
       </div>
     </div>
@@ -15,7 +15,7 @@
           <div class="s0 ssm2">
             <div class="bt_x">
               <button class="playlist_button_panel" (click)="newsort()">
-                  <i class="fas fa-random"></i>
+                <i class="fas fa-random"></i>
               </button>
             </div>
           </div>
@@ -48,6 +48,30 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="mob_blure" (click)="mobMenu = !mobMenu"></div>
+      <div class="mob_track_info">
+        <!-- <input class="timeSlider" #timeslider type="range" min="0" max="100" step="0.01" value="{{ 100 / audio.duration * audio.currentTime }}"
+          (change)="audio.currentTime =  audio.duration / 100 * timeslider.value"> -->
+        <span class="mob_track_name"> {{active_track_object.name}} </span>
+        <span class="mob_track_performer"> {{active_track_object.performer_name}}</span>
+      </div>
+      <div class="mobile_buttons">
+        <div class="btn_play mob_arrows" (click)='playerPrevTrack()'>
+          <span class="glyphicon glyphicon-backward"></span>
+        </div>
+        <div class="btn_play" (click)="playerPlay()">
+          <span class="glyphicon glyphicon-play" [ngClass]="{'glyphicon-pause' : !audio.paused}"></span>
+        </div>
+        <div class="btn_play mob_arrows" (click)="playerNextTrack()">
+          <span class="glyphicon glyphicon-forward"></span>
+        </div>
+        <div class="hide_mob_player" *ngIf="!mobMenu && audio.readyState" (click)="mobMenu = !mobMenu">
+          <i class="fab fa-itunes-note"></i>
+        </div>
+      </div>
+      <div>
+        <button class="goToPlaylist" *ngIf="mobMenu" (click)="mobMenu = !mobMenu">Плейлист</button>
       </div>
     </div>
 
