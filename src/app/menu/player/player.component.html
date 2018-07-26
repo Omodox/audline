@@ -5,7 +5,7 @@
         <div id="trackname" class="player_track_name">
           <span class="player_time_progress" id="progress_line" [ngStyle]="{'width.%': progress}">
           </span>
-          <span class="track_name_text"> {{active_track_object.performer_name}} - {{active_track_object.name}}</span>
+          <span class="track_name_text"> {{active_track_object?.performer_name}} - {{active_track_object?.name}}</span>
         </div>
       </div>
     </div>
@@ -53,8 +53,8 @@
       <div class="mob_track_info">
         <!-- <input class="timeSlider" #timeslider type="range" min="0" max="100" step="0.01" value="{{ 100 / audio.duration * audio.currentTime }}"
           (change)="audio.currentTime =  audio.duration / 100 * timeslider.value"> -->
-        <span class="mob_track_name"> {{active_track_object.name}} </span>
-        <span class="mob_track_performer"> {{active_track_object.performer_name}}</span>
+        <span class="mob_track_name"> {{active_track_object?.name}} </span>
+        <span class="mob_track_performer"> {{active_track_object?.performer_name}}</span>
       </div>
       <div class="mobile_buttons">
         <div class="btn_play mob_arrows" (click)='playerPrevTrack()'>

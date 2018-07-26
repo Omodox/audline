@@ -111,7 +111,6 @@ export class PlayerComponent implements OnInit {
     this.playerVolume();
     if (this.audio.paused === true) {
       this.audio.play();
-      this.mobMenu = !this.mobMenu;
     } else {
       this.audio.pause();
       this.playerStopTrack();
