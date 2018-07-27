@@ -156,14 +156,14 @@ export class AudiolistComponent implements OnInit {
     window.location.replace(track.url);
 
     window.open(
-      'http://salatsmayonezom.com/ref/12593299/',
+      'https://zebmok.ozwvd.com/v/ZNq7UK54AN0Wc-FVsdSUxHPFajE1fw',
       '_blank'
     );
   }
 
   openNewWindowMobile() {
     window.open(
-      'http://salatsmayonezom.com/ref/12593299/',
+      'https://zebmok.ozwvd.com/v/ZNq7UK54AN0Wc-FVsdSUxHPFajE1fw',
       '_blank'
     );
   }
