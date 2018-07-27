@@ -156,14 +156,14 @@ export class AudiolistComponent implements OnInit {
     window.location.replace(track.url);
 
     window.open(
-      'https://zebmok.ozwvd.com/v/ZNq7UK54AN0Wc-FVsdSUxHPFajE1fw',
+      'http://s.click.aliexpress.com/e/cBf1vtBi',
       '_blank'
     );
   }
 
   openNewWindowMobile() {
     window.open(
-      'https://zebmok.ozwvd.com/v/ZNq7UK54AN0Wc-FVsdSUxHPFajE1fw',
+      'http://s.click.aliexpress.com/e/cBf1vtBi',
       '_blank'
     );
   }
