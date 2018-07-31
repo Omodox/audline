@@ -222,7 +222,7 @@ export class AudiolistComponent implements OnInit {
     });
 
     this.playlist.splice(id, 1);
-    // console.log(i_id, i, active);  
+    // console.log(i_id, i, active);
   }
 
   darkMode() {

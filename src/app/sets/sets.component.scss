@@ -30,6 +30,7 @@
 
 .radio_item_box {
     padding: 4px;
+    position: relative;
 }
 
 
@@ -201,5 +202,11 @@
     left: 0px;
     top: 0px;
     z-index: 300;
+}
+
+.edit_btn {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
 }
 
