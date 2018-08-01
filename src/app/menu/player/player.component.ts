@@ -25,6 +25,7 @@ export class PlayerComponent implements OnInit {
   loop = false;
   active_track_object;
   mobMenu;
+  hendPlayer = false;
 
 
   progress: number;
@@ -115,6 +116,7 @@ export class PlayerComponent implements OnInit {
       this.audio.pause();
       this.playerStopTrack();
     }
+    if (this.hendPlayer === false) { this.mobMenu = true; console.log(this.hendPlayer);}
   }
 
 
@@ -170,6 +172,7 @@ export class PlayerComponent implements OnInit {
 
   newsort() {
     this.heartService.from_player.emit('sort');
+    // setTimeout( this.heartService.from_player.emit('lorem'), 300);
   }
 
 

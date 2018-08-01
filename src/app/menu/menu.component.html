@@ -79,7 +79,7 @@
         </span>
         Радио</a>
     </li>
-    <li>
+    <li *ngIf="my_status > 1">
       <a routerLink="/video" (click)="mobile_nav_open = false" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
         true}">
         <span class="icon_menu">
