@@ -79,7 +79,7 @@
 
         </div>
         <!-- (click)="newsort()" -->
-        <button class="btn_play mob_arrows dbl_bt" >
+        <button class="btn_play mob_arrows dbl_bt">
           <i class="fas fa-random"></i>
         </button>
         <div class="btn_play mob_arrows" (click)='playerPrevTrack()'>
@@ -99,7 +99,8 @@
         </button>
       </div>
       <div>
-        <button class="goToPlaylist" *ngIf="mobMenu" (click)="mobMenu = !mobMenu; hendPlayer = true;">Плейлист</button>
+        <button class="goToPlaylist" *ngIf="mobMenu" (click)="mobMenu = !mobMenu; hendPlayer = true;">
+          <i class="fas fa-caret-down"></i>Плейлист</button>
       </div>
     </div>
 
@@ -113,12 +114,12 @@
 
 <div class="over_my_playlists" *ngIf="overSharePanel">
   <div class="over_my_playlists_content">
-      <div class="close" (click)="overSharePanel = ''">
-          <i class="far fa-times-circle"></i>
-        </div>
-        <div class="div">
-          <span>{{overSharePanel.performer_name}} - {{overSharePanel.name}}</span>
-        </div>
-        <input class="shareInput" type="text" [value]="overSharePanel.full_url">
+    <div class="close" (click)="overSharePanel = ''">
+      <i class="far fa-times-circle"></i>
+    </div>
+    <div class="div">
+      <span>{{overSharePanel.performer_name}} - {{overSharePanel.name}}</span>
+    </div>
+    <input class="shareInput" type="text" [value]="overSharePanel.full_url">
   </div>
 </div>

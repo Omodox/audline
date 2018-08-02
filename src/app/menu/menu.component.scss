@@ -262,3 +262,21 @@ ul {
         text-decoration: underline;
     }
 }
+
+
+
+.mob_blure {
+    display: none;
+  @media screen and (max-width : 768px ) {
+      display: block;
+      position: fixed;
+      left: 0px;
+      top: 0px;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.77);
+      display: block;
+      transition: 0.15s;
+      z-index: 10;
+  }
+}
