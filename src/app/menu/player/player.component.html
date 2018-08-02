@@ -67,13 +67,13 @@
 
         <div class="more_buttons">
 
-          <button class="small_btn">
+          <button class="small_btn" (click)="downloadTrack(active_track_object)">
             <span class="glyphicon glyphicon-download"></span>
           </button>
-          <button class="small_btn">
+          <button class="small_btn" [ngClass]="{'liked' : active_track_object?.liked}" (click)="likeTrack(active_track_object)">
             <span class="glyphicon glyphicon-heart"></span>
           </button>
-          <button class="small_btn">
+          <button class="small_btn" (click)="shareTrack(active_track_object)">
             <span class="glyphicon glyphicon-share-alt"></span>
           </button>
 
@@ -107,5 +107,18 @@
       <input class="slider" #volumeslider type="range" min="0" max="1" step="0.01" value="{{audio.volume}}" (input)="playerVolumeSlider(volumeslider.value)"
         (change)="playerVolumeSlider(volumeslider.value)">
     </div>
+  </div>
+</div>
+
+
+<div class="over_my_playlists" *ngIf="overSharePanel">
+  <div class="over_my_playlists_content">
+      <div class="close" (click)="overSharePanel = ''">
+          <i class="far fa-times-circle"></i>
+        </div>
+        <div class="div">
+          <span>{{overSharePanel.performer_name}} - {{overSharePanel.name}}</span>
+        </div>
+        <input class="shareInput" type="text" [value]="overSharePanel.full_url">
   </div>
 </div>

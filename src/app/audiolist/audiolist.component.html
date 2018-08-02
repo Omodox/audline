@@ -111,6 +111,7 @@
     <a href="{{popOverMobileTrack.url}}" download (click)="closeMobilePopOver(); openNewWindowMobile()">
       <button>Скачать</button>
     </a>
+    <button (click)="shareTrack(popOverMobileTrack)">Поделиться</button>
   </div>
   <div class="close" (click)="closeMobilePopOver()">
    <span class="glyphicon glyphicon-remove-circle"></span>
@@ -172,7 +173,7 @@
       <div class="srow">
         <div class="s3"><span class="td_name">YouTube</span></div>
         <div class="s9">
-          <input type="text" placeholder="YouTube" autocomplete="off" name="youtube_code" [ngModel]="edit_track_obj.youtube_code">
+          <input type="text" placeholder="YouTube" autocomplete="off"  name="youtube_code" [ngModel]="edit_track_obj.youtube_code">
         </div>
       </div>
       <div class="srow">

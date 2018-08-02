@@ -11,6 +11,10 @@
     padding: 3px 0px;
     position: relative;
     transition: 0.15s;
+
+    button:focus  {
+        outline: none;
+            }
     @media screen and (max-width: 1024px) {
       float: none;
             }
@@ -61,9 +65,8 @@
             font-size: 46px;
             color: #484747;
             display: inline-block;
-            margin: 0px 20px;
+            margin: 0px 12px;
             vertical-align: middle;
-
         }
 
         .mob_arrows {
@@ -323,7 +326,7 @@
   .volume_box {
     width: 58%;
     position: absolute;
-    bottom: -42px;
+    bottom: -11px;
     left: 2px;
 }
   
@@ -363,6 +366,10 @@
     &:hover {
         color: #e53935;
     }
+}
+
+.liked {
+    color:#e53935 !important;
 }
 
 
@@ -408,11 +415,16 @@
 }
 
 .time_panel {
-    position: absolute;
-    left: 5px;
-    top: 28px;
-    width: 97%;
-    text-align: left;
+    display: none;
+    @media screen and (max-width : 768px ) {  
+        display: block;
+        position: absolute;
+        left: 5px;
+        top: 28px;
+        width: 97%;
+        text-align: left;
+    }
+
 }
 
 .more_buttons {
@@ -433,4 +445,107 @@
     background: none;
     border: 0px;
     font-size: 21px !important;
+}
+
+
+
+.over_my_playlists {
+    display: block;
+    transition: 0.2s;
+    z-index: 400;
+    z-index: 1002;
+    position: fixed;
+    top:10%;
+    width: 100%;
+    padding: 8px;
+    left: 0px;
+    
+    .over_my_playlists_content {
+        background: #fff;
+        box-shadow: 0px 0px 3px #292e34;
+        padding:10px 6px;
+        max-width: 400px;
+        margin: auto;
+        transition: 0.2s;
+        position: relative;
+        z-index: 400;
+        min-height: 150px;
+        border-radius: 4px;
+        padding-top: 60px;
+
+        input {
+            margin: 20px 0px;
+         width: 100%;
+         padding: 8px;
+         color: #1976d2;
+         font-weight: 600;
+         font-size: 17px;
+        }
+
+   
+
+
+        ul {
+            list-style: none;
+            text-align: left;
+            padding-left: 5px;
+
+            li {
+                margin: 5px 0px;
+
+            }
+        }
+        
+     
+
+        button {
+            padding: 4px 8px;
+            background: #2196f3;
+            color: #fff;
+            font-size: 16px;
+            border: 0px;
+            border-radius: 3px;
+            // margin: 0px 4px;
+            margin-top: 10px;
+            margin-right: 10px;
+            min-width: 120px;
+            text-align: center;
+          
+        }
+
+        .remove {
+            background: #e53935;
+        }
+
+
+
+    }
+
+    .close {
+        position: absolute;
+        right: 17px;
+        top: 17px;
+        color: #000;
+        font-size: 32px;
+        z-index: 401;
+    }
+
+    @media screen and (max-width: 768px) {
+     
+       
+    
+    }
+
+    
+}
+
+.over_my_playlists::before {
+    content: "";
+    position: fixed;
+    background: rgba(0,0,0,0.3);
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    z-index: 300;
 }

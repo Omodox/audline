@@ -2,6 +2,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { HeartService } from '../../audiolist/heart.service';
 import * as $ from 'jquery';
 import { PlaylistService } from '../../audiolist/playlist.service';
+import { Router } from '@angular/router';
 
 declare let ga: Function;
 declare let yaCounter45292596: any;
@@ -15,6 +16,7 @@ declare let yaCounter45292596: any;
 export class PlayerComponent implements OnInit {
 
   constructor(
+    private router: Router,
     private heartService: HeartService,
     private playlistService: PlaylistService) {
   }
@@ -26,6 +28,8 @@ export class PlayerComponent implements OnInit {
   active_track_object;
   mobMenu;
   hendPlayer = false;
+  sid = localStorage.getItem('sid');
+  overSharePanel;
 
 
   progress: number;
@@ -116,7 +120,7 @@ export class PlayerComponent implements OnInit {
       this.audio.pause();
       this.playerStopTrack();
     }
-    if (this.hendPlayer === false) { this.mobMenu = true; console.log(this.hendPlayer);}
+    if (this.hendPlayer === false) { this.mobMenu = true; console.log(this.hendPlayer); }
   }
 
 
@@ -154,6 +158,40 @@ export class PlayerComponent implements OnInit {
         { title: `Слушать онлайн песню ${this.active_track_object.performer_name} - ${this.active_track_object.name} или скачать` });
     }
   }
+
+
+  downloadTrack(track) {
+
+    ga('send', 'event', 'Music', 'download', track.performer_name + ' - ' + track.name);
+
+    window.location.replace(track.url);
+
+    window.open(
+      'https://ad.admitad.com/g/yfp1lg37f68e8366813066f30a08a3/',
+      '_blank'
+    );
+  };
+
+  likeTrack(track) {
+    track.liked = !track.liked;
+    if (!this.sid) {
+      this.router.navigate(['/login']);
+    }
+    else {
+      console.log(track);
+      this.playlistService.pushLikedTrack({ 'sid': this.sid, 'track': track }).subscribe(res => {
+      });
+    }
+  }
+
+  shareTrack(track) {
+
+    this.overSharePanel = track;
+    this.overSharePanel.full_url = "http://audline.net/track/" + track.id;
+    ga('send', 'event', 'Music', 'share', track.performer_name + ' - ' + track.name);
+
+  }
+
 
   playerUpdateTrackInfo(new_track) {
     // this.track_info = document.getElementById('track_info');
