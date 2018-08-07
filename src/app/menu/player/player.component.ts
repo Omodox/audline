@@ -167,7 +167,7 @@ export class PlayerComponent implements OnInit {
     window.location.replace(track.url);
 
     window.open(
-      'https://ad.admitad.com/g/yfp1lg37f68e8366813066f30a08a3/',
+      'http://s.click.aliexpress.com/e/cBf1vtBi',
       '_blank'
     );
   };

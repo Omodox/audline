@@ -1,6 +1,20 @@
+
 <div *ngIf="!playlist" class="lds-dual-ring"></div>
 
 <div class="mine">
+
+
+    <style>#M403150ScriptRootC668348 {min-height: 300px;}</style>
+    <!-- Composite Start -->
+    <div id="M403150ScriptRootC668348">
+            <div id="M403150PreloadC668348">
+            Загрузка...    </div>
+
+        </div>
+    <!-- Composite End -->
+
+
+
   <div class="playlist_nav" *ngIf="playlist">
     <button class="playlist_button_panel" *ngIf="my_status >= 2 " (click)="adminService.newTrack()">
       <i class="fas fa-plus-circle"></i>
@@ -19,6 +33,7 @@
     </div>
     <div class="clear"></div>
   </div>
+
 
   <app-add *ngIf="adminService.addpanel"></app-add>
   <app-addset *ngIf="adminService.addplaylist"></app-addset>
