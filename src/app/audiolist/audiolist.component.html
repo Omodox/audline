@@ -53,7 +53,7 @@
       </span>
 
       <div class="track_info">
-        <span class="track_name">{{i.name}}</span>
+        <span class="track_name">{{i.name}} <span *ngIf="my_status > 1 && i.fex" class="fexnet">FEX</span></span>
         <span class="performer_name">
           <a *ngIf="i.performer_url" [routerLink]="['/performer', i.performer_url]">{{i.performer_name}}</a>
           <a *ngIf="!i.performer_url">{{i.performer_name}}</a>
