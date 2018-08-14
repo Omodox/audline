@@ -26,8 +26,8 @@ export class PlaylistService {
      }
 
 
-     pushPlayerError(arr) {
-           return this.http.get(`${this.server}?set=player_error&track_name=${arr.name}&track_performer=${arr.performer_name}&track_id=${arr.id}&mp3=${arr.url}`)
+     pushPlayerError(arr, err) {
+           return this.http.get(`${this.server}?set=player_error&track_name=${arr.name}&track_performer=${arr.performer_name}&track_id=${arr.id}&mp3=${arr.url}&err_code=${err.code}&err_message=${err.message}`)
         .map(res  => res.json());
          }
 
