@@ -31,6 +31,8 @@ export class PlayerComponent implements OnInit {
   sid = localStorage.getItem('sid');
   overSharePanel;
 
+  noSendError = 0;
+
 
   progress: number;
   progress_line: HTMLElement;
@@ -65,6 +67,20 @@ export class PlayerComponent implements OnInit {
     this.audio.onended = () => {
       this.audio.pause();
       this.playerNextTrack();
+    };
+
+    this.audio.onerror = (req) => {
+      console.log('error:', req);
+      console.log(this.active_track_object);
+      if (this.noSendError <= 1) {
+      this.playlistService.pushPlayerError(this.active_track_object).subscribe(res => {
+      });
+      }
+
+      this.noSendError++;
+
+      // this.audio.pause();
+      // this.playerNextTrack();
     };
 
 

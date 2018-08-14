@@ -26,6 +26,12 @@ export class PlaylistService {
      }
 
 
+     pushPlayerError(arr) {
+           return this.http.get(`${this.server}?set=player_error&track_name=${arr.name}&track_performer=${arr.performer_name}&track_id=${arr.id}&mp3=${arr.url}`)
+        .map(res  => res.json());
+         }
+
+
      getMyPlaylists(sid,track_id) {
              return this.http.get(`${this.server}?set=my_playlists&sid=${sid}&track=${track_id}&time=${this.unixtime()}`)
                  .map(res  => res.json());
