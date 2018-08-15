@@ -70,10 +70,9 @@ export class PlayerComponent implements OnInit {
     };
 
     this.audio.onerror = (req) => {
-      console.log('error:', req);
       console.log(this.audio.error);
       console.log(this.active_track_object);
-      if (this.noSendError <= 1) {
+      if (this.noSendError <= 4) {
       this.playlistService.pushPlayerError(this.active_track_object, this.audio.error).subscribe(res => {
       });
       }
