@@ -57,6 +57,14 @@
           <i class="fas fa-heart"></i>
         </span>Понравившаяся</a>
     </li>
+    <li *ngIf="my_status == 3">
+      <a routerLink="/bands" (click)="mobile_nav_open = false" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+        true}">
+        <span class="icon_menu">
+          <i class="fas fa-users"></i>
+        </span>
+        Исполнители</a>
+    </li>
     <li *ngIf="sid">
       <a routerLink="/history" class="sub_href" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
         true}" (click)="mobile_nav_open = false"> <span class="icon_menu">

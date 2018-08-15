@@ -1,19 +1,17 @@
-
 <div class="mine">
- 
-  <div class="collection" [class.list] = " list === true" >
-        <a class="item"
-        *ngFor="let i of bands; let id = index;"
-        [routerLink]="['/band', i.url]">
-    <div>
-    <span class="item_img">{{i.name[0]}}</span>
-    {{i.name}}
-    </div>
+
+  <div class="collection" [class.list]=" list === true">
+    <a class="item" *ngFor="let i of bands; let id = index;" [routerLink]="['/performer', i.url]">
+      <div>
+        <img class="performer_img" src="{{i.img200}}" alt="">
+        <span *ngIf="!i.img200" class="item_img">{{i.name[0]}}</span>
+        <div class="div">
+          <span class="performer_name">{{i.name}}</span>
+          <span class="auditions">{{i.auditions}}</span>
+        </div>
+      </div>
     </a>
   </div>
 
 
 </div>
-
-
-

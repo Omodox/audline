@@ -10,6 +10,7 @@ declare let ga: Function;
 })
 export class AppComponent implements OnInit {
   title = 'app works!';
+  sid = localStorage.getItem('sid');
   constructor(public router: Router) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
@@ -23,6 +24,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (!this.sid)
     (function () {
       let D = new Date(),
         d = <any>document,
