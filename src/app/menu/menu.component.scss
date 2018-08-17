@@ -280,3 +280,18 @@ ul {
       z-index: 10;
   }
 }
+
+.links {
+    margin: 15px 0px;
+    padding: 4px 15px;
+    a {
+        display: inline;
+        padding: 0px;
+        font-size: 12px;
+        &:hover{
+            text-decoration: underline;
+            background: none;
+
+        }
+    }
+}

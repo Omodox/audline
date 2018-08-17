@@ -38,6 +38,7 @@ import { RandomComponent } from './audio/random/random.component';
 import { HistoryComponent } from './audio/history/history.component';
 import { ManagerComponent } from './manager/manager.component';
 import { BandInfoComponent } from './band-info/band-info.component';
+import { DmcaComponent } from './dmca/dmca.component';
 
 
 @NgModule({
@@ -72,7 +73,8 @@ import { BandInfoComponent } from './band-info/band-info.component';
     RandomComponent,
     HistoryComponent,
     ManagerComponent,
-    BandInfoComponent
+    BandInfoComponent,
+    DmcaComponent
   ],
   imports: [
     BrowserModule,

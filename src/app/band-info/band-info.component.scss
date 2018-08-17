@@ -6,6 +6,12 @@
     text-align: left;
     min-height: 190px;
     padding: 10px;
+
+    @media screen and (max-width: 768px) { 
+       min-height: 30px;
+       padding: 5px;
+       margin: 10px 0px;
+    }
 }
 
 .performer_img {
@@ -13,6 +19,19 @@
     height: 170px;
     vertical-align: top;
     display: inline-block;
+
+    @media screen and (max-width: 768px) { 
+        width: 70px;
+        height: 70px;
+    }
+
+    
+}
+
+.text {
+    @media screen and (max-width: 768px) { 
+        display: none;
+    }
 }
 
 .content {
@@ -29,6 +48,11 @@
     padding: 6px 2px;
     font-size: 19px;
     font-weight: bold;
+
+    @media screen and (max-width: 768px) { 
+        font-size: 16px;
+     }
+ 
 }
 
 .icons {
@@ -40,5 +64,13 @@
     
         span {
             margin: 0px 12px;
+            @media screen and (max-width: 768px) { 
+                margin: 0px;
+               margin-right: 14px;
+             }
         }
+
+        @media screen and (max-width: 768px) { 
+            text-align: left;
+         }
 }

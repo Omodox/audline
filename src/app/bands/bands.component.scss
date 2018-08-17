@@ -6,7 +6,6 @@
 .item {
     background: #fff;
     display: inline-block;
-    width: 32%;
     padding: 4px;
     margin: 4px;
     cursor: pointer;
@@ -19,6 +18,13 @@
         background: #f1faff;
         transition: 0.2s;
     }
+
+    @media screen and (max-width: 768px) { 
+      width: 100%;
+      height: 80px;
+      }
+
+
 }
 
 .item_img {
@@ -31,6 +37,13 @@
     line-height: 100px;
     vertical-align: middle;
     color: #fff;
+
+    @media screen and (max-width: 768px) { 
+       width: 70px;
+       height: 70px;
+       line-height: 70px;
+       font-size: 32px;
+     }
 }
 
 .performer_name{
@@ -45,6 +58,11 @@
     max-width: 100px;
     vertical-align: top;
     box-shadow: 0px 0px 1px #2196f3;
+
+    @media screen and (max-width: 768px) { 
+        width: 70px;
+        height: 70px;
+      }
 }
 
 .div {
@@ -53,12 +71,32 @@
     height: 103px;
     vertical-align: top;
     width: 143px;
+
+    @media screen and (max-width: 768px) { 
+        height: 80px;
+        width: inherit;
+        padding: 0px 15px;
+      }
+
 }
 
 .auditions {
     position: absolute;
+    left: 5px;
+    bottom: 5px;
+
+    @media screen and (max-width: 768px) { 
+       display: none;
+      }
+}
+
+.tracks {
+    position: absolute;
     right: 5px;
     bottom: 5px;
+    @media screen and (max-width: 768px) { 
+        display: none;
+       }
 }
 
 a:hover {
