@@ -749,3 +749,24 @@
     border-radius: 3px;
 }
 
+
+.mobile_money {
+    display: none;
+    margin: 5px 0px;
+    @media screen and (max-width: 768px) {
+        display: block;
+     }
+}
+
+.desctop_money {
+    text-align: center;
+    display: block;
+    margin: 5px auto;
+    img {
+        margin: auto;
+    }
+    @media screen and (max-width: 768px) {
+        display: none;
+     }
+}
+
