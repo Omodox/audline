@@ -37,6 +37,7 @@ import { NewComponent } from './audio/new/new.component';
 import { RandomComponent } from './audio/random/random.component';
 import { HistoryComponent } from './audio/history/history.component';
 import { ManagerComponent } from './manager/manager.component';
+import { BandInfoComponent } from './band-info/band-info.component';
 
 
 @NgModule({
@@ -70,7 +71,8 @@ import { ManagerComponent } from './manager/manager.component';
     NewComponent,
     RandomComponent,
     HistoryComponent,
-    ManagerComponent
+    ManagerComponent,
+    BandInfoComponent
   ],
   imports: [
     BrowserModule,

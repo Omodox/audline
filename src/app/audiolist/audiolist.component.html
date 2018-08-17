@@ -1,17 +1,21 @@
-
-<div *ngIf="!playlist" class="lds-dual-ring"></div>
+<div *ngIf="!playlist" class="lds-dual-ring">
+</div>
 
 <div class="mine">
 
 
-    <style>#M403150ScriptRootC668348 {min-height: 300px;}</style>
-    <!-- Composite Start -->
-    <div id="M403150ScriptRootC668348" *ngIf="!sid">
-            <div id="M403150PreloadC668348">
-            Загрузка...    </div>
+  <style>
+    #M403150ScriptRootC668348 {
+      min-height: 300px;
+    }
+  </style>
+  <!-- Composite Start -->
+  <div id="M403150ScriptRootC668348" *ngIf="!sid">
+    <div id="M403150PreloadC668348">
+      Загрузка... </div>
 
-        </div>
-    <!-- Composite End -->
+  </div>
+  <!-- Composite End -->
 
 
 
@@ -53,12 +57,16 @@
       </span>
 
       <div class="track_info">
-        <span class="track_name">{{i.name}} <span *ngIf="my_status > 1 && i.fex" class="fexnet">FEX</span></span>
+        <span class="track_name">{{i.name}}
+          <span *ngIf="my_status > 1 && i.fex" class="fexnet">FEX</span>
+        </span>
         <span class="performer_name">
           <a *ngIf="i.performer_url" [routerLink]="['/performer', i.performer_url]">{{i.performer_name}}</a>
           <a *ngIf="!i.performer_url">{{i.performer_name}}</a>
         </span>
         <span class="time_track">{{i.duration | time }}</span>
+        <span  *ngIf="my_status == 3" class="time_track">{{i.auditions}}</span>
+        <span  *ngIf="my_status == 3" class="time_track">{{i.errors}}</span>
         <a *ngIf="i.genre && !i.more_buttons || !sid" [routerLink]="['/search']" [queryParams]="{ g: i.genre }" class="genre_track">{{i.genre}}</a>
         <div class="buttons_track_panel">
           <span (click)="showVideo(i)" *ngIf="i.youtube_code && i.youtube_code != 'null'" class="like_track">
@@ -118,19 +126,20 @@
   <div class="over_content">
     <div class="div">
       <span class="name">{{popOverMobileTrack.name}}</span>
-      <a  [routerLink]="['/performer', popOverMobileTrack.performer_url]">
-      <span class="performer">{{popOverMobileTrack.performer_name}}</span>
-    </a>
+      <a [routerLink]="['/performer', popOverMobileTrack.performer_url]">
+        <span class="performer">{{popOverMobileTrack.performer_name}}</span>
+      </a>
     </div>
 
-    <button *ngIf="sid" (click)="likeTrack(popOverMobileTrack);closeMobilePopOver()" [ngClass]="{'saved' : popOverMobileTrack.liked }"> {{popOverMobileTrack.liked ? 'Dislike' : 'Like'}}</button>
+    <button *ngIf="sid" (click)="likeTrack(popOverMobileTrack);closeMobilePopOver()" [ngClass]="{'saved' : popOverMobileTrack.liked }">
+    {{popOverMobileTrack.liked ? 'Dislike' : 'Like'}}</button>
     <a href="{{popOverMobileTrack.url}}" download (click)="closeMobilePopOver(); openNewWindowMobile()">
       <button>Скачать</button>
     </a>
     <button (click)="shareTrack(popOverMobileTrack)">Поделиться</button>
   </div>
   <div class="close" (click)="closeMobilePopOver()">
-   <span class="glyphicon glyphicon-remove-circle"></span>
+    <span class="glyphicon glyphicon-remove-circle"></span>
   </div>
 </div>
 
@@ -158,58 +167,74 @@
 
 <div class="over_edit_track" *ngIf="edit_track_obj">
   <div class="over_edit_track_content">
-      <div class="close" (click)="edit_track_obj = ''">
-          <i class="far fa-times-circle"></i>
-        </div>
-    <form  (ngSubmit)="sendEditTrack(editTrack); edit_track_obj = '';"   #editTrack="ngForm">
-        <div class="srow">
-            <div class="s3"><span class="td_name" >ID</span></div>
-            <div class="s9">
-              <input type="text" placeholder="ID" readonly name="id" [ngModel]="edit_track_obj.id">
-            </div>
-          </div>
+    <div class="close" (click)="edit_track_obj = ''">
+      <i class="far fa-times-circle"></i>
+    </div>
+    <form (ngSubmit)="sendEditTrack(editTrack); edit_track_obj = '';" #editTrack="ngForm">
       <div class="srow">
-        <div class="s3"><span class="td_name">Исполнитель</span></div>
+        <div class="s3">
+          <span class="td_name">ID</span>
+        </div>
+        <div class="s9">
+          <input type="text" placeholder="ID" readonly name="id" [ngModel]="edit_track_obj.id">
+        </div>
+      </div>
+      <div class="srow">
+        <div class="s3">
+          <span class="td_name">Исполнитель</span>
+        </div>
         <div class="s9">
           <input type="text" placeholder="Исполнитель" autocomplete="off" name="performer_name" [ngModel]="edit_track_obj.performer_name">
         </div>
       </div>
       <div class="srow">
-        <div class="s3"><span class="td_name">Песня</span></div>
+        <div class="s3">
+          <span class="td_name">Песня</span>
+        </div>
         <div class="s9">
           <input type="text" placeholder="Песня" autocomplete="off" name="name" [ngModel]="edit_track_obj.name">
         </div>
       </div>
       <div class="srow">
-          <div class="s3"><span class="td_name">URL ID</span></div>
-          <div class="s9">
-            <input type="text" placeholder="URL" name="url" [ngModel]="edit_track_obj.url">
-          </div>
+        <div class="s3">
+          <span class="td_name">URL ID</span>
         </div>
-      <div class="srow">
-        <div class="s3"><span class="td_name">YouTube</span></div>
         <div class="s9">
-          <input type="text" placeholder="YouTube" autocomplete="off"  name="youtube_code" [ngModel]="edit_track_obj.youtube_code">
+          <input type="text" placeholder="URL" name="url" [ngModel]="edit_track_obj.url">
         </div>
       </div>
       <div class="srow">
-        <div class="s3"><span class="td_name">Жанр</span></div>
+        <div class="s3">
+          <span class="td_name">YouTube</span>
+        </div>
+        <div class="s9">
+          <input type="text" placeholder="YouTube" autocomplete="off" name="youtube_code" [ngModel]="edit_track_obj.youtube_code">
+        </div>
+      </div>
+      <div class="srow">
+        <div class="s3">
+          <span class="td_name">Жанр</span>
+        </div>
         <div class="s9">
           <input type="text" placeholder="Жанр" name="genre" [ngModel]="edit_track_obj.genre">
         </div>
       </div>
       <div class="srow">
-        <div class="s3"><span class="td_name">Длительность</span></div>
+        <div class="s3">
+          <span class="td_name">Длительность</span>
+        </div>
         <div class="s9">
           <input type="text" placeholder="Длительность" name="duration" [ngModel]="edit_track_obj.duration">
         </div>
       </div>
       <div class="srow">
-          <div class="s3"><span class="td_name">Аудит</span></div>
-          <div class="s9">
-            <input type="text" placeholder="Аудит" name="auditions" [ngModel]="edit_track_obj.auditions">
-          </div>
+        <div class="s3">
+          <span class="td_name">Аудит</span>
         </div>
+        <div class="s9">
+          <input type="text" placeholder="Аудит" name="auditions" [ngModel]="edit_track_obj.auditions">
+        </div>
+      </div>
       <input type="submit">
     </form>
   </div>
@@ -217,13 +242,13 @@
 
 
 <div class="over_my_playlists" *ngIf="overSharePanel">
-    <div class="over_my_playlists_content">
-        <div class="close" (click)="overSharePanel = ''">
-            <i class="far fa-times-circle"></i>
-          </div>
-          <div class="div">
-            <span>{{overSharePanel.performer_name}} - {{overSharePanel.name}}</span>
-          </div>
-          <input class="shareInput" type="text" [value]="overSharePanel.full_url">
+  <div class="over_my_playlists_content">
+    <div class="close" (click)="overSharePanel = ''">
+      <i class="far fa-times-circle"></i>
     </div>
+    <div class="div">
+      <span>{{overSharePanel.performer_name}} - {{overSharePanel.name}}</span>
+    </div>
+    <input class="shareInput" type="text" [value]="overSharePanel.full_url">
   </div>
+</div>

@@ -1,20 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpManagerService } from './http-manager.service';
+import { AudioService } from '../audio/audio.service';
 
 @Component({
   selector: 'app-manager',
   templateUrl: './manager.component.html',
   styleUrls: ['./manager.component.scss'],
-  providers: [HttpManagerService]
+  providers: [HttpManagerService, AudioService]
 })
 export class ManagerComponent implements OnInit {
 
-  constructor(private httpManagerService: HttpManagerService) { }
+  audiolist;
+
+  constructor(private httpManagerService: HttpManagerService,
+    public audioService: AudioService) { }
 
   ngOnInit() {
-    this.httpManagerService.trackParser(26332).subscribe(res => {
-      console.log(res);
-      });
+
+    this.audioService.getManagerTrackList().subscribe(res => {
+
+      this.audiolist = res;
+
+    });
 
   }
 
