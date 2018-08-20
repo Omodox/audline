@@ -173,7 +173,7 @@ export class AudiolistComponent implements OnInit {
   shareTrack(track) {
 
     this.overSharePanel = track;
-    this.overSharePanel.full_url = "http://audline.net/track/" + track.id;
+    this.overSharePanel.full_url = "http://audline.com/track/" + track.id;
     ga('send', 'event', 'Music', 'share', track.performer_name + ' - ' + track.name);
 
   }

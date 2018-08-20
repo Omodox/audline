@@ -170,7 +170,7 @@ export class PlayerComponent implements OnInit {
 
     ga('send', 'event', 'Music', 'play', this.active_track_object.performer_name + ' - ' + this.active_track_object.name);
     if (typeof yaCounter45292596 != 'undefined') {
-      yaCounter45292596.hit(`http://audline.net/track/${this.active_track_object.id}`,
+      yaCounter45292596.hit(`http://audline.com/track/${this.active_track_object.id}`,
         { title: `Слушать онлайн песню ${this.active_track_object.performer_name} - ${this.active_track_object.name} или скачать` });
     }
   }
@@ -203,7 +203,7 @@ export class PlayerComponent implements OnInit {
   shareTrack(track) {
 
     this.overSharePanel = track;
-    this.overSharePanel.full_url = "http://audline.net/track/" + track.id;
+    this.overSharePanel.full_url = "http://audline.com/track/" + track.id;
     ga('send', 'event', 'Music', 'share', track.performer_name + ' - ' + track.name);
 
   }

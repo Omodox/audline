@@ -40,7 +40,6 @@ import { ManagerComponent } from './manager/manager.component';
 import { BandInfoComponent } from './band-info/band-info.component';
 import { DmcaComponent } from './dmca/dmca.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

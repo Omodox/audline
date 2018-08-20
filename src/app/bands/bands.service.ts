@@ -10,7 +10,7 @@ export class BandsService {
      constructor(private http: Http){}
 
     getBands() {
-     return this.http.get('https://audline.net/api/?set=performers')
+     return this.http.get('https://audline.com/api/?set=performers')
          .map(res  => res.json());
  };
 

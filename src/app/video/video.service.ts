@@ -10,7 +10,7 @@ export class VideoService {
      constructor(private http: Http){}
 
     getVideo() {
-     return this.http.get(' https://audline.net/api/?set=video')
+     return this.http.get(' https://audline.com/api/?set=video')
          .map(res  => res.json());
  };
 

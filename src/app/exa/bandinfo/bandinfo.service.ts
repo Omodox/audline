@@ -10,12 +10,12 @@ export class BandinfoService {
      constructor(private http: Http){}
 
     getBand(band) {
-     return this.http.get('https://audline.net/api/?name=api&band_url=' + band )
+     return this.http.get('https://audline.com/api/?name=api&band_url=' + band )
          .map(res  => res.json());
  }
 
  getBandVideo(performer) {
-         return this.http.get('https://audline.net/api/?name=api&video_performer=' + performer)
+         return this.http.get('https://audline.com/api/?name=api&video_performer=' + performer)
              .map(res  => res.json());
      }
 }
