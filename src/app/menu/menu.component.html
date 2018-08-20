@@ -1,25 +1,152 @@
 <nav>
-  <div class="container">
-    <div class="row">
-      <div class="s12">
-        <div class="nav">
-            <div class="logo"><a routerLink="/">Audline</a></div>
-            <ul>
-              <li><a routerLink="/sets">Playlists</a></li>
-              <!-- <li><a routerLink="/bands">Bands</a></li> -->
-              <li><a routerLink="/video">Video</a></li>
-              <!-- <li><a routerLink="/rooms">Rooms</a></li> -->
-              <li><a routerLink="/streams">Stream</a></li>
-              <li *ngIf="!sid"><a routerLink="/login">Login</a></li>
-              <li *ngIf="sid"><a routerLink="/profile">Room</a></li>
-            </ul>
-            <form class="form" (ngSubmint)="search_form()">
-              <input class="search_form" autocomplete="off" [(ngModel)]="search" type="text" name="search" id="search_input" placeholder="Search...">
-              <button class="button_search" (click)="search_form(search)"><span class="glyphicon glyphicon-search"></span></button>
-            </form>
-            <audio id="player"></audio>
-        </div>
+  <div class="scontainer">
+    <div class="srow">
+      <div class="s1 sp2 ssm12 sm12 middle">
+        <a routerLink="/" class="logo"> Audline</a>
+      </div>
+      <div class="s3 ssm12 ">
+        <div class="clear"></div>
+        <form class="form" (ngSubmint)="search_form()" [ngClass]="{'mobile_nav_search_open' : mobile_nav_search_open }">
+          <input class="search_form" autocomplete="off" [(ngModel)]="search" type="text" name="search" id="search_input" placeholder="Поиск..."
+            #searchinput>
+          <button class="button_search" (click)="search_form(search)">
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+      </div>
+      <div class="s2"></div>
+      <div class="s5 ssm12">
+        <app-player></app-player>
       </div>
     </div>
   </div>
+  <button class="mobile_bar" (click)="mobile_nav_open = !mobile_nav_open">
+    <i class="fas fa-bars"></i>
+  </button>
+  <button class="mobile_bar_search" (click)="mobile_nav_search_open = !mobile_nav_search_open; mobile_search(searchinput);">
+    <i class="fas fa-search"></i>
+  </button>
 </nav>
+<div class="nav_left" [ngClass]="{'mobile_nav_open' : mobile_nav_open }">
+  <ul>
+    <li>
+      <a routerLink="/" class="sub_href" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+        true}" (click)="mobile_nav_open = false">
+        <span class="icon_menu">
+          <i class="fab fa-hotjar"></i>
+        </span>
+        Популярная</a>
+    </li>
+    <!-- <li>
+      <a routerLink="/new" class="sub_href" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+        true}" (click)="mobile_nav_open = false"><span class="icon_menu">
+          <i class="fas fa-leaf"></i>
+        </span>Новая</a>
+    </li> -->
+    <!-- <li>
+      <a routerLink="/random" class="sub_href" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+        true}" (click)="mobile_nav_open = false">
+        <span class="icon_menu">
+          <i class="fas fa-random"></i>
+        </span>
+        Случайная</a>
+    </li> -->
+    <li>
+      <a routerLink="/profile" class="sub_href" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+        true}" (click)="mobile_nav_open = false">
+        <span class="icon_menu">
+          <i class="fas fa-heart"></i>
+        </span>Понравившаяся</a>
+    </li>
+    <li>
+      <a routerLink="/bands" (click)="mobile_nav_open = false" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+        true}">
+        <span class="icon_menu">
+          <i class="fas fa-users"></i>
+        </span>
+        Исполнители</a>
+    </li>
+    <li *ngIf="sid">
+      <a routerLink="/history" class="sub_href" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+        true}" (click)="mobile_nav_open = false">
+        <span class="icon_menu">
+          <i class="fas fa-history"></i>
+        </span>История</a>
+    </li>
+    <li>
+      <a routerLink="/sets" (click)="mobile_nav_open = false" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+        true}">
+        <span class="icon_menu">
+          <i class="fas fa-list-alt"></i>
+        </span>
+        Плейлисты</a>
+    </li>
+    <li>
+      <a routerLink="/radio" (click)="mobile_nav_open = false" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+          true}">
+        <span class="icon_menu">
+          <i class="fas fa-broadcast-tower"></i>
+        </span>
+        Радио</a>
+    </li>
+    <li *ngIf="my_status > 1">
+      <a routerLink="/video" (click)="mobile_nav_open = false" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+        true}">
+        <span class="icon_menu">
+          <i class="fab fa-youtube"></i>
+        </span>
+        Видео</a>
+    </li>
+    <li *ngIf="my_status == 3">
+      <a routerLink="/manager" (click)="mobile_nav_open = false" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+        true}">
+        <span class="icon_menu">
+          <i class="fas fa-wrench"></i>
+        </span>
+        Manager</a>
+    </li>
+    <li>
+      <a routerLink="/login" *ngIf="!sid" (click)="mobile_nav_open = false" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+        true}">
+        <span class="icon_menu">
+          <i class="fas fa-sign-in-alt"></i>
+        </span>
+        Войти</a>
+      <a routerLink="/login" *ngIf="sid" (click)="mobile_nav_open = false">
+        <span class="icon_menu">
+          <i class="fas fa-sign-out-alt"></i>
+        </span>
+        Выйти</a>
+      <!-- <a routerLink="/profile" *ngIf="sid" (click)="mobile_nav_open = false" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+        true}">
+        <span class="icon_menu">
+          <i class="fas fa-user"></i>
+        </span>
+        Профиль</a> -->
+    </li>
+    <li style="cursor:pointer">
+      <a target="_blank" (click)="mobile_nav_open = falsel; openTelegram();">
+        <span class="icon_menu">
+          <i class="fab fa-telegram"></i>
+        </span>
+        Telegram</a>
+    </li>
+  </ul>
+  <div class="links">
+    <a href="mailto:contact@audline.net">Обратная связь</a>
+    <br>
+    <a routerLink="/dmca">Правообладателям</a>
+  </div>
+
+  <a *ngIf="money" target="_blank" rel="nofollow" href="{{money.link}}">
+    <img border="0" src="{{money.img}}" />
+  </a>
+
+
+
+  <!-- <a href="#" class="short_link">Обратная связь</a> -->
+
+</div>
+
+<div class="mob_blure" *ngIf="mobile_nav_open" (click)="mobile_nav_open = !mobile_nav_open">
+</div>

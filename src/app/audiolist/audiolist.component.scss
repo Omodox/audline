@@ -7,7 +7,7 @@
   }
   .player {
       position: fixed;
-      top: 6px;
+      top: 9px;
       margin-left: -437px;
       z-index: 101;
   
@@ -18,6 +18,7 @@
           top: auto;
           width: 100%;
           background: #fff;
+          padding: 4px;
       }
       
   }
@@ -36,12 +37,13 @@
       cursor: pointer;
   
       @media screen and (max-width: 768px) {
-          width: 100%;
-          height: 40px;
+          width: 99%;
+          height: 30x;
           margin: 4px 0px;
           border-radius: 0px;
           margin: auto;
           display: block;
+          margin: 8px 1px;
       }
   }
   
@@ -51,11 +53,12 @@
       z-index: 3;
       height: 22px;
       overflow: hidden;
-  
+    
       @media screen and (max-width: 768px) {
    
-          line-height: 31px;
+          line-height: 24px;
           vertical-align: middle;
+    
       }
   }
   
@@ -67,6 +70,10 @@
       left: 0px;
       top: 0px;
       z-index: 1;
+  }
+
+  .share {
+      padding: 4px;
   }
   
   .playbutton_play {
@@ -128,6 +135,7 @@
 .collection {
     margin-top: 6px;
     text-align: left;
+    
 }
 
 .collection-item {
@@ -140,13 +148,14 @@
     background: #fff;
     width: 32%;
     text-align: left;
+ 
 
-   
-    
+
     @media screen and (max-width: 768px) {
-        width: 97%;
+        width: 99%;
         padding: 4px;
-        margin: 2px;
+        margin: -2px 2px;
+        overflow: hidden;
     }
 
     
@@ -166,6 +175,7 @@
     position: relative;
     font-weight: 600;
     font-size: 16px;
+    vertical-align: middle;
 }
 
 .track_name {
@@ -175,6 +185,7 @@
     padding: 3px;
     margin: 0px;
     position: relative;
+    vertical-align: middle;
 }
 .play_button {
     background: #2196f3;
@@ -189,9 +200,26 @@
      transition: 0.3s;
 
      @media screen and (max-width: 768px) {
-        padding: 9px 5px 8px 14px;
+        padding: 9px 3px 8px 10px;
+        font-size: 20px;
     }
 
+}
+
+.mobile_track_button {
+    display: none; 
+    outline: none;
+    @media screen and (max-width: 768px) { 
+        display: inline;
+        background: none;
+        position: absolute;
+        right: 0px;
+        top: 23%;
+        border: 0px;
+        font-size: 20px;
+        color: #777;
+
+    }
 }
 
 .play_button:hover {
@@ -204,12 +232,14 @@
     display: inline-block;
     vertical-align: middle;
     width: 80%;
+    position: relative;
 }
 
 .hover_hide {
-    visibility: hidden;
+    // visibility: hidden;
     transition: 0.3s;
 }
+
 
 .track_info:hover .hover_hide {
     visibility: initial;
@@ -217,9 +247,21 @@
     // display: inline !important;
 }
 
+.buttons_track_panel {
+    display: inline-block;
+    overflow: hidden;
+    position: absolute;
+    right: 0px;
+    text-align: right;
+
+}
+
+
 
 .active {
     background: #e1f2ff;
+
+ 
 }
 
 .active_player {
@@ -250,6 +292,7 @@
         
     @media screen and (max-width: 768px) {
         width: 97%;
+        display: none;
     }
 
     }
@@ -291,6 +334,8 @@
         display: none;
     }
     .list {
+
+        @media screen  and (min-width: 490px){ 
         
         .collection-item {
         width: 100%;
@@ -300,12 +345,14 @@
 
         .track_name {
             display: inline-block;
-            width: 35%;
+            width: 33%;
+            vertical-align: middle;
         }
 
 
         .performer_name{
-            width: 33%;
+            width: 25%;
+            vertical-align: middle;
 
         }
 
@@ -315,7 +362,7 @@
         }
 
         .track_info {
-            width: 90%;
+            width: 95%;
         }
 
         .time_track {
@@ -348,19 +395,28 @@
             color: #ccc;
             display: inline-block;
             text-align: center;
-            float: right;
-            width: 4%;
             font-size: 23px;
-            padding: 0px 10px;
+            padding: 0px 8px;
             cursor: pointer;
             transition: 0.3s;
             vertical-align: middle;
+
+            &:hover {
+                color: #2196f3;
+                transition: 0.3s;
+            }
         }
 
     .liked {
         color: #e53935;
         transition: 0.6s;
+
+        &:hover{
+            color: #e53935;
         }
+        }
+
+    }
     
     }
 
@@ -415,8 +471,302 @@
 
 
 
-   
+    .over {
+        display: none;
+        transition: 0.2s;
+        z-index: 400;
+        
+
+        .over_content {
+            background: #fff;
+            box-shadow: 0px 0px 4px #292e34;
+            padding:10px 6px;
+            max-width: 400px;
+            margin: auto;
+            transition: 0.2s;
+            position: relative;
+            z-index: 400;
+            
+
+            span {
+                display: block;
+                text-align: left;
+                padding: 0px 4px;
+                font-size: 16px;
+                padding-left: 19px;
+            }
+            
+            .performer {
+                color: #428bca;
+                font-size: 18px;
+            }
+
+            button {
+                width: 40%;
+                padding: 4px 8px;
+                background: #2196f3;
+                color: #fff;
+                font-size: 16px;
+                border: 0px;
+                border-radius: 3px;
+                // margin: 0px 4px;
+                margin-top: 10px;
+              
+            }
+
+            .saved {
+                background: #e53935;
+            }
+
+
+
+        }
+
+        .close {
+            position: absolute;
+            right: 17px;
+            top: 17px;
+            color: #000;
+            font-size: 32px;
+            z-index: 401;
+        }
+  
+        @media screen and (max-width: 768px) {
+            display: block;
+            z-index: 1002;
+            position: fixed;
+            top:25%;
+            width: 100%;
+            padding: 8px;
+            left: 0px;
+           
+        
+        }
+
+        
+    }
+
+    .over::before {
+        content: "";
+        position: fixed;
+        background: rgba(0,0,0,0.3);
+        width: 100%;
+        height: 100%;
+        left: 0px;
+        top: 0px;
+        z-index: 300;
+    }
     
 
-  
-  
+  .select {
+    vertical-align: bottom;
+    padding: 6px 14px;
+    border-radius: 3px;
+    border: 0px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    background: #2196f3;
+    cursor: pointer;
+  }
+
+  option {
+    color: #000;
+    font-size: 16px;
+    padding: 6px;
+    display: block;
+    font-weight: 400;
+    cursor: pointer;
+    background: #fff;
+
+}
+
+
+
+
+.over_my_playlists {
+    display: block;
+    transition: 0.2s;
+    z-index: 400;
+    z-index: 1002;
+    position: fixed;
+    top:10%;
+    width: 100%;
+    padding: 8px;
+    left: 0px;
+    
+    .over_my_playlists_content {
+        background: #fff;
+        box-shadow: 0px 0px 3px #292e34;
+        padding:10px 6px;
+        max-width: 400px;
+        margin: auto;
+        transition: 0.2s;
+        position: relative;
+        z-index: 400;
+        min-height: 150px;
+        border-radius: 4px;
+
+
+
+        ul {
+            list-style: none;
+            text-align: left;
+            padding-left: 5px;
+
+            li {
+                margin: 5px 0px;
+
+            }
+        }
+        
+     
+
+        button {
+            padding: 4px 8px;
+            background: #2196f3;
+            color: #fff;
+            font-size: 16px;
+            border: 0px;
+            border-radius: 3px;
+            // margin: 0px 4px;
+            margin-top: 10px;
+            margin-right: 10px;
+            min-width: 120px;
+            text-align: center;
+          
+        }
+
+        .remove {
+            background: #e53935;
+        }
+
+
+
+    }
+
+    .close {
+        position: absolute;
+        right: 17px;
+        top: 17px;
+        color: #000;
+        font-size: 32px;
+        z-index: 401;
+    }
+
+    @media screen and (max-width: 768px) {
+     
+       
+    
+    }
+
+    
+}
+
+.over_my_playlists::before {
+    content: "";
+    position: fixed;
+    background: rgba(0,0,0,0.3);
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    z-index: 300;
+}
+
+.hide_button {
+    display: none !important;
+    transition: 0.3s;
+   }
+
+
+   .over_edit_track {
+    display: block;
+    transition: 0.2s;
+    z-index: 400;
+    z-index: 1002;
+    position: fixed;
+    top:10%;
+    width: 100%;
+    padding: 8px;
+    left: 0px;  
+
+  .over_edit_track_content  {
+        background: #fff;
+        box-shadow: 0px 0px 3px #292e34;
+        padding:10px 6px;
+        max-width: 400px;
+        margin: auto;
+        transition: 0.2s;
+        position: relative;
+        z-index: 400;
+        min-height: 150px;
+        border-radius: 4px;
+
+        input[type=text] {
+            margin: 3px;
+            padding: 4px;
+            width: 97%;
+        }
+
+        .td_name {
+            margin: 3px;
+            padding: 4px;
+            display: block;
+
+        }
+
+    }
+   }
+
+
+   .over_edit_track:before {
+    content: "";
+    position: fixed;
+    background: rgba(0,0,0,0.3);
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    z-index: 300;
+   }
+
+.shareInput {
+    padding: 4px;
+    border-radius: 4px;
+    width: 90%;
+    margin: 30px auto;
+    border: 2px solid #1976d2;
+    background: #eee;
+    font-weight: 600;
+
+}
+
+.fexnet {
+    background: green;
+    color: #fff;
+    padding: 4px 6px;
+    border-radius: 3px;
+}
+
+
+.mobile_money {
+    display: none;
+    margin: 5px 0px;
+    @media screen and (max-width: 768px) {
+        display: block;
+     }
+}
+
+.desctop_money {
+    text-align: center;
+    display: block;
+    margin: 5px auto;
+    img {
+        margin: auto;
+    }
+    @media screen and (max-width: 768px) {
+        display: none;
+     }
+}
+

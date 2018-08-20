@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BandsComponent } from './bands.component';
+import { DmcaComponent } from './dmca.component';
 
-describe('BandsComponent', () => {
-  let component: BandsComponent;
-  let fixture: ComponentFixture<BandsComponent>;
+describe('DmcaComponent', () => {
+  let component: DmcaComponent;
+  let fixture: ComponentFixture<DmcaComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BandsComponent ]
+      declarations: [ DmcaComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BandsComponent);
+    fixture = TestBed.createComponent(DmcaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

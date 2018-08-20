@@ -1,0 +1,551 @@
+
+.mobMenu {
+    .mob_blure {
+        transition: 0.15s;
+        top: 100%;
+      bottom: 100%;
+    }
+
+}
+.player_box {
+    padding: 3px 0px;
+    position: relative;
+    transition: 0.15s;
+
+    button:focus  {
+        outline: none;
+            }
+    @media screen and (max-width: 1024px) {
+      float: none;
+            }
+
+            @media screen and (max-width : 768px ) {
+            position: fixed;
+            bottom: 0px;
+            width: 100%;
+            left: 0px;
+            background: #f4f4f4;
+            z-index: 100;
+            // height: 40%;
+            height: 200px;
+            padding-top: 0px;
+            box-shadow: 0px -4px 13px rgba(0, 0, 0, 0.8);
+            
+
+            }
+  }
+
+  .mob_blure {
+      display: none;
+    @media screen and (max-width : 768px ) {
+        display: block;
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 60%;
+        background: rgba(0, 0, 0, 0.77);
+        display: block;
+        transition: 0.15s;
+        z-index: 10;
+        display:  none      // Hide BLUER
+    }
+  }
+
+
+
+
+  .mobile_buttons {
+      display: none;
+    @media screen and (max-width : 768px ) { 
+        display: block;
+        margin-top: -7px;
+
+        .btn_play {
+            font-size: 46px;
+            color: #484747;
+            display: inline-block;
+            margin: 0px 12px;
+            vertical-align: middle;
+        }
+
+        .mob_arrows {
+            font-size: 30px;
+        }
+
+        .hide_mob_player {
+            position: fixed;
+            right: 16px;
+            bottom: 20px;
+            text-align: center;
+            font-size: 24px;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: #1976d2;
+            box-shadow: 0px 0px 3px #1c1b1b;
+            color: #fff;
+            vertical-align: middle;
+            padding-top: 11px;
+        }
+    }
+   
+
+  }
+
+  .goToPlaylist {
+      display: none;
+      @media screen and (max-width : 768px ) {  
+          display: block;
+          background: #466695;
+          width: 100%;
+          border: 0px;
+          position: absolute;
+          bottom: 0px;
+          left: 0px;
+          color: #f4f4f4;
+          height: 32px;
+          line-height: 32px;
+          font-size: 14px;
+          vertical-align: middle;
+      }
+  }
+
+  
+
+  .player {
+    
+  
+      @media screen and (max-width: 1024px) {
+          margin-left: 0px;
+          bottom: 0;
+          top: auto;
+          width: 100%;
+          background: #fff;
+          padding: 4px;
+    
+      }
+
+      @media screen and (max-width : 768px ) {  
+        //   display: none;
+        padding: 0px;
+      }
+      
+  }
+  
+  .player_track_name {
+      padding: 4px;
+      text-align: left;
+      border: 1px solid silver;
+      display: inline-block;
+      vertical-align: middle;
+      min-height: 31px;
+      border-radius: 4px;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+      cursor: pointer;
+      background: #f8f8f8;
+
+      @media screen and (max-width : 768px ) {  
+          min-height: 28px;
+          z-index: 0;
+          background: #C8C8C8;
+          border: 0px;
+          border-radius: 0px;
+          margin-top: -3px;
+          border-bottom: 1px solid #a7a7af;
+      }
+  
+
+  }
+
+  .track_name_text {
+    z-index: 3;
+    position: absolute;
+    color: #1c1b1b;
+    height: 22px;
+    overflow: hidden;
+    font-weight: 600;
+    // text-shadow: 0px 0px 3px #fff;
+    @media screen and (max-width : 768px ) {  
+        display: none;
+    }
+
+  }
+  
+  .player_time_progress {
+      position: absolute;
+      background: #2196f3;
+      width: 0%;
+      height: 100%;
+      left: 0px;
+      top: 0px;
+      z-index: 1;
+  }
+  
+  .playbutton_play {
+      border-radius: 4px;
+      padding: 3px 8px;
+      display: inline-block;
+      vertical-align: middle;
+      background: #2196f3;
+      border: 0px;
+      font-size: 18px;
+      transition: 0.3s;
+      color: #fff;
+  
+      @media screen and (max-width: 768px) {
+          width: 31%;
+          height: 32px;
+        border-radius: 0px;
+        font-size: 27px;
+        padding: 0px;
+      }
+  }
+
+  .play_buttons_panel {
+      display: block;
+      padding: 0px 0px;
+      padding-left: 6px;
+      
+
+      @media screen and (max-width: 768px) { 
+          display: none;
+      }
+
+  }
+
+  .bt_x {
+      padding: 0px 2px;
+  }
+  
+  .player_button {
+      border-radius: 4px;
+      padding: 3px 8px;
+      font-size: 18px;
+      text-align: center;
+      display: inline-block;
+      vertical-align: middle;
+      background: #2196f3;
+      border: 0px;
+      color: #fff;
+      transition: 0.3s;
+      width: 100%;
+      border-radius: 3px;
+  
+      @media screen and (max-width: 768px) {
+
+      }
+  }
+  
+  .player_button:hover, .playbutton_play:hover {
+      background: #1976d2;
+      transition: 0.3s;
+  }
+
+
+  .slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    border-radius: 5px;   
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    cursor: pointer;
+
+    @media screen and (max-width : 768px ) {
+        display: none;
+        
+    }
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%; 
+    background: #1976d2;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #1976d2;
+    cursor: pointer;
+}
+
+
+
+.timeSlider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    border-radius: 5px;   
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    cursor: pointer;
+
+}
+
+.timeSlider::-ms-fill-lower {
+    background: #777;
+    border-radius: 10px;
+}
+
+.timeSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%; 
+    background: #1976d2;
+    cursor: pointer;
+}
+
+.timeSlider::-moz-range-thumb {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #1976d2;
+    cursor: pointer;
+}
+
+
+
+
+  .volume_box {
+    width: 58%;
+    position: absolute;
+    bottom: -11px;
+    left: 2px;
+}
+  
+
+
+  .playlist_button_panel {
+    padding: 3px 8px;
+    font-size: 18px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    background: #2196f3;
+    border: 0px;
+    color: #fff;
+    -webkit-transition: 0.3s;
+    transition: 0.3s; 
+    border-radius: 3px;
+    width: 100%;
+
+    &:hover {
+        background: #1976d2;
+        transition: 0.3s;
+    }
+
+    @media screen and (max-width: 768px) {
+    }
+}
+
+
+.loop_btn {
+    padding: 3px 3px 3px 4px;
+}
+
+.loop {
+    color: #e53935 !important;
+
+    &:hover {
+        color: #e53935;
+    }
+}
+
+.liked {
+    color:#e53935 !important;
+}
+
+
+
+.mob_track_info {
+    display: none;
+  @media screen and (max-width : 768px ) {  
+    display: block;
+    padding: 5px;
+    width: 100%;
+    margin-top: 25px;
+    height: 30px;
+    margin-bottom: 30px;
+}
+}
+
+
+.mob_track_name {
+    display: block;
+    font-size: 14px;
+    text-align: left;
+}
+.mob_track_performer {
+    display: block;
+    text-align: left;
+    font-size: 17px;
+    font-weight: 600;
+    margin: 8px 0px;
+    color: #1976d2;
+}
+
+.mobMenu {
+
+    height: 0px;
+    transition: 0.3s;
+
+
+
+}
+
+.float_r {
+    float: right;
+}
+
+.time_panel {
+    display: none;
+    @media screen and (max-width : 768px ) {  
+        display: block;
+        position: absolute;
+        left: 5px;
+        top: 28px;
+        width: 97%;
+        text-align: left;
+    }
+
+}
+
+.more_buttons {
+    position: absolute;
+    right: 10px;
+    top: 53px;
+    font-size: 24px;
+}
+
+.small_btn {
+    background: none;
+    border: 0px;
+    text-align: center;
+    color: #777;
+}
+
+.dbl_bt {
+    background: none;
+    border: 0px;
+    font-size: 21px !important;
+}
+
+
+
+.over_my_playlists {
+    display: block;
+    transition: 0.2s;
+    z-index: 400;
+    z-index: 1002;
+    position: fixed;
+    top:10%;
+    width: 100%;
+    padding: 8px;
+    left: 0px;
+    
+    .over_my_playlists_content {
+        background: #fff;
+        box-shadow: 0px 0px 3px #292e34;
+        padding:10px 6px;
+        max-width: 400px;
+        margin: auto;
+        transition: 0.2s;
+        position: relative;
+        z-index: 400;
+        min-height: 150px;
+        border-radius: 4px;
+        padding-top: 60px;
+
+        input {
+            margin: 20px 0px;
+         width: 100%;
+         padding: 8px;
+         color: #1976d2;
+         font-weight: 600;
+         font-size: 17px;
+        }
+
+   
+
+
+        ul {
+            list-style: none;
+            text-align: left;
+            padding-left: 5px;
+
+            li {
+                margin: 5px 0px;
+
+            }
+        }
+        
+     
+
+        button {
+            padding: 4px 8px;
+            background: #2196f3;
+            color: #fff;
+            font-size: 16px;
+            border: 0px;
+            border-radius: 3px;
+            // margin: 0px 4px;
+            margin-top: 10px;
+            margin-right: 10px;
+            min-width: 120px;
+            text-align: center;
+          
+        }
+
+        .remove {
+            background: #e53935;
+        }
+
+
+
+    }
+
+    .close {
+        position: absolute;
+        right: 17px;
+        top: 17px;
+        color: #000;
+        font-size: 32px;
+        z-index: 401;
+    }
+
+    @media screen and (max-width: 768px) {
+     
+       
+    
+    }
+
+    
+}
+
+.over_my_playlists::before {
+    content: "";
+    position: fixed;
+    background: rgba(0,0,0,0.3);
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    z-index: 300;
+}

@@ -1,0 +1,125 @@
+<div class="player_box" [ngClass]="{'mobMenu': !mobMenu}">
+  <div class="srow">
+    <div class="s7 ssm12">
+      <div class="player">
+        <div id="trackname" class="player_track_name">
+          <span class="player_time_progress" id="progress_line" [ngStyle]="{'width.%': progress}">
+          </span>
+          <span class="track_name_text"> {{active_track_object?.performer_name}} - {{active_track_object?.name}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="s5 ssm12">
+      <div class="play_buttons_panel">
+        <div class="srow">
+          <div class="s0 ssm2">
+            <div class="bt_x">
+              <button class="playlist_button_panel" (click)="newsort()">
+                <i class="fas fa-random"></i>
+              </button>
+            </div>
+          </div>
+          <div class="s3 ssm3">
+            <div class="bt_x">
+              <button class="player_button" (click)='playerPrevTrack()'>
+                <span class="glyphicon glyphicon-backward"></span>
+              </button>
+            </div>
+          </div>
+          <div class="s4 ssm2">
+            <div class="bt_x">
+              <button class="player_button" (click)="playerPlay()">
+                <span class="glyphicon glyphicon-play" [ngClass]="{'glyphicon-pause' : !audio.paused}"></span>
+              </button>
+            </div>
+          </div>
+          <div class="s3 ssm3">
+            <div class="bt_x">
+              <button class="player_button" (click)="playerNextTrack()">
+                <span class="glyphicon glyphicon-forward"></span>
+              </button>
+            </div>
+          </div>
+          <div class="s2 ssm2">
+            <div class="bt_x">
+              <button class="playlist_button_panel loop_btn" [ngClass]="{'loop' : loop}" (click)="playerLoop()">
+                <span class="glyphicon glyphicon-refresh"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mob_blure">
+      </div>
+      <div class="mob_track_info">
+        <!-- <input class="timeSlider" #timeslider type="range" min="0" max="100" step="0.01" value="{{ 100 / audio.duration * audio.currentTime }}"
+          (change)="audio.currentTime =  audio.duration / 100 * timeslider.value"> -->
+        <span class="mob_track_name"> {{active_track_object?.name}} </span>
+        <a routerLink="/performer/{{active_track_object?.performer_url}}">
+          <span class="mob_track_performer"> {{active_track_object?.performer_name}}</span>
+        </a>
+      </div>
+      <div class="time_panel">
+        <span>{{audio?.currentTime | time }}</span>
+        <span class="float_r">{{active_track_object?.duration | time }}</span>
+      </div>
+      <div class="mobile_buttons">
+
+        <div class="more_buttons">
+
+          <button class="small_btn" (click)="downloadTrack(active_track_object)">
+            <span class="glyphicon glyphicon-download"></span>
+          </button>
+          <button class="small_btn" [ngClass]="{'liked' : active_track_object?.liked}" (click)="likeTrack(active_track_object)">
+            <span class="glyphicon glyphicon-heart"></span>
+          </button>
+          <button class="small_btn" (click)="shareTrack(active_track_object)">
+            <span class="glyphicon glyphicon-share-alt"></span>
+          </button>
+
+        </div>
+        <!-- (click)="newsort()" -->
+        <button class="btn_play mob_arrows dbl_bt">
+          <i class="fas fa-random"></i>
+        </button>
+        <div class="btn_play mob_arrows" (click)='playerPrevTrack()'>
+          <span class="glyphicon glyphicon-backward"></span>
+        </div>
+        <div class="btn_play" (click)="playerPlay()">
+          <span class="glyphicon glyphicon-play" [ngClass]="{'glyphicon-pause' : !audio.paused}"></span>
+        </div>
+        <div class="btn_play mob_arrows" (click)="playerNextTrack()">
+          <span class="glyphicon glyphicon-forward"></span>
+        </div>
+        <div class="hide_mob_player" *ngIf="!mobMenu && audio.readyState" (click)="mobMenu = !mobMenu;">
+          <i class="fab fa-itunes-note"></i>
+        </div>
+        <button class="btn_play mob_arrows loop_btn dbl_bt" [ngClass]="{'loop' : loop}" (click)="playerLoop()">
+          <span class="glyphicon glyphicon-refresh"></span>
+        </button>
+      </div>
+      <div>
+        <button class="goToPlaylist" *ngIf="mobMenu" (click)="mobMenu = !mobMenu; hendPlayer = true;">
+          <i class="fas fa-caret-down"></i> Плейлист</button>
+      </div>
+    </div>
+
+    <div class="volume_box">
+      <input class="slider" #volumeslider type="range" min="0" max="1" step="0.01" value="{{audio.volume}}" (input)="playerVolumeSlider(volumeslider.value)"
+        (change)="playerVolumeSlider(volumeslider.value)">
+    </div>
+  </div>
+</div>
+
+
+<div class="over_my_playlists" *ngIf="overSharePanel">
+  <div class="over_my_playlists_content">
+    <div class="close" (click)="overSharePanel = ''">
+      <i class="far fa-times-circle"></i>
+    </div>
+    <div class="div">
+      <span>{{overSharePanel.performer_name}} - {{overSharePanel.name}}</span>
+    </div>
+    <input class="shareInput" type="text" [value]="overSharePanel.full_url">
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="scontainer">
+  <div class="radio_page">
+    <div class="srow">
+      <div class="s3 ssm12" *ngFor="let item of radio">
+        <div class="radio_item">
+          <div class="srow">
+            <div class="s4 middle">
+              <button class="play_button" [ngClass]="{'active' : item.active}" (click)="radioPlay(item)">
+                <span *ngIf="item.active" class="glyphicon glyphicon-pause"></span>
+                <span *ngIf="!item.active" class="glyphicon glyphicon-play"></span>
+              </button>
+            </div>
+            <div class="s8 middle">
+              <img src="{{item.img}}" alt="{{item.name}}">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

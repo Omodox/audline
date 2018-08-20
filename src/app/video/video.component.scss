@@ -1,15 +1,6 @@
-.mine {
-    display: inline-block;
-    width: 73%;
-
-    @media screen and (max-width: 768px) {
-        width: 100%;
-    }
-}
 .item {
     display: inline-block;
     vertical-align: top;
-    width: 30%;
     cursor: pointer;
     img {
         max-width: 100%;

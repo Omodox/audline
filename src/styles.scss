@@ -2,8 +2,8 @@
     a:hover{text-decoration:underline;}
     a:focus{outline:none;}
     .main{max-width:2200px;margin:auto;}
-    .container{max-width:1200px;margin:auto;text-align:center;}
-    .row{clear:both;word-spacing:-5px;}
+    .scontainer{max-width: 98%; margin:auto;text-align:center;}
+    .srow{clear:both;word-spacing:-5px; text-align: center;}
     .clear{clear:both;}
     img{max-width:100%;}
     nav li{display:inline-block;}
@@ -17,7 +17,7 @@
     .block_a a{color:#fff;}
     .px4{margin:4px;padding:4px;}
     .img_block{text-align:center;}
-    .middle{vertical-align:middle;}
+    .middle{vertical-align:middle !important;}
     .s1{width:8.3333333%;}
     .s2{width:16.666666%;}
     .s3{width:24.9999999%;}
@@ -63,9 +63,9 @@
     .sm0{display:none;}
     }
     @media screen and (max-width:479px){.ssm1{width:8.3333333%;}
-    .ssm2{width:16.666666%;}
-    .ssm3{width:24.9999999%;}
-    .ssm4{width:33.3333333%;}
+    .ssm2{width:16.666666%; display:inline-block;}
+    .ssm3{width:24.9999999%; display:inline-block;}
+    .ssm4{width:33.3333333%; display:inline-block;}
     .ssm5{width:41.666666666%;}
     .ssm6{width:50%;}
     .sm7{width:58.333333%;}
@@ -104,4 +104,83 @@
         }
     }
     
+    .mine_container {
+    padding-top: 50px;
+    width: calc(100% - 240px);
+    margin-left: 240px;
 
+    @media screen and (max-width: 768px) {
+        padding-top: 53px;
+        padding-bottom: 85px;
+
+        width: 100%;
+        margin-left: 0px;
+        
+    }
+}
+
+
+.lds-dual-ring {
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+    padding-top: 70px;
+  }
+  .lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 46px;
+    height: 46px;
+    margin: 1px;
+    border-radius: 50%;
+    border: 5px solid #cef;
+    border-color: #cef transparent #cef transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+  }
+  @keyframes lds-dual-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .dark .nav_left {
+    background: #292e34 !important;
+    border-right-color: #000 !important;
+    box-shadow: 0px 0px 1px #18191d !important;
+
+
+    a {
+        color: #fff !important;
+
+        &:hover {
+            background: rgba(24, 25, 29, 0.5803921568627451) !important;
+        }
+    }
+
+    .active-link {
+        background: #18191d !important;
+    }
+}
+
+.dark {
+
+    .search_form{
+        background: #292e34 !important;
+        color: #fff !important;
+    }
+
+    .player_track_name {
+        background: #292e34 !important;
+      
+    }
+
+    .track_name_text {
+        color: #fff !important;
+        text-shadow: 0px 0px 0px #000 !important;
+    }
+
+}
+  

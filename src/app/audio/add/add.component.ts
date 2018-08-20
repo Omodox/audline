@@ -9,12 +9,12 @@ import { AdminService } from './../../adm/admin.service';
 })
 export class AddComponent implements OnInit {
 
-  url = 'https://zk.fm/download/';
+  url = '';
   name;
   performer_name;
   performer_url;
 
-  constructor(private adminService : AdminService) { }
+  constructor(private adminService: AdminService) { }
 
   ngOnInit() {
   }
@@ -22,7 +22,6 @@ export class AddComponent implements OnInit {
   sid = localStorage.getItem('sid');
 
   send(form) {
-    // console.log(form.value);
 
     this.adminService.addNewTrack(form.value,this.sid).subscribe(res => {
       console.log(res);
@@ -30,8 +29,10 @@ export class AddComponent implements OnInit {
 
     this.name = '';
     this.performer_name = '';
-    this.url = 'https://zk.fm/download/';
+    this.url = '';
     this.performer_url = '';
+
+    this.performer_name = form.value.performer_name;
 
   }
 

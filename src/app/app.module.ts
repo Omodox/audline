@@ -27,8 +27,18 @@ import { RegistrationComponent } from './login/registration/registration.compone
 import { SearchComponent } from './search/search.component';
 import { GoogleComponent } from './login/google/google.component';
 import { AddComponent } from './audio/add/add.component';
-import { SetComponent } from './set/set.component';
+import { SetComponent } from './sets/set/set.component';
 import { AddsetComponent } from './sets/addset/addset.component';
+import { RadioComponent } from './radio/radio.component';
+import { HeartService } from './audiolist/heart.service';
+import { PlayerComponent } from './menu/player/player.component';
+import { TrackComponent } from './track/track.component';
+import { NewComponent } from './audio/new/new.component';
+import { RandomComponent } from './audio/random/random.component';
+import { HistoryComponent } from './audio/history/history.component';
+import { ManagerComponent } from './manager/manager.component';
+import { BandInfoComponent } from './band-info/band-info.component';
+import { DmcaComponent } from './dmca/dmca.component';
 
 
 @NgModule({
@@ -55,7 +65,16 @@ import { AddsetComponent } from './sets/addset/addset.component';
     GoogleComponent,
     AddComponent,
     SetComponent,
-    AddsetComponent
+    AddsetComponent,
+    RadioComponent,
+    PlayerComponent,
+    TrackComponent,
+    NewComponent,
+    RandomComponent,
+    HistoryComponent,
+    ManagerComponent,
+    BandInfoComponent,
+    DmcaComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +82,7 @@ import { AddsetComponent } from './sets/addset/addset.component';
     HttpModule,
     FormsModule
   ],
-  providers: [],
+  providers: [HeartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
