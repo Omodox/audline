@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -81,7 +81,7 @@ import { DmcaComponent } from './dmca/dmca.component';
     HttpModule,
     FormsModule
   ],
-  providers: [HeartService],
+  providers: [HeartService, Title],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

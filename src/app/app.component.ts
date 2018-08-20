@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, NavigationEnd } from "@angular/router";
+import { Title } from "@angular/platform-browser";
 
 declare let ga: Function;
 
@@ -11,7 +12,7 @@ declare let ga: Function;
 export class AppComponent implements OnInit {
   title = 'app works!';
   sid = localStorage.getItem('sid');
-  constructor(public router: Router) {
+  constructor(public router: Router, private titleService: Title) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
 
@@ -21,6 +22,10 @@ export class AppComponent implements OnInit {
         }, 1000);
       }
     });
+  }
+
+  public setTitle( newTitle: string) {
+    this.titleService.setTitle( newTitle );
   }
 
   ngOnInit() {
