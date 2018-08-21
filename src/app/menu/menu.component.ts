@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HeartService } from '../audiolist/heart.service';
 import { MenuHttpService } from './menu-http.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -21,6 +22,7 @@ export class MenuComponent implements OnInit {
   my_status = localStorage.getItem('status');
 
   money;
+  helper;
 
   mobile_search(item) {
     setTimeout(() => {
@@ -30,7 +32,11 @@ export class MenuComponent implements OnInit {
     console.log(item);
   };
 
-  constructor(private router: Router, private heartService: HeartService, private menuHttpService: MenuHttpService) { }
+  constructor(private router: Router,
+     private heartService: HeartService,
+     private menuHttpService: MenuHttpService,
+     private route: ActivatedRoute
+    ) { }
 
   search_form(search) {
     console.log(search.length > 1);
@@ -65,6 +71,20 @@ export class MenuComponent implements OnInit {
     );
   };
 
+
+  search_helper(search) {
+    if (search.length > 1) {
+      this.menuHttpService.getSearchHelper(search).subscribe(
+        res => {
+         this.helper = res;
+        }
+      );
+    }
+  }
+
+  openPerformer(item) {
+    this.router.navigate(['/performer', item.url]);
+  }
 
 
 }

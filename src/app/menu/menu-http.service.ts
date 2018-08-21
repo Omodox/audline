@@ -18,6 +18,13 @@ export class MenuHttpService {
   }
 
 
+  getSearchHelper(filter) {
+    return  this.http.get(`${this.host}performers&filter=${filter}`)
+      .map(res => res.json());
+  }
+
+
+
   unixtime() {
     return new Date().getTime() / 1000
   }

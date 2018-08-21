@@ -5,14 +5,24 @@
         <a routerLink="/" class="logo"> Audline</a>
       </div>
       <div class="s3 ssm12 ">
-        <div class="clear"></div>
-        <form class="form" (ngSubmint)="search_form()" [ngClass]="{'mobile_nav_search_open' : mobile_nav_search_open }">
-          <input class="search_form" autocomplete="off" [(ngModel)]="search" type="text" name="search" id="search_input" placeholder="Поиск..."
-            #searchinput>
-          <button class="button_search" (click)="search_form(search)">
-            <i class="fas fa-search"></i>
-          </button>
-        </form>
+        <div class="search_box">
+          <div class="clear"></div>
+          <form class="form" (ngSubmint)="search_form()" [ngClass]="{'mobile_nav_search_open' : mobile_nav_search_open }">
+            <input class="search_form" (keyup)="search_helper(search)" autocomplete="off" [(ngModel)]="search" type="text" name="search"
+              id="search_input" placeholder="Поиск..." #searchinput>
+            <button class="button_search" (click)="search_form(search)">
+              <i class="fas fa-search"></i>
+            </button>
+          </form>
+          <div class="performers_panel" *ngIf="search">
+            <div  *ngFor="let item of helper">
+                <div class="performer" (click)="openPerformer(item)">
+                  <img src="{{item.img200}}" alt="">
+                  <span class="name">{{item.name}}</span>
+                </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="s2"></div>
       <div class="s5 ssm12">

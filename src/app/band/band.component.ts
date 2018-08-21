@@ -23,12 +23,16 @@ export class BandComponent implements OnInit {
   private querySubscription: Subscription;
   constructor(private route: ActivatedRoute, private audioService: AudioService) {
 
-    this.routeSubscription = route.params.subscribe(params => this.id = params['id']);
+    this.routeSubscription = route.params.subscribe(params => {
+      this.id = params['id'];
+
+    } );
   }
 
   ngOnInit() {
     // this.audioService.getPlaylistByBandV2(this.id).subscribe(res => {
     //   this.audiolist = res;})
+
 
 
     this.audioService.audGetBandPlaylist(this.id).subscribe(res => {
@@ -71,6 +75,8 @@ export class BandComponent implements OnInit {
       }
 
     });
+
+  
 
 
 
