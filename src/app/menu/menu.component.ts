@@ -84,6 +84,7 @@ export class MenuComponent implements OnInit {
 
   openPerformer(item) {
     this.router.navigate(['/performer', item.url]);
+    this.helper = '';
   }
 
 

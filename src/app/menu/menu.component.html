@@ -14,7 +14,7 @@
               <i class="fas fa-search"></i>
             </button>
           </form>
-          <div class="performers_panel" *ngIf="search">
+          <div class="performers_panel" *ngIf="helper">
             <div  *ngFor="let item of helper">
                 <div class="performer" (click)="openPerformer(item)">
                   <img src="{{item.img200}}" alt="">
