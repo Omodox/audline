@@ -33,6 +33,8 @@ export class PlayerComponent implements OnInit {
 
   noSendError = 0;
 
+  aliTimer = false;
+
 
   progress: number;
   progress_line: HTMLElement;
@@ -128,7 +130,28 @@ export class PlayerComponent implements OnInit {
 
   }
 
+ 
+
   playerPlay() {
+
+    // if (!this.aliTimer) {
+    //   setTimeout(function() {
+    //     window.open(
+    //       'http://s.click.aliexpress.com/e/cBf1vtBi',
+    //       '_blank'
+    //     );
+    //   }, 6000);
+    //   this.aliTimer = true;
+    // }
+
+    if (!this.aliTimer) {
+        window.open(
+          'http://s.click.aliexpress.com/e/cBf1vtBi',
+          '_blank'
+        );
+      this.aliTimer = true;
+    }
+
     this.playerVolume();
     if (this.audio.paused === true) {
       this.audio.play();
