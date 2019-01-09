@@ -25,6 +25,7 @@ import { RadioComponent } from './radio/radio.component';
 import { TrackComponent } from './track/track.component';
 import { ManagerComponent } from './manager/manager.component';
 import { DmcaComponent } from './dmca/dmca.component';
+import { MusicComponent } from './music/music.component';
 
 const routes: Routes = [
   { path: '', component: AudioComponent },
@@ -39,6 +40,7 @@ const routes: Routes = [
   { path: 'google', component: GoogleComponent },
   // { path: 'search', component: PlaylistComponent},
   { path: 'performer/:id', component: BandComponent },
+  { path: 'music/:id', component: MusicComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'sets', component: SetsComponent },
   { path: 'set/:id', component: SetComponent },

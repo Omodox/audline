@@ -45,6 +45,11 @@ export class AudioService {
                         .map(res => res.json());
         }
 
+        audGetMusicPlaylist(bandId)  {
+                return this.http.get('https://audline.com/api/music.php?artist=' + bandId)
+                        .map(res => res.json());
+        }
+
 
         getPerformerInfo(band) {
                 return this.http.get(this.host + 'band_info&name=' + band)

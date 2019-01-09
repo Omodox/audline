@@ -14,6 +14,7 @@ import { AppComponent } from './app.component';
 import { BandsComponent } from './bands/bands.component';
 import { MenuComponent } from './menu/menu.component';
 import { BandComponent } from './band/band.component';
+import { MusicComponent } from './music/music.component';
 import { VideoComponent } from './video/video.component';
 // import { AudioinfoComponent } from './audioinfo/audioinfo.component';
 import { StreamComponent } from './stream/stream.component';
@@ -49,6 +50,7 @@ import { DmcaComponent } from './dmca/dmca.component';
     MenuComponent,
     BandComponent,
     VideoComponent,
+    MusicComponent,
     // AudioinfoComponent,
     TimePipe,
     SafePipe,
