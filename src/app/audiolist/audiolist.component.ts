@@ -177,16 +177,7 @@ export class AudiolistComponent implements OnInit {
 
   }
 
-  gotolink() {
-    window.open(
-      'https://www.fatline.com.ua/#6003',
-      '_blank'
-    );
-    this.adminService.sendMessage().subscribe(res => {
-      console.log('ok');
-    });
 
-  }
 
 
   listTo() {
