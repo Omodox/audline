@@ -28,12 +28,19 @@ export class SearchComponent implements OnInit {
         if (this.search) {
           // console.log(this.search);
           this.audioService.getPlaylistBySearch(this.search).subscribe(res => {
-
-            res.forEach(function(item) {
-              item._id = item.id;
-          });
-
-            this.audiolist = res;
+              if (res) {
+                res.forEach(function(item) {
+                  item._id = item.id;
+                  this.audiolist = res;
+              });
+              }
+              else {
+                window.open(
+                  'https://www.google.com/search?q=audline.com+' +  this.search,
+                  '_blank'
+                );
+              }
+         
           });
         }
         if (this.genre) {
