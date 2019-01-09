@@ -34,6 +34,7 @@ export class PlayerComponent implements OnInit {
   noSendError = 0;
 
   aliTimer = false;
+  aliTimerCount = 0;
 
 
   progress: number;
@@ -134,22 +135,20 @@ export class PlayerComponent implements OnInit {
 
   playerPlay() {
 
-    // if (!this.aliTimer) {
-    //   setTimeout(function() {
-    //     window.open(
-    //       'http://s.click.aliexpress.com/e/cBf1vtBi',
-    //       '_blank'
-    //     );
-    //   }, 6000);
-    //   this.aliTimer = true;
-    // }
+
 
     if (!this.aliTimer) {
+
+      this.aliTimerCount++;
+
+      if (this.aliTimerCount == 3) {
         window.open(
           'http://s.click.aliexpress.com/e/cBf1vtBi',
           '_blank'
         );
       this.aliTimer = true;
+      }
+      
     }
 
     this.playerVolume();
